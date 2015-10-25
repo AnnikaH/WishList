@@ -9,7 +9,7 @@
     <dimen name="main_button_width">100dp</dimen>
     <dimen name="main_button_height">100dp</dimen>
     <dimen name="header_main_padding_bottom">20dp</dimen>
-    <dimen name="header_main_padding_top">70dp</dimen>
+    <dimen name="header_main_padding_top">50dp</dimen>
     <dimen name="main_button_margin">10dp</dimen>
 
 </resources>
