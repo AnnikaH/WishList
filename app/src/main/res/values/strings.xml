@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">WishList</string>
+    <string name="app_name">My Wishes</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="settings">Settings</string>
+
+    <string name="my_profile">My profile</string>
+    <string name="my_wish_lists">My wish lists</string>
+    <string name="tips_friends">Tips friends</string>
+    <string name="friends_wish_lists">Friends\' wish lists</string>
 </resources>

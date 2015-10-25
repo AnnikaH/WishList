@@ -1,11 +1,95 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".WishListMainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WishListMainActivity"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView android:text="@string/app_name"
+        android:typeface="serif"
+        android:textSize="@dimen/header_main_text_size"
+        android:textColor="@color/header_main_text_color"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/header_main_padding_bottom"
+        android:paddingTop="@dimen/header_main_padding_top" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/profile_button"
+            android:layout_width="@dimen/main_button_width"
+            android:layout_height="@dimen/main_button_height"
+            android:background="@color/profile_button_color"
+            android:layout_margin="@dimen/main_button_margin"
+            android:onClick="profileClicked" />
+
+        <!--android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:text="@string/my_profile"
+            android:typeface="serif"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold"-->
+
+        <Button
+            android:id="@+id/my_wish_lists_button"
+            android:layout_width="@dimen/main_button_width"
+            android:layout_height="@dimen/main_button_height"
+            android:background="@color/my_wish_lists_button_color"
+            android:layout_margin="@dimen/main_button_margin"
+            android:onClick="myWishListsClicked" />
+
+        <!--android:text="@string/my_wish_lists"
+            android:typeface="serif"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/tips_friends_button"
+            android:layout_width="@dimen/main_button_width"
+            android:layout_height="@dimen/main_button_height"
+            android:background="@color/tips_friends_button_color"
+            android:layout_margin="@dimen/main_button_margin"
+            android:onClick="tipsFriendsClicked" />
+
+        <!--android:text="@string/tips_friends"
+            android:typeface="serif"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false" -->
+
+        <Button
+            android:id="@+id/friends_wish_lists_button"
+            android:layout_width="@dimen/main_button_width"
+            android:layout_height="@dimen/main_button_height"
+            android:background="@color/friends_wish_lists_button_color"
+            android:layout_margin="@dimen/main_button_margin"
+            android:onClick="friendsWishListsClicked" />
+
+        <!--android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:text="@string/friends_wish_lists"
+            android:typeface="serif"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold"-->
+
+    </LinearLayout>
+
+</LinearLayout>

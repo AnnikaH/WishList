@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mine Ønsker</string>
+
+    <string name="settings">Innstillinger</string>
+
+    <string name="my_profile">Min profil</string>
+    <string name="my_wish_lists">Mine ønskelister</string>
+    <string name="tips_friends">Tips venner</string>
+    <string name="friends_wish_lists">Venners ønskelister</string>
+</resources>
