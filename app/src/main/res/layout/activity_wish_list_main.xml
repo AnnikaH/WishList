@@ -31,7 +31,8 @@
             android:orientation="horizontal"
             android:layout_margin="@dimen/main_button_margin"
             android:gravity="center"
-            android:background="@color/profile_button_color" >
+            android:background="@drawable/shape_profile" >
+            <!--android:background="@color/profile_button_color"-->
 
             <Button
                 android:layout_width="@dimen/main_image_width"
@@ -49,7 +50,8 @@
             android:orientation="horizontal"
             android:layout_margin="@dimen/main_button_margin"
             android:gravity="center"
-            android:background="@color/my_wish_lists_button_color" >
+            android:background="@drawable/shape_wish_lists" >
+            <!-- android:background="@color/my_wish_lists_button_color" -->
 
             <Button
                 android:layout_width="@dimen/main_image_width"
@@ -75,7 +77,8 @@
             android:orientation="horizontal"
             android:layout_margin="@dimen/main_button_margin"
             android:gravity="center"
-            android:background="@color/tips_friends_button_color" >
+            android:background="@drawable/shape_tips" >
+            <!-- android:background="@color/tips_friends_button_color" -->
 
             <Button
                 android:layout_width="@dimen/main_image_width"
@@ -93,7 +96,8 @@
             android:orientation="horizontal"
             android:layout_margin="@dimen/main_button_margin"
             android:gravity="center"
-            android:background="@color/friends_wish_lists_button_color" >
+            android:background="@drawable/shape_friends_wish_lists" >
+            <!-- android:background="@color/friends_wish_lists_button_color" -->
 
             <Button
                 android:layout_width="@dimen/main_image_width"
