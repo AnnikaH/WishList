@@ -1,8 +1,21 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>-->
+
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">#000000</item> <!-- lighter black? navbar? -->
+        <item name="colorPrimaryDark">#000000</item> <!-- brukes ikke? -->
+
+        <item name="colorControlNormal">#000000</item> <!-- #757575-->
+
+        <!-- Hva setter disse?: -->
+        <item name="colorAccent">#FF80AB</item>
+        <item name="colorControlActivated">#FF6E40</item>
+        <item name="colorControlHighlight">#FF4081</item>
+        <item name="colorSwitchThumbNormal">#BDBDBD</item>
     </style>
 
 </resources>
