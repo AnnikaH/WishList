@@ -6,11 +6,13 @@
     </style>-->
 
     <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="android:background">#171718</item>
+
+        <!-- actionbar color: -->
         <item name="colorPrimary">#000000</item> <!-- lighter black? navbar? -->
         <!--<item name="colorPrimaryDark">#000000</item>--> <!-- brukes ikke? -->
 
         <item name="colorControlNormal">#000000</item> <!-- #757575-->
-
         <!--<item name="colorAccent">#FF80AB</item>-->
         <item name="colorControlActivated">#D11111</item>
         <!--<item name="colorControlHighlight">#FF4081</item>-->
