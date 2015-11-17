@@ -4,8 +4,19 @@
 
     <string name="settings">Innstillinger</string>
 
+    <!-- WishListMainActivity -->
     <string name="my_profile">Min profil</string>
     <string name="my_wish_lists">Mine ønskelister</string>
     <string name="tips_friends">Tips venner</string>
     <string name="friends_wish_lists">Venners ønskelister</string>
+
+    <!-- LogInActivity -->
+    <string name="user_name">Brukernavn:</string>
+    <string name="password">Passord:</string>
+    <string name="log_in">Logg inn</string>
+    <string name="register">Registrer deg</string>
+
+    <!-- RegisterUserActivity -->
+    <string name="register_user">Registrer ny bruker</string>
+
 </resources>

@@ -7,4 +7,8 @@
     <color name="tips_friends_button_color">#008000</color> <!-- purple: #450E5F lighter purple: #661094 -->
     <color name="friends_wish_lists_button_color">#450E5F</color> <!-- gul: #FFD700 -->
     <color name="header_main_text_color">#FFFFFF</color> <!-- white: #FFFFFF red: #E70A27 -->
+
+    <color name="ok">#008000</color>
+    <color name="cancel">#D11111</color>
+    <color name="register">#0311A4</color>
 </resources>

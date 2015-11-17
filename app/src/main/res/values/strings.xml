@@ -1,10 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Wishes</string>
 
     <string name="settings">Settings</string>
 
+    <!-- WishListMainActivity -->
     <string name="my_profile">My profile</string>
     <string name="my_wish_lists">My wish lists</string>
     <string name="tips_friends">Tips friends</string>
     <string name="friends_wish_lists">Friends\' wish lists</string>
+
+    <!-- LogInActivity -->
+    <string name="user_name">User name:</string>
+    <string name="password">Password:</string>
+    <string name="log_in">Log in</string>
+    <string name="register">Register</string>
+
+    <!-- RegisterUserActivity -->
+    <string name="register_user">Register new user</string>
+
 </resources>
