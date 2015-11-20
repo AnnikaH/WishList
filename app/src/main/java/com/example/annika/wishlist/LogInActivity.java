@@ -36,7 +36,7 @@ public class LogInActivity extends AppCompatActivity {
         String password = passwordField.toString();
 
         getJSON task = new getJSON();
-        task.execute(new String[]{"http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User/Get/5"});
+        task.execute(new String[]{"dotnet.cs.hioa.no/s198611/WishListAPI/api/User"});
 
         /*
         // kall til database (async): .../api/User/LogIn og sende med brukernavn og passord
