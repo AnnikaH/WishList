@@ -1,12 +1,12 @@
 package com.example.annika.wishlist;
 
 public class User {
-    private int ID;
-    private String UserName;
-    private String Password;
-    private String Email;
-    private String PhoneNumber;
-
+    public int ID;
+    public String UserName;
+    public String Password;
+    public String Email;
+    public String MobileNumber;
+/*
     public int getID() {
         return ID;
     }
@@ -39,11 +39,11 @@ public class User {
         Email = email;
     }
 
-    public String getPhoneNumber() {
-        return PhoneNumber;
+    public String getMobileNumber() {
+        return MobileNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
-    }
+    public void setMobileNumber(String phoneNumber) {
+        MobileNumber = phoneNumber;
+    }*/
 }

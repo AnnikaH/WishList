@@ -1,10 +1,10 @@
 package com.example.annika.wishlist;
 
 public class WishList {
-    private int ID;
-    private String Name;
-    private int OwnerId;    // foreign key from User
-
+    public int ID;
+    public String Name;
+    public int OwnerId;    // foreign key from User
+/*
     public int getID() {
         return ID;
     }
@@ -27,5 +27,5 @@ public class WishList {
 
     public void setOwnerId(int ownerId) {
         OwnerId = ownerId;
-    }
+    }*/
 }

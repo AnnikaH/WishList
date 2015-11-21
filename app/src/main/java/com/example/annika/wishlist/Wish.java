@@ -1,15 +1,15 @@
 package com.example.annika.wishlist;
 
 public class Wish {
-    private int ID;
-    private String Name;
-    private String Spesification;
-    private byte[] Image;
-    private double Price;
-    private String Where;
-    private String Link;
-    private int WishListId; // foreign key from WishList
-
+    public int ID;
+    public String Name;
+    public String Spesification;
+    public byte[] Image;
+    public double Price;
+    public String Where;
+    public String Link;
+    public int WishListId; // foreign key from WishList
+/*
     public int getID() {
         return ID;
     }
@@ -72,5 +72,5 @@ public class Wish {
 
     public void setWishListId(int wishListId) {
         WishListId = wishListId;
-    }
+    }*/
 }

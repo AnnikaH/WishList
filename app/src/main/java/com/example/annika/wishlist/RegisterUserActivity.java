@@ -6,6 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import retrofit.Callback;
+import retrofit.http.Body;
+import retrofit.http.DELETE;
+import retrofit.http.GET;
+import retrofit.http.POST;
+import retrofit.http.PUT;
+import retrofit.http.Path;
 
 public class RegisterUserActivity extends AppCompatActivity {
 
@@ -56,7 +63,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         }
 
         int id;
-        User user;
+        User user = new User();
 
         /*try {
             id = getIntent().getIntExtra("ID", -1);
@@ -72,12 +79,19 @@ public class RegisterUserActivity extends AppCompatActivity {
             return;
         }*/
 
+        user.UserName = userName;
+        user.Password = password;
+        user.Email = email;
+        user.MobileNumber = mobileNumber;
 
+        // post user to server database:
 
         Intent i = new Intent(this, WishListMainActivity.class);
         startActivity(i);
         finish();
     }
+
+
 
     // No menu
 }

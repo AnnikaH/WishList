@@ -1,9 +1,9 @@
 package com.example.annika.wishlist;
 
 public class LoginUser {
-    private String userName;
-    private String password;
-
+    public String userName;
+    public String password;
+/*
     public String getUserName() {
         return userName;
     }
@@ -18,5 +18,5 @@ public class LoginUser {
 
     public void setPassword(String password) {
         this.password = password;
-    }
+    }*/
 }
