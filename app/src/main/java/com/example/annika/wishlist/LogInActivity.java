@@ -36,16 +36,19 @@ public class LogInActivity extends AppCompatActivity {
         String password = passwordField.toString();
 
         getJSON task = new getJSON();
-        task.execute(new String[]{"dotnet.cs.hioa.no/s198611/WishListAPI/api/User"});
+        task.execute(new String[]{"http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User"});
 
-        /*
+        //Tor: task.execute(new String[]{"http://dotnet.cs.hioa.no/Web-Android/api/Kunde/Get"});
+
         // kall til database (async): .../api/User/LogIn og sende med brukernavn og passord
         // få tilbake id til brukeren
         int userId = 0;
         // hvis verifiserer:
         Intent i = new Intent(this, WishListMainActivity.class);
         i.putExtra("USERID", userId);
-        startActivity(i);*/
+        startActivity(i);
+
+        // finish(); ?
     }
 
     // ASYNCTASK-objektet:

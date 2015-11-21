@@ -52,7 +52,7 @@
 
     <Button
         android:text="@string/log_in"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="logIn"
         android:background="@drawable/shape_log_in_button"
@@ -61,7 +61,7 @@
 
     <Button
         android:text="@string/register"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="registerNewUser"
         android:background="@drawable/shape_register_button"

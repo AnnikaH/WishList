@@ -18,5 +18,13 @@
 
     <!-- RegisterUserActivity -->
     <string name="register_user">Register new user</string>
+    <string name="email">Email:</string>
+    <string name="mobile_number">Mobile number:</string>
+
+    <!-- ProfileActivity -->
+    <string name="edit_profile">Edit profile</string>
+
+    <!-- EditProfileActivity -->
+    <string name="save_profile">Save changes</string>
 
 </resources>

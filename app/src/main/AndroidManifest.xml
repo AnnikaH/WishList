@@ -34,6 +34,11 @@
             android:parentActivityName=".WishListMainActivity" >
         </activity>
 
+        <activity android:name=".EditProfileActivity"
+            android:label="@string/edit_profile"
+            android:parentActivityName=".ProfileActivity" >
+        </activity>
+
         <activity android:name=".MyWishListsActivity"
             android:label="@string/my_wish_lists"
             android:parentActivityName=".WishListMainActivity" >
