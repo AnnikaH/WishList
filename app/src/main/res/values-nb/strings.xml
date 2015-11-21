@@ -20,6 +20,10 @@
     <string name="register_user">Registrer ny bruker</string>
     <string name="email">E-post:</string>
     <string name="mobile_number">Mobilnummer:</string>
+    <string name="user_name_error_message">Ugyldig brukernavn!</string>
+    <string name="password_error_message">Ugyldig passord! Må bestå av minst 8 tegn.</string>
+    <string name="email_error_message">Ugyldig e-post!</string>
+    <string name="mobile_error_message">Ugyldig mobilnummer! Må bestå av 8 siffer.</string>
 
     <!-- ProfileActivity -->
     <string name="edit_profile">Rediger profil</string>
