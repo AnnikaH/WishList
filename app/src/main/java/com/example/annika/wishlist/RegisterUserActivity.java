@@ -6,20 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import retrofit.Callback;
-import retrofit.http.Body;
-import retrofit.http.DELETE;
-import retrofit.http.GET;
-import retrofit.http.POST;
-import retrofit.http.PUT;
-import retrofit.http.Path;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class RegisterUserActivity extends AppCompatActivity {
+
+    RestUserService restUserService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
+
+        restUserService = new RestUserService();
     }
 
     // Onclick register-button:
@@ -79,19 +80,47 @@ public class RegisterUserActivity extends AppCompatActivity {
             return;
         }*/
 
+        //int userId = 0;
+
+        //user.ID = userId;
         user.UserName = userName;
         user.Password = password;
         user.Email = email;
-        user.MobileNumber = mobileNumber;
+        user.PhoneNumber = mobileNumber;
 
         // post user to server database:
 
-        Intent i = new Intent(this, WishListMainActivity.class);
-        startActivity(i);
-        finish();
+        //Integer status = 0;
+
+        restUserService.getService().addUser(user, new Callback<User>() {
+            @Override
+            public void success(User user, Response response) {
+                Toast.makeText(RegisterUserActivity.this, "User registered (bruk @string senere)", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(RegisterUserActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /* update:
+            restService.getService().updateUserById(_Student_Id, user, new Callback<User>() {
+                @Override
+                public void success(User user, Response response) {
+                    Toast.makeText(RegisterUserActivity.this, "User updated...@string later", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(RegisterUserActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                }
+        });*/
     }
-
-
 
     // No menu
 }

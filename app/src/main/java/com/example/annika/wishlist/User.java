@@ -5,7 +5,7 @@ public class User {
     public String UserName;
     public String Password;
     public String Email;
-    public String MobileNumber;
+    public String PhoneNumber;
 /*
     public int getID() {
         return ID;
