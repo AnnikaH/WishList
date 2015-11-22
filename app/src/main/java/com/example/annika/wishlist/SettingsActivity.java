@@ -27,9 +27,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.settings:
-                Intent i = new Intent(this, SettingsActivity.class);
-                startActivity(i);
-                finish();
                 return true;
             case R.id.log_out:
                 Intent i2 = new Intent(this, LogInActivity.class);
