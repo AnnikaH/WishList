@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- background color if black: #171718 -->
-    <!-- not necessary since set in styles.xml:
-    <color name="background_color">#171718</color>-->
+    <!-- not necessary since set in styles.xml:-->
+    <color name="background_color">#171718</color>
     <!-- darker black: #0F0F10 dark red: #B10505 light grey: #CCCCCC eller black: #000000 -->
 
     <color name="profile_button_color">#0311A4</color><!-- light blue: #1565C0  #000080 -->

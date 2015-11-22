@@ -1,10 +1,14 @@
 package com.example.annika.wishlist;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import retrofit.Callback;
@@ -97,13 +101,14 @@ public class RegisterUserActivity extends AppCompatActivity {
 
         // post user to server database:
 
-        //Integer status = 0;
-
         restUserService.getService().addUser(user, new Callback<User>() {
             @Override
             public void success(User user, Response response) {
-                Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.user_registered),
-                        Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.user_registered),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
 
                 // Get ID for this newly created user:
                 LoginUser loginUser = new LoginUser();
@@ -115,7 +120,10 @@ public class RegisterUserActivity extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.registration_error_message), Toast.LENGTH_LONG).show();
+                Toast toast = Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.registration_error_message), Toast.LENGTH_LONG);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
             }
         });
 
@@ -139,16 +147,27 @@ public class RegisterUserActivity extends AppCompatActivity {
         restLoginService.getService().logIn(login, new Callback<String>() {
             @Override
             public void success(String callback, Response response) {
-                //int userId = loginUser.ID; // får inn id gjennom StringContent på backend
+                int userId;
+
+                try {
+                    userId = Integer.parseInt(callback); // får inn id gjennom StringContent på backend
+                }
+                catch(NumberFormatException nfe) {
+                    userId = -1;
+                }
+
                 Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
-                //i.putExtra("USERID", userId);
+                i.putExtra("USERID", userId);
                 startActivity(i);
                 finish();
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(RegisterUserActivity.this, "Didn't find user.", Toast.LENGTH_LONG).show();
+                Toast toast = Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.get_user_error_message), Toast.LENGTH_LONG);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
             }
         });
     }

@@ -10,7 +10,7 @@
         <item name="android:background">#171718</item>
 
         <!-- actionbar color: -->
-        <item name="colorPrimary">#171718</item>
+        <item name="colorPrimary">#000000</item>
         <!--<item name="colorPrimary">#000000</item>--><!-- lighter black? navbar? -->
         <!--<item name="colorPrimaryDark">#000000</item>--> <!-- brukes ikke? -->
 

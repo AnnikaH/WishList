@@ -26,6 +26,7 @@
     <string name="mobile_error_message">Ugyldig mobilnummer! Må bestå av 8 siffer.</string>
     <string name="user_registered">Du har blitt registrert. Velkommen!</string>
     <string name="registration_error_message">Det oppstod en feil. Prøv et annet brukernavn.</string>
+    <string name="get_user_error_message">Det oppstod en feil. Bruker ID ikke funnet.</string>
 
     <!-- ProfileActivity -->
     <string name="edit_profile">Rediger profil</string>
