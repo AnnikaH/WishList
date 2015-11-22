@@ -3,12 +3,16 @@ package com.example.annika.wishlist;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -17,33 +21,85 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 public class LogInActivity extends AppCompatActivity {
 
-    private TextView textView;
+    private TextView messageTextView;
+    private RestLoginService restLoginService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        textView = (TextView) findViewById(R.id.message);
+        messageTextView = (TextView) findViewById(R.id.message);
+        restLoginService = new RestLoginService();
     }
 
     // Onclick login-button:
     public void logIn(View view) {
+        // reset error message textview:
+        messageTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.background_color));
+        messageTextView.setText("");
+
+        // disable button:
+        Button button = (Button) view;
+        button.setEnabled(false);
+
         EditText userNameField = (EditText) findViewById(R.id.userName);
         EditText passwordField = (EditText) findViewById(R.id.password);
 
-        String userName = userNameField.toString();
-        String password = passwordField.toString();
+        String userName = userNameField.getText().toString();
+        String password = passwordField.getText().toString();
+
+        LoginUser loginUser = new LoginUser();
+        loginUser.UserName = userName;
+        loginUser.Password = password;
+
+        restLoginService.getService().logIn(loginUser, new Callback<String>() {
+            @Override
+            public void success(String callback, Response response) {
+                int userId;
+
+                try {
+                    userId = Integer.parseInt(callback); // får inn id gjennom StringContent på backend
+                }
+                catch(NumberFormatException nfe) {
+                    userId = -1;
+                }
+
+                Toast toast = Toast.makeText(LogInActivity.this, getApplicationContext().getString(R.string.found_user),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                Intent i = new Intent(LogInActivity.this, WishListMainActivity.class);
+                i.putExtra("USERID", userId);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                messageTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.cancel));
+                messageTextView.setText(getApplicationContext().getString(R.string.log_in_error_message));
+            }
+        });
+
+        // enable button again:
+        button.setEnabled(true);
 
         /*getJSON task = new getJSON();
         task.execute(new String[]{"http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User"});*/
-
+/*
         Login task = new Login();
         //String url = "http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User/LogIn/" + userName + "/" + password;
         task.execute(new String[]{"http://dotnet.cs.hioa.no/s198611/WishListAPI/api/Login", userName, password});
-
+*/
         //Tor: task.execute(new String[]{"http://dotnet.cs.hioa.no/Web-Android/api/Kunde/Get"});
 
         /*
@@ -54,10 +110,9 @@ public class LogInActivity extends AppCompatActivity {
         Intent i = new Intent(this, WishListMainActivity.class);
         i.putExtra("USERID", userId);
         startActivity(i);*/
-
-        // finish(); ?
     }
 
+    /*
     // ASYNCTASK-objektet:
     private class Login extends AsyncTask<String, Void, Boolean> {
 
@@ -97,7 +152,7 @@ public class LogInActivity extends AppCompatActivity {
                     /*while((s = br.readLine()) != null) {
                         output = output + s;
                     }*/
-
+/*
                     conn.disconnect();
                     return output;
                 }
@@ -175,7 +230,7 @@ public class LogInActivity extends AppCompatActivity {
             //super.onPostExecute(s);
             textView.setText(s);
         }
-    }
+    }*/
 
     // Onclick register-button:
     public void registerNewUser(View view) {

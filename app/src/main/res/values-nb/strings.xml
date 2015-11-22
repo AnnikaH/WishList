@@ -3,6 +3,7 @@
     <string name="app_name">Mine Ønsker</string>
 
     <string name="settings">Innstillinger</string>
+    <string name="cancel">Avbryt</string>
 
     <!-- WishListMainActivity -->
     <string name="my_profile">Min profil</string>
@@ -15,6 +16,8 @@
     <string name="password">Passord:</string>
     <string name="log_in">Logg inn</string>
     <string name="register">Registrer deg</string>
+    <string name="log_in_error_message">Ugyldig brukernavn eller passord.</string>
+    <string name="found_user">Velkommen!</string>
 
     <!-- RegisterUserActivity -->
     <string name="register_user">Registrer ny bruker</string>

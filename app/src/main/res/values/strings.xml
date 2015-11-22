@@ -3,6 +3,7 @@
     <string name="app_name">My Wishes</string>
 
     <string name="settings">Settings</string>
+    <string name="cancel">Cancel</string>
 
     <!-- WishListMainActivity -->
     <string name="my_profile">My profile</string>
@@ -15,6 +16,8 @@
     <string name="password">Password:</string>
     <string name="log_in">Log in</string>
     <string name="register">Register</string>
+    <string name="log_in_error_message">Invalid user name or password.</string>
+    <string name="found_user">Welcome!</string>
 
     <!-- RegisterUserActivity -->
     <string name="register_user">Register new user</string>

@@ -1,14 +1,11 @@
 package com.example.annika.wishlist;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import retrofit.Callback;
@@ -17,8 +14,8 @@ import retrofit.client.Response;
 
 public class RegisterUserActivity extends AppCompatActivity {
 
-    RestUserService restUserService;
-    RestLoginService restLoginService;
+    private RestUserService restUserService;
+    private RestLoginService restLoginService;
     private String userNameTemp;
     private String passwordTemp;
 
@@ -34,6 +31,10 @@ public class RegisterUserActivity extends AppCompatActivity {
     // Onclick register-button:
     public void registerNewUser(View view)
     {
+        // disable button click (in case it takes some time):
+        Button button = (Button) view;
+        button.setEnabled(false);
+
         // register the user and log in - and get user id and go to:
         EditText editTextUserName = (EditText) findViewById(R.id.userNameRegister);
         EditText editTextPassword = (EditText) findViewById(R.id.passwordRegister);
@@ -169,6 +170,11 @@ public class RegisterUserActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+    }
+
+    // Onclick cancel-button
+    public void cancelNewUser(View view) {
+        finish();
     }
 
     // No menu
