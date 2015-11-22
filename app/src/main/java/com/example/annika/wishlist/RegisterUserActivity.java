@@ -71,9 +71,6 @@ public class RegisterUserActivity extends AppCompatActivity {
             return;
         }
 
-        int id;
-        User user = new User();
-
         /*try {
             id = getIntent().getIntExtra("ID", -1);
             p = dbHandler.getPerson(id);
@@ -88,8 +85,8 @@ public class RegisterUserActivity extends AppCompatActivity {
             return;
         }*/
 
+        User user = new User();
         //int userId = 0;
-
         //user.ID = userId;
         user.UserName = userName;
         user.Password = password;
@@ -120,7 +117,8 @@ public class RegisterUserActivity extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                Toast toast = Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.registration_error_message), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.registration_error_message),
+                        Toast.LENGTH_LONG);
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();
@@ -164,7 +162,8 @@ public class RegisterUserActivity extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                Toast toast = Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.get_user_error_message), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.get_user_error_message),
+                        Toast.LENGTH_LONG);
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();
