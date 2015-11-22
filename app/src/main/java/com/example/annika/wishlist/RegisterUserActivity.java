@@ -110,6 +110,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                 loginUser.UserName = userNameTemp;
                 loginUser.Password = passwordTemp;
 
+                //
                 restLoginService.getService().logIn(loginUser, new Callback<User>() {
                     @Override
                     public void success(User user, Response response) {
