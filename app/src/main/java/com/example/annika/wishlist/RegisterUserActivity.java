@@ -31,10 +31,6 @@ public class RegisterUserActivity extends AppCompatActivity {
     // Onclick register-button:
     public void registerNewUser(View view)
     {
-        // disable button click (in case it takes some time):
-        Button button = (Button) view;
-        button.setEnabled(false);
-
         // register the user and log in - and get user id and go to:
         EditText editTextUserName = (EditText) findViewById(R.id.userNameRegister);
         EditText editTextPassword = (EditText) findViewById(R.id.passwordRegister);
@@ -97,6 +93,10 @@ public class RegisterUserActivity extends AppCompatActivity {
         userNameTemp = userName;
         passwordTemp = password;
 
+        // disable button click (in case it takes some time):
+        Button button = (Button) view;
+        button.setEnabled(false);
+
         // post user to server database:
 
         restUserService.getService().addUser(user, new Callback<User>() {
@@ -126,6 +126,11 @@ public class RegisterUserActivity extends AppCompatActivity {
             }
         });
 
+        // TODO: message in textview here if no internet connection?
+
+        // enable button again:
+        button.setEnabled(true);
+
         /* update:
             restService.getService().updateUserById(_Student_Id, user, new Callback<User>() {
                 @Override
@@ -141,8 +146,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     }
 
     // Called after user successfully registered
-    public void login(LoginUser login)
-    {
+    public void login(LoginUser login) {
         restLoginService.getService().logIn(login, new Callback<String>() {
             @Override
             public void success(String callback, Response response) {
@@ -150,8 +154,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
                 try {
                     userId = Integer.parseInt(callback); // får inn id gjennom StringContent på backend
-                }
-                catch(NumberFormatException nfe) {
+                } catch (NumberFormatException nfe) {
                     userId = -1;
                 }
 
