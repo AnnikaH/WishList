@@ -14,6 +14,9 @@ import retrofit.client.Response;
 public class RegisterUserActivity extends AppCompatActivity {
 
     RestUserService restUserService;
+    RestLoginService restLoginService;
+    private String userNameTemp;
+    private String passwordTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_user);
 
         restUserService = new RestUserService();
+        restLoginService = new RestLoginService();
     }
 
     // Onclick register-button:
@@ -88,6 +92,9 @@ public class RegisterUserActivity extends AppCompatActivity {
         user.Email = email;
         user.PhoneNumber = mobileNumber;
 
+        userNameTemp = userName;
+        passwordTemp = password;
+
         // post user to server database:
 
         //Integer status = 0;
@@ -95,16 +102,34 @@ public class RegisterUserActivity extends AppCompatActivity {
         restUserService.getService().addUser(user, new Callback<User>() {
             @Override
             public void success(User user, Response response) {
-                Toast.makeText(RegisterUserActivity.this, "User registered (bruk @string senere)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.user_registered),
+                        Toast.LENGTH_SHORT).show();
 
-                Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
-                startActivity(i);
-                finish();
+                // Get ID for this newly created user:
+                LoginUser loginUser = new LoginUser();
+                loginUser.UserName = userNameTemp;
+                loginUser.Password = passwordTemp;
+
+                restLoginService.getService().logIn(loginUser, new Callback<User>() {
+                    @Override
+                    public void success(User user, Response response) {
+                        int userId = user.ID;
+                        Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
+                        i.putExtra("USERID", userId);
+                        startActivity(i);
+                        finish();
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Toast.makeText(RegisterUserActivity.this, "Didn't find user.", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(RegisterUserActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterUserActivity.this, getApplicationContext().getString(R.string.registration_error_message), Toast.LENGTH_LONG).show();
             }
         });
 

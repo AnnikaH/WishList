@@ -24,6 +24,8 @@
     <string name="password_error_message">Ugyldig passord! Må bestå av minst 8 tegn.</string>
     <string name="email_error_message">Ugyldig e-post!</string>
     <string name="mobile_error_message">Ugyldig mobilnummer! Må bestå av 8 siffer.</string>
+    <string name="user_registered">Du har blitt registrert. Velkommen!</string>
+    <string name="registration_error_message">Det oppstod en feil. Prøv et annet brukernavn.</string>
 
     <!-- ProfileActivity -->
     <string name="edit_profile">Rediger profil</string>

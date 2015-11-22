@@ -24,6 +24,8 @@
     <string name="password_error_message">Invalid password! Must be at least 8 characters.</string>
     <string name="email_error_message">Invalid email!</string>
     <string name="mobile_error_message">Invalid mobile number! Must be 8 digits.</string>
+    <string name="user_registered">You were registered. Welcome!</string>
+    <string name="registration_error_message">An error occurred. Try another user name.</string>
 
     <!-- ProfileActivity -->
     <string name="edit_profile">Edit profile</string>

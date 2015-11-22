@@ -1,8 +1,9 @@
 package com.example.annika.wishlist;
 
 public class LoginUser {
-    public String userName;
-    public String password;
+    public String UserName;
+    public String Password;
+
 /*
     public String getUserName() {
         return userName;
