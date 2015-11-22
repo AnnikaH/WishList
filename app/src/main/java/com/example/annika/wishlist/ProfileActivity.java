@@ -18,7 +18,6 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
-import retrofit.mime.TypedInput;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -26,6 +25,10 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView userNameTextView;
     private TextView emailTextView;
     private TextView mobileTextView;
+    private int userId;
+    private String userName;
+    private String email;
+    private String mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         emailTextView = (TextView) findViewById(R.id.emailTextView);
         mobileTextView = (TextView) findViewById(R.id.mobileNumberTextView);
 
-        int userId = getIntent().getIntExtra("USERID", -1);
+        userId = getIntent().getIntExtra("USERID", -1);
 
         // get user by id:
         restUserService.getService().getUserById(userId, new Callback<Response>() {
@@ -48,49 +51,20 @@ public class ProfileActivity extends AppCompatActivity {
                     // Det er et JSON-objekt som blir returnert fra backend:
                     JSONObject user = new JSONObject(new String(((TypedByteArray) response.getBody()).getBytes()));
 
-                    userNameTextView.setText(user.get("userName").toString());
-                    emailTextView.setText(user.get("email").toString());
-                    mobileTextView.setText(user.get("phoneNumber").toString());
-                }
-                catch(JSONException je)
-                {
+                    userName = user.get("userName").toString();
+                    email = user.get("email").toString();
+                    mobile = user.get("phoneNumber").toString();
+
+                    userNameTextView.setText(userName);
+                    emailTextView.setText(email);
+                    mobileTextView.setText(mobile);
+                } catch (JSONException je) {
                     Toast toast = Toast.makeText(ProfileActivity.this, getApplicationContext().getString(R.string.json_exception),
                             Toast.LENGTH_LONG);
                     View toastView = toast.getView();
                     toastView.setBackgroundResource(R.color.background_color);
                     toast.show();
                 }
-
-                /*try {
-                    Log.d("STRING CALLBACK: ", callback.get("userName") + "");
-                }
-                catch(JSONException je)
-                {
-                    Log.d("JSON EXCEPTION: ", je.getMessage());
-                }*/
-
-                //JSONObject user = response.getBody().toString();
-
-                //TypedInput body = response.getBody();
-                //Log.d("BODY LENGTH: ", body.length() + "");
-
-                /*
-                JSONObject object = (JSONObject) new JSONTokener(callback).nextValue();
-                String userID = object.getString("id");
-                String userName = object.getString("userName");
-                //JSONArray photos = object.getJSONArray("photos");*/
-
-                //response.
-
-                //Log.d("BODY: ", );
-                //Log.d("STRING CALLBACK: ", callback.UserName + "");
-
-                //userNameTextView.setText(callback.UserName);
-                //Log.d("CALLBACK USERNAME: ", callback.UserName + "");
-
-                //userNameTextView.setText(callback.UserName);
-                //emailTextView.setText(callback.Email);
-                //mobileTextView.setText(callback.PhoneNumber);
             }
 
             @Override
@@ -108,6 +82,10 @@ public class ProfileActivity extends AppCompatActivity {
     public void editProfile(View view)
     {
         Intent i = new Intent(this, EditProfileActivity.class);
+        i.putExtra("USERID", userId);
+        i.putExtra("USERNAME", userName);
+        i.putExtra("EMAIL", email);
+        i.putExtra("MOBILE", mobile);
         startActivity(i);
         finish();
     }
