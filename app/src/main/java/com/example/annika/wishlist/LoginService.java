@@ -8,5 +8,5 @@ public interface LoginService {
 
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/Login
     @POST("/Login")
-    void logIn(@Body LoginUser loginUser, Callback<User> callback);
+    void logIn(@Body LoginUser loginUser, Callback<String> callback);
 }

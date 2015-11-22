@@ -110,21 +110,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                 loginUser.UserName = userNameTemp;
                 loginUser.Password = passwordTemp;
 
-                restLoginService.getService().logIn(loginUser, new Callback<User>() {
-                    @Override
-                    public void success(User user, Response response) {
-                        int userId = user.ID;
-                        Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
-                        i.putExtra("USERID", userId);
-                        startActivity(i);
-                        finish();
-                    }
-
-                    @Override
-                    public void failure(RetrofitError error) {
-                        Toast.makeText(RegisterUserActivity.this, "Didn't find user.", Toast.LENGTH_LONG).show();
-                    }
-                });
+                login(loginUser);
             }
 
             @Override
@@ -145,6 +131,26 @@ public class RegisterUserActivity extends AppCompatActivity {
                     Toast.makeText(RegisterUserActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
                 }
         });*/
+    }
+
+    // Called after user successfully registered
+    public void login(LoginUser login)
+    {
+        restLoginService.getService().logIn(login, new Callback<String>() {
+            @Override
+            public void success(String callback, Response response) {
+                //int userId = loginUser.ID; // får inn id gjennom StringContent på backend
+                Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
+                //i.putExtra("USERID", userId);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(RegisterUserActivity.this, "Didn't find user.", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     // No menu
