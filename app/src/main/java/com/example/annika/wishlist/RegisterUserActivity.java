@@ -126,23 +126,8 @@ public class RegisterUserActivity extends AppCompatActivity {
             }
         });
 
-        // TODO: message in textview here if no internet connection?
-
         // enable button again:
         button.setEnabled(true);
-
-        /* update:
-            restService.getService().updateUserById(_Student_Id, user, new Callback<User>() {
-                @Override
-                public void success(User user, Response response) {
-                    Toast.makeText(RegisterUserActivity.this, "User updated...@string later", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void failure(RetrofitError error) {
-                    Toast.makeText(RegisterUserActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                }
-        });*/
     }
 
     // Called after user successfully registered

@@ -28,7 +28,7 @@ import retrofit.client.Response;
 public class LogInActivity extends AppCompatActivity {
 
     private TextView messageTextView;
-    RestLoginService restLoginService;
+    private RestLoginService restLoginService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +67,7 @@ public class LogInActivity extends AppCompatActivity {
 
                 try {
                     userId = Integer.parseInt(callback); // får inn id gjennom StringContent på backend
-                }
-                catch(NumberFormatException nfe) {
+                } catch (NumberFormatException nfe) {
                     userId = -1;
                 }
 
@@ -90,10 +89,6 @@ public class LogInActivity extends AppCompatActivity {
                 messageTextView.setText(getApplicationContext().getString(R.string.log_in_error_message));
             }
         });
-
-        // If no internet-connection it won't go into failure, so just in case:
-        messageTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.cancel));
-        messageTextView.setText(getApplicationContext().getString(R.string.log_in_error_message));
 
         // enable button again:
         button.setEnabled(true);
