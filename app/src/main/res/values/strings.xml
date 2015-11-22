@@ -31,7 +31,8 @@
     <string name="mobile_error_message">Invalid mobile number! Must be 8 digits.</string>
     <string name="user_registered">You were registered. Welcome!</string>
     <string name="registration_error_message">An error occurred. Try another user name.</string>
-    <string name="get_user_error_message">An error occurred. User ID not found.</string>
+    <string name="get_user_error_message">An error occurred. User not found.</string>
+    <string name="json_exception">An error occurred.</string>
 
     <!-- ProfileActivity -->
     <string name="edit_profile">Edit profile</string>

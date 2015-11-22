@@ -3,39 +3,48 @@ package com.example.annika.wishlist;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 public class WishListMainActivity extends AppCompatActivity {
 
+    private int userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish_list_main);
+
+        userId = getIntent().getIntExtra("USERID", -1);
     }
 
     // OnClick profile_button:
     public void profileClicked(View view) {
         Intent i = new Intent(this, ProfileActivity.class);
+        i.putExtra("USERID", userId);
         startActivity(i);
     }
 
     // OnClick my_wish_lists_button:
     public void myWishListsClicked(View view) {
         Intent i = new Intent(this, MyWishListsActivity.class);
+        i.putExtra("USERID", userId);
         startActivity(i);
     }
 
     // OnClick tips_friends_button:
     public void tipsFriendsClicked(View view) {
         Intent i = new Intent(this, TipsFriendsActivity.class);
+        i.putExtra("USERID", userId);
         startActivity(i);
     }
 
     // OnClick friends_wish_lists_button:
     public void friendsWishListsClicked(View view) {
         Intent i = new Intent(this, FriendsWishListsActivity.class);
+        i.putExtra("USERID", userId);
         startActivity(i);
     }
 

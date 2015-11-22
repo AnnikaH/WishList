@@ -44,7 +44,6 @@ public class LogInActivity extends AppCompatActivity {
         // disable button:
         Button button = (Button) view;
         button.setEnabled(false);
-        Log.d("HER: ", "HER");
 
         // reset error message textview:
         messageTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.background_color));

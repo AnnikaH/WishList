@@ -1,7 +1,10 @@
 package com.example.annika.wishlist;
 
+import org.json.JSONObject;
+
 import java.util.List;
 import retrofit.Callback;
+import retrofit.client.Response;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.GET;
@@ -19,7 +22,7 @@ public interface UserService {
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User/5
     // Get
     @GET("/User/{id}")
-    void getUserById(@Path("id") Integer id, Callback<User> callback);
+    void getUserById(@Path("id") Integer id, Callback<Response> callback);
 
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User
     // Register/post
