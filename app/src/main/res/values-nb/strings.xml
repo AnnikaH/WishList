@@ -39,5 +39,7 @@
 
     <!-- EditProfileActivity -->
     <string name="save_profile">Lagre endringene</string>
+    <string name="update_user_error_message">Det oppstod en feil. Informasjonen ble ikke oppdatert.</string>
+    <string name="user_updated">Informasjonen ble oppdatert.</string>
 
 </resources>

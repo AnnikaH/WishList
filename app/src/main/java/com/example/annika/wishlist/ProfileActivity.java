@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
