@@ -67,11 +67,17 @@
     <string name="delete_wish_dialog_message">Vil du virkelig slette ønsket</string>
     <string name="wish_deleted">Ønsket ble slettet.</string>
     <string name="wish_deleted_error_message">Det oppstod en feil. Ønsket ble ikke slettet.</string>
+    <string name="edit_list_name_dialog_message">Rediger navn på ønskelisten:</string>
 
     <!-- EditWishActivity -->
     <string name="edit_wish">Rediger ønske</string>
 
     <!-- NewWishActivity -->
     <string name="new_wish">Nytt ønske</string>
+
+    <!-- EditWishListNameDialog -->
+    <string name="save">Lagre</string>
+    <string name="list_name_updated">Navn på ønskeliste oppdatert.</string>
+    <string name="list_name_updated_error_message">Det oppstod en feil. Navn på ønskeliste ble ikke oppdatert.</string>
 
 </resources>

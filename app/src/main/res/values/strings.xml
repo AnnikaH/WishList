@@ -67,11 +67,17 @@
     <string name="delete_wish_dialog_message">Do you really want to delete the wish</string>
     <string name="wish_deleted">The wish was successfully deleted.</string>
     <string name="wish_deleted_error_message">An error occurred. Wish not deleted.</string>
+    <string name="edit_list_name_dialog_message">Edit wish list name:</string>
 
     <!-- EditWishActivity -->
     <string name="edit_wish">Edit wish</string>
 
     <!-- NewWishActivity -->
     <string name="new_wish">New wish</string>
+
+    <!-- EditWishListNameDialog -->
+    <string name="save">Save</string>
+    <string name="list_name_updated">The wish list name was successfully updated.</string>
+    <string name="list_name_updated_error_message">An error occurred. Wish list name not updated.</string>
 
 </resources>

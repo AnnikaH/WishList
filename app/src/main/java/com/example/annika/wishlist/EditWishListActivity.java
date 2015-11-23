@@ -24,11 +24,14 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class EditWishListActivity extends AppCompatActivity implements DeleteWishDialog.DialogClickListener {
+public class EditWishListActivity extends AppCompatActivity implements DeleteWishDialog.DialogClickListener,
+        EditWishListNameDialog.DialogClickListener {
 
     private int wishListId;
     private String wishListName;
+    private int userId;
     private RestWishService restWishService;
+    private RestWishListService restWishListService;
 
     // DeleteWishDialog-method
     @Override
@@ -71,6 +74,52 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
         // do nothing
     }
 
+    // EditWishListNameDialog-method
+    public void onSaveNameClick(final String newName) {
+        WishList wishList = new WishList();
+        wishList.Name = newName;
+        wishList.ID = wishListId;
+        wishList.OwnerId = userId;
+
+        restWishListService.getService().updateWishListById(wishListId, wishList, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                wishListName = newName; // update the private attribute
+
+                Toast toast = Toast.makeText(EditWishListActivity.this,
+                        getApplicationContext().getString(R.string.list_name_updated),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // refresh activity:
+                Intent i = new Intent(EditWishListActivity.this, EditWishListActivity.class);
+                i.putExtra("WISHLISTID", wishListId);
+                i.putExtra("WISHLISTNAME", wishListName);
+                i.putExtra("USERID", userId);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(EditWishListActivity.this,
+                        getApplicationContext().getString(R.string.list_name_updated_error_message),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
+    }
+
+    // EditWishListNameDialog-method
+    @Override
+    public void onCancelEditNameClick() {
+        // do nothing
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,11 +127,13 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
 
         wishListId = getIntent().getIntExtra("WISHLISTID", -1);
         wishListName = getIntent().getStringExtra("WISHLISTNAME");
+        userId = getIntent().getIntExtra("USERID", -1);
 
         TextView headerTextView = (TextView) findViewById(R.id.wishListNameHeader);
         headerTextView.setText(wishListName);
 
         restWishService = new RestWishService();
+        restWishListService = new RestWishListService();
 
         // get all wishes for this wish list:
         restWishService.getService().getAllWishesForWishList(wishListId, new Callback<Response>() {
@@ -196,8 +247,11 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
 
     // Onclick edit button
     public void editWishListName(View view) {
-
-
+        // Dialog box (EditWishListNameDialog) where the user can change the name of a list:
+        String message = getString(R.string.edit_list_name_dialog_message);
+        EditWishListNameDialog dialog = EditWishListNameDialog.newInstance(message, wishListName);
+        dialog.show(getFragmentManager(), "EDIT");
+        // waiting for the user to make a choice: Save or Cancel
     }
 
     @Override

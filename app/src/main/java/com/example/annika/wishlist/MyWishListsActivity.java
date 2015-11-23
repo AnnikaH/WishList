@@ -163,6 +163,7 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                             Intent i = new Intent(MyWishListsActivity.this, EditWishListActivity.class);
                             i.putExtra("WISHLISTID", w.ID);
                             i.putExtra("WISHLISTNAME", w.Name);
+                            i.putExtra("USERID", w.OwnerId);
                             startActivity(i);
                             finish();
                         }
