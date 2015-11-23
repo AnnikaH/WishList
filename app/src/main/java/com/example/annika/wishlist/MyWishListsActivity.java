@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -104,23 +105,30 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
                     int length = wishLists.length();
                     List<String> listContents = new ArrayList<>(length);
+                    List<Integer> listIds = new ArrayList<>(length);
 
                     for (int i = 0; i < length; i++)
                     {
                         JSONObject oneList = wishLists.getJSONObject(i);
-                        listContents.add(oneList.getString("name"));
+                        listContents.add(oneList.getString("name"));    // add the name of the wish list
+                        listIds.add(oneList.getInt("id"));
                     }
 
                     listView.setAdapter(new ArrayAdapter<>(MyWishListsActivity.this,
                             android.R.layout.simple_selectable_list_item, listContents));
 
-                    /*for(int i = 0; i < wishLists.length(); i++)
-                    {
-                        JSONObject oneList = wishLists.getJSONObject(i);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                            ListView lv = (ListView) arg0;
+                            TextView tv = (TextView) lv.getChildAt(arg2);
+                            String s = tv.getText().toString();
 
-                        TextView textView = new TextView(getApplicationContext());
-                        textView.setText(oneList.getString("name"));
-                    }*/
+                            //Toast.makeText(MyWishListsActivity.this, "Clicked item is " + s, Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    });
                 }
                 catch (JSONException je) {
                     Toast toast = Toast.makeText(MyWishListsActivity.this, getApplicationContext().getString(R.string.json_exception),
