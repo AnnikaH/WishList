@@ -8,13 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 
-public class NewWishListDialog extends DialogFragment {
+public class DeleteWishListDialog extends DialogFragment {
+
     private DialogClickListener callback;
 
     public interface DialogClickListener
     {
-        void onSaveClick(String wishListName);
-        void onCancelClick();
+        void onDeleteClick(int wishListId);
+        void onCancelDeleteClick();
     }
 
     @Override
@@ -31,38 +32,32 @@ public class NewWishListDialog extends DialogFragment {
         }
     }
 
-    public static NewWishListDialog newInstance(String message)
+    public static DeleteWishListDialog newInstance(String message, int id)
     {
-        NewWishListDialog frag = new NewWishListDialog();
+        DeleteWishListDialog frag = new DeleteWishListDialog();
         Bundle args = new Bundle();
         args.putString("message", message);
+        args.putInt("id", id);
         frag.setArguments(args);
         return frag;
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
-        Bundle bundle = getArguments();
-
-        final EditText inputField = new EditText(getActivity());
-        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                //LinearLayout.LayoutParams.MATCH_PARENT);
-        //inputField.setLayoutParams(lp);
-        inputField.setBackgroundResource(R.color.default_background_color);
+        final Bundle bundle = getArguments();
 
         AlertDialog dialog = new AlertDialog.Builder(getActivity())
                 .setMessage(bundle.getString("message"))
-                .setView(inputField)
                 .setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onSaveClick(inputField.getText().toString());
+                        callback.onDeleteClick(bundle.getInt("id"));
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onCancelClick();
+                        callback.onCancelDeleteClick();
                     }
                 }).create();
 

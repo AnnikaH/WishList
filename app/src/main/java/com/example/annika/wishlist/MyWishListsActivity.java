@@ -118,7 +118,7 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                             ListView lv = (ListView) arg0;
                             //TextView tv = (TextView) lv.getChildAt(arg2);
 
-                            WishList w = (WishList) lv.getItemAtPosition((int)arg3);
+                            WishList w = (WishList) lv.getItemAtPosition((int) arg3);
 
                             // Go to EditWishListActivity and send in the id and name of the wish list selected:
                             Intent i = new Intent(MyWishListsActivity.this, EditWishListActivity.class);
@@ -126,6 +126,20 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                             i.putExtra("WISHLISTNAME", w.Name);
                             startActivity(i);
                             finish();
+                        }
+                    });
+
+                    // Possible to delete wish list when long click:
+                    listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                        @Override
+                        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                            // Dialogbox for deleting the wish list:
+
+
+
+                            //Toast.makeText(MyWishListsActivity.this, "LONG CLICK", Toast.LENGTH_SHORT).show();
+
+                            return true;
                         }
                     });
                 }

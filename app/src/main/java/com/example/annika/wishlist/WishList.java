@@ -5,8 +5,8 @@ public class WishList {
     public String Name;
     public int OwnerId;    // foreign key from User
 
-    public String toString()
-    {
+    // When added a WishList item to ArrayAdapter<WishList> the toString is called:
+    public String toString() {
         return Name;
     }
 }
