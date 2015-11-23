@@ -91,7 +91,10 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                 toast.show();
 
                 // Refresh activity:
-
+                Intent i = new Intent(MyWishListsActivity.this, MyWishListsActivity.class);
+                i.putExtra("USERID", userId);
+                startActivity(i);
+                finish();
             }
 
             @Override
@@ -99,7 +102,9 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                 Toast toast = Toast.makeText(MyWishListsActivity.this,
                         getApplicationContext().getString(R.string.wish_list_deleted_error_message),
                         Toast.LENGTH_SHORT);
-
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
             }
         });
     }
@@ -148,11 +153,11 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
-                        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                            ListView lv = (ListView) arg0;
-                            //TextView tv = (TextView) lv.getChildAt(arg2);
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            ListView lv = (ListView) parent;
+                            //TextView tv = (TextView) lv.getChildAt(position);
 
-                            WishList w = (WishList) lv.getItemAtPosition((int) arg3);
+                            WishList w = (WishList) lv.getItemAtPosition((int) id);
 
                             // Go to EditWishListActivity and send in the id and name of the wish list selected:
                             Intent i = new Intent(MyWishListsActivity.this, EditWishListActivity.class);
@@ -167,11 +172,16 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                     listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                         @Override
                         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                            // Dialogbox for deleting the wish list:
+                            // Get the selected WishList:
+                            ListView lv = (ListView) parent;
+                            WishList w = (WishList) lv.getItemAtPosition((int) id);
 
-
-
-                            //Toast.makeText(MyWishListsActivity.this, "LONG CLICK", Toast.LENGTH_SHORT).show();
+                            // Dialogbox for deleting the wish list (DeleteWishListDialog):
+                            String message = getString(R.string.delete_list_dialog_message) + " " + w.Name + "?";
+                            int wishListId = w.ID;
+                            DeleteWishListDialog dialog = DeleteWishListDialog.newInstance(message, wishListId);
+                            dialog.show(getFragmentManager(), "DELETE");
+                            // waiting for the user to make a choice: Delete or Cancel
 
                             return true;
                         }
@@ -199,11 +209,11 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
     // Onclick new list-button
     public void createNewList(View view) {
-        // dialogbox (NewWishListDialog) hvor kan fylle inn navn på den nye listen vi vil lage:
+        // Dialogbox (NewWishListDialog) where the user can fill in name of new list:
         String message = getString(R.string.new_list_dialog_message);
         NewWishListDialog dialog = NewWishListDialog.newInstance(message);
         dialog.show(getFragmentManager(), "CREATE");
-        // waiting for the user to make a choice: Create og Cancel
+        // waiting for the user to make a choice: Create or Cancel
     }
 
     // Onclick main menu-button

@@ -49,12 +49,16 @@
     <!-- NewWishListDialog -->
     <string name="create">Opprett</string>
 
+    <!-- DeleteWishListDialog -->
+    <string name="delete">Slett</string>
+
     <!-- MyWishListsActivity -->
     <string name="new_list_dialog_message">Navn på ny ønskeliste:</string>
     <string name="wish_list_added">Ny ønskeliste ble lagt til.</string>
     <string name="wish_list_added_error_message">Det oppstod en feil. Ønskelisten ble ikke lagt til.</string>
     <string name="wish_list_deleted">Ønskelisten ble slettet.</string>
     <string name="wish_list_deleted_error_message">Det oppstod en feil. Ønskelisten ble ikke slettet.</string>
+    <string name="delete_list_dialog_message">Vil du virkelig slette ønskelisten</string>
 
     <!-- EditWishListActivity -->
     <string name="edit_wish_list">Legg til ønsker</string>
