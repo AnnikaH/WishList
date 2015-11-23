@@ -6,14 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class EditWishActivity extends AppCompatActivity {
+public class NewWishActivity extends AppCompatActivity {
+
+    private int wishListId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_wish);
+        setContentView(R.layout.activity_new_wish);
 
-        // getIntent().get...Extra();
+        wishListId = getIntent().getIntExtra("WISHLISTID", -1);
+
+
     }
 
     @Override

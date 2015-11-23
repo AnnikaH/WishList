@@ -35,6 +35,34 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
     public void onDeleteWishClick(int wishId) {
         // delete wish with id wishId
 
+        restWishService.getService().deleteWishById(wishId, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                Toast toast = Toast.makeText(EditWishListActivity.this,
+                        getApplicationContext().getString(R.string.wish_deleted),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // Refresh activity:
+                Intent i = new Intent(EditWishListActivity.this, EditWishListActivity.class);
+                i.putExtra("WISHLISTID", wishListId);
+                i.putExtra("WISHLISTNAME", wishListName);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(EditWishListActivity.this,
+                        getApplicationContext().getString(R.string.wish_deleted_error_message),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
     }
 
     // DeleteWishDialog-method
@@ -156,6 +184,14 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
                 toast.show();
             }
         });
+    }
+
+    // Onclick add button
+    public void createNewWish(View view) {
+        Intent i = new Intent(this, NewWishActivity.class);
+        i.putExtra("WISHLISTID", wishListId);
+        startActivity(i);
+        finish();
     }
 
     @Override

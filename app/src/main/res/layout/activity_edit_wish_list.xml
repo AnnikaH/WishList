@@ -10,6 +10,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
 
+    <Button
+        android:layout_gravity="end"
+        android:background="@drawable/plus_100_light"
+        android:layout_width="@dimen/add_button_width"
+        android:layout_height="@dimen/add_button_height"
+        android:onClick="createNewWish" />
+
     <!-- Name of wish list inserted here: -->
     <TextView
         android:gravity="center_horizontal"
