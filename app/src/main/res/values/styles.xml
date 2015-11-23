@@ -15,8 +15,10 @@
 
         <item name="colorControlNormal">#000000</item> <!-- #757575-->
         <!--<item name="colorAccent">#171718</item>-->
+
         <!--<item name="colorControlActivated">#300000</item> dark red-->
         <!--<item name="colorControlActivated">#D11111</item> red -->
+
         <!--<item name="colorControlHighlight">#FF4081</item>-->
         <!--<item name="colorSwitchThumbNormal">#BDBDBD</item>-->
     </style>

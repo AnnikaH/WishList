@@ -4,17 +4,16 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 public class NewWishListDialog extends DialogFragment {
     private DialogClickListener callback;
 
     public interface DialogClickListener
     {
-        void onSaveClick();
+        void onSaveClick(String wishListName);
         void onCancelClick();
     }
 
@@ -45,7 +44,7 @@ public class NewWishListDialog extends DialogFragment {
     {
         Bundle bundle = getArguments();
 
-        EditText inputField = new EditText(getActivity());
+        final EditText inputField = new EditText(getActivity());
         //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 //LinearLayout.LayoutParams.MATCH_PARENT);
         //inputField.setLayoutParams(lp);
@@ -57,7 +56,9 @@ public class NewWishListDialog extends DialogFragment {
                 .setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onSaveClick();
+                        callback.onSaveClick(inputField.getText().toString());
+
+                        Log.d("INPUTFIELD TEXT: ", inputField.getText().toString());
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {

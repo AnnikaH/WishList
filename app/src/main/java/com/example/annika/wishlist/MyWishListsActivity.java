@@ -13,16 +13,25 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
     // NewWishListDialog-method
     @Override
-    public void onSaveClick()
+    public void onSaveClick(String wishListName)
     {
+        // create/add new wish list for this user (with userId)
 
+        WishList wishList = new WishList();
+        wishList.Name = wishListName;
+        wishList.OwnerId = userId;
+
+        // post:
+
+
+        // and refresh the activity
     }
 
     // NewWishListDialog-method
     @Override
     public void onCancelClick()
     {
-
+        // do nothing
     }
 
     @Override
