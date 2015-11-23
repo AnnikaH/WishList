@@ -43,4 +43,7 @@
     <string name="update_user_error_message">An error occurred. User information not updated.</string>
     <string name="user_updated">User information successfully updated.</string>
 
+    <!-- SettingsActivity -->
+    <string name="change_language_title">Language</string>
+
 </resources>
