@@ -8,12 +8,18 @@ import android.view.MenuItem;
 
 public class EditWishListActivity extends AppCompatActivity {
 
+    private int wishListId;
+    private String wishListName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_wish_list);
 
+        wishListId = getIntent().getIntExtra("WISHLISTID", -1);
+        wishListName = getIntent().getStringExtra("WISHLISTNAME");
 
+        // get all wishes for this wish list:
     }
 
     @Override

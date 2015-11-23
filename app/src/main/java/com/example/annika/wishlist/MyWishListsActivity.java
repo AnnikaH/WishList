@@ -1,23 +1,17 @@
 package com.example.annika.wishlist;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +24,6 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
-import retrofit.mime.TypedInput;
 
 public class MyWishListsActivity extends AppCompatActivity implements NewWishListDialog.DialogClickListener {
 
@@ -98,36 +91,47 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                 try {
                     JSONArray wishLists = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
 
-                    Log.d("ALL WISH LISTS: ", wishLists.toString());
+                    // place each wish list into the ListView:
 
-                    // place each wish list into the view:
                     ListView listView = (ListView) findViewById(R.id.wishListsListView);
 
                     int length = wishLists.length();
-                    List<String> listContents = new ArrayList<>(length);
-                    List<Integer> listIds = new ArrayList<>(length);
+                    List<WishList> lists = new ArrayList<>(length);
 
                     for (int i = 0; i < length; i++)
                     {
                         JSONObject oneList = wishLists.getJSONObject(i);
-                        listContents.add(oneList.getString("name"));    // add the name of the wish list
-                        listIds.add(oneList.getInt("id"));
+
+                        WishList wishList = new WishList();
+                        wishList.ID = oneList.getInt("id");
+                        wishList.Name = oneList.getString("name");
+                        wishList.OwnerId = oneList.getInt("ownerId");
+
+                        lists.add(wishList);
                     }
 
                     listView.setAdapter(new ArrayAdapter<>(MyWishListsActivity.this,
-                            android.R.layout.simple_selectable_list_item, listContents));
+                            android.R.layout.simple_selectable_list_item, lists));
 
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                             ListView lv = (ListView) arg0;
                             TextView tv = (TextView) lv.getChildAt(arg2);
-                            String s = tv.getText().toString();
+                            String name = tv.getText().toString();
 
-                            //Toast.makeText(MyWishListsActivity.this, "Clicked item is " + s, Toast.LENGTH_SHORT).show();
+                            //WishList w = (WishList) lv.getSelectedItem();
+                            WishList w = (WishList) lv.getItemAtPosition((int)arg3);
+                            Log.d("NAME: ", name);
+                            Log.d("ID??: ", w.ID + "");
 
+                            /*
                             // Go to EditWishListActivity and send in the id and name of the wish list selected:
-
+                            Intent i = new Intent(MyWishListsActivity.this, EditWishListActivity.class);
+                            i.putExtra("WISHLISTID", );
+                            i.putExtra("WISHLISTNAME", name);
+                            startActivity(i);
+                            finish();*/
                         }
                     });
                 }
