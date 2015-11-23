@@ -10,33 +10,35 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
 
-    <Button
-        android:layout_gravity="end"
-        android:background="@drawable/add_list_100_light"
-        android:layout_width="@dimen/add_button_width"
-        android:layout_height="@dimen/add_button_height"
-        android:onClick="createNewList" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+<!--        <Button
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin_right"
+            android:layout_gravity="start"
+            android:text="@string/main_menu"
+            android:onClick="goToMainMenu"
+            android:background="@drawable/shape_register_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false" />-->
+
+        <Button
+            android:layout_gravity="end"
+            android:background="@drawable/add_list_100_light"
+            android:layout_width="@dimen/add_button_width"
+            android:layout_height="@dimen/add_button_height"
+            android:onClick="createNewList" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/wishListsListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom" >
-
-        <Button
-            android:layout_marginTop="@dimen/button_margin"
-            android:layout_marginBottom="@dimen/button_margin"
-            android:text="@string/main_menu"
-            android:onClick="goToMainMenu"
-            android:background="@drawable/shape_register_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
 
 </LinearLayout>

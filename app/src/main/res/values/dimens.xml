@@ -25,5 +25,6 @@
     <!-- MyWishListsActivity -->
     <dimen name="add_button_width">30dp</dimen>
     <dimen name="add_button_height">40dp</dimen>
+    <!--<dimen name="horizontal_margin_right">150dp</dimen>-->
 
 </resources>

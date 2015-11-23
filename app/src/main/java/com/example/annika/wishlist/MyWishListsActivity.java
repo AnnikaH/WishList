@@ -107,15 +107,12 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
                     for (int i = 0; i < length; i++)
                     {
-                        listContents.add(wishLists.getString(i));
+                        JSONObject oneList = wishLists.getJSONObject(i);
+                        listContents.add(oneList.getString("name"));
                     }
 
-                    listView.setAdapter(new ArrayAdapter<>(MyWishListsActivity.this, android.R.layout.simple_list_item_1,
-                            listContents));
-
-                    /*listView.setAdapter(new ArrayAdapter<String>(MyWishListsActivity.this,
-                            android.R.layout.simple_list_item_1, listContents));*/
-
+                    listView.setAdapter(new ArrayAdapter<>(MyWishListsActivity.this,
+                            android.R.layout.simple_selectable_list_item, listContents));
 
                     /*for(int i = 0; i < wishLists.length(); i++)
                     {
