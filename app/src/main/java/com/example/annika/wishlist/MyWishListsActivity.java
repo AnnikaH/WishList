@@ -94,7 +94,6 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                     // place each wish list into the ListView:
 
                     ListView listView = (ListView) findViewById(R.id.wishListsListView);
-
                     int length = wishLists.length();
                     List<WishList> lists = new ArrayList<>(length);
 
@@ -117,21 +116,16 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                         @Override
                         public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                             ListView lv = (ListView) arg0;
-                            TextView tv = (TextView) lv.getChildAt(arg2);
-                            String name = tv.getText().toString();
+                            //TextView tv = (TextView) lv.getChildAt(arg2);
 
-                            //WishList w = (WishList) lv.getSelectedItem();
                             WishList w = (WishList) lv.getItemAtPosition((int)arg3);
-                            Log.d("NAME: ", name);
-                            Log.d("ID??: ", w.ID + "");
 
-                            /*
                             // Go to EditWishListActivity and send in the id and name of the wish list selected:
                             Intent i = new Intent(MyWishListsActivity.this, EditWishListActivity.class);
-                            i.putExtra("WISHLISTID", );
-                            i.putExtra("WISHLISTNAME", name);
+                            i.putExtra("WISHLISTID", w.ID);
+                            i.putExtra("WISHLISTNAME", w.Name);
                             startActivity(i);
-                            finish();*/
+                            finish();
                         }
                     });
                 }
