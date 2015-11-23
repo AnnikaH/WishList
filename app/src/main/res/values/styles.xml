@@ -11,11 +11,10 @@
 
         <!-- actionbar color: -->
         <item name="colorPrimary">#000000</item>
-        <!--<item name="colorPrimary">#000000</item>--><!-- lighter black? navbar? -->
-        <!--<item name="colorPrimaryDark">#000000</item>--> <!-- brukes ikke? -->
+        <item name="colorPrimaryDark">#000000</item> <!-- brukes ikke? -->
 
         <item name="colorControlNormal">#000000</item> <!-- #757575-->
-        <!--<item name="colorAccent">#FF80AB</item>-->
+        <!--<item name="colorAccent">#171718</item>-->
         <!--<item name="colorControlActivated">#300000</item> dark red-->
         <!--<item name="colorControlActivated">#D11111</item> red -->
         <!--<item name="colorControlHighlight">#FF4081</item>-->

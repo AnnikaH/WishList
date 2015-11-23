@@ -50,6 +50,6 @@
     <string name="create">Create</string>
 
     <!-- MyWishListsActivity -->
-    <string name="new_list_dialog_message">Enter the name of your new wish list:</string>
+    <string name="new_list_dialog_message">Name of new wish list:</string>
 
 </resources>

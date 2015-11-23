@@ -50,6 +50,6 @@
     <string name="create">Opprett</string>
 
     <!-- MyWishListsActivity -->
-    <string name="new_list_dialog_message">Fyll inn navnet til din nye ønskeliste:</string>
+    <string name="new_list_dialog_message">Navn på ny ønskeliste:</string>
 
 </resources>

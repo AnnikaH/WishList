@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 public class NewWishListDialog extends DialogFragment {
     private DialogClickListener callback;
@@ -42,8 +45,15 @@ public class NewWishListDialog extends DialogFragment {
     {
         Bundle bundle = getArguments();
 
+        EditText inputField = new EditText(getActivity());
+        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                //LinearLayout.LayoutParams.MATCH_PARENT);
+        //inputField.setLayoutParams(lp);
+        inputField.setBackgroundResource(R.color.default_background_color);
+
         AlertDialog dialog = new AlertDialog.Builder(getActivity())
                 .setMessage(bundle.getString("message"))
+                .setView(inputField)
                 .setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
