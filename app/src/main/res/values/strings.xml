@@ -46,4 +46,10 @@
     <!-- SettingsActivity -->
     <string name="change_language_title">Language</string>
 
+    <!-- NewWishListDialog -->
+    <string name="create">Create</string>
+
+    <!-- MyWishListsActivity -->
+    <string name="new_list_dialog_message">Enter the name of your new wish list:</string>
+
 </resources>

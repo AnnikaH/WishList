@@ -7,9 +7,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MyWishListsActivity extends AppCompatActivity {
+public class MyWishListsActivity extends AppCompatActivity implements NewWishListDialog.DialogClickListener {
 
     private int userId;
+
+    // NewWishListDialog-method
+    @Override
+    public void onSaveClick()
+    {
+
+    }
+
+    // NewWishListDialog-method
+    @Override
+    public void onCancelClick()
+    {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +41,10 @@ public class MyWishListsActivity extends AppCompatActivity {
     public void createNewList(View view)
     {
         // dialogbox (NewWishListDialog) hvor kan fylle inn navn på den nye listen vi vil lage:
-
+        String message = getString(R.string.new_list_dialog_message);
+        NewWishListDialog dialog = NewWishListDialog.newInstance(message);
+        dialog.show(getFragmentManager(), "CREATE");
+        // waiting for the user to make a choice: Create og Cancel
     }
 
     // Onclick main menu-button

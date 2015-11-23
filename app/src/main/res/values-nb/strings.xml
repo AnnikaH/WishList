@@ -46,4 +46,10 @@
     <!-- SettingsActivity -->
     <string name="change_language_title">Språk</string>
 
+    <!-- NewWishListDialog -->
+    <string name="create">Opprett</string>
+
+    <!-- MyWishListsActivity -->
+    <string name="new_list_dialog_message">Fyll inn navnet til din nye ønskeliste:</string>
+
 </resources>
