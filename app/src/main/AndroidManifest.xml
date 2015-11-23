@@ -26,6 +26,7 @@
 
         <activity android:name=".WishListMainActivity"
             android:label="@string/app_name" >
+            <!-- no parent -->
         </activity>
 
         <activity android:name=".ProfileActivity"

@@ -148,7 +148,6 @@ public class EditProfileActivity extends AppCompatActivity {
         switch (id) {
             case R.id.settings:
                 Intent i = new Intent(this, SettingsActivity.class);
-                i.putExtra("USERID", userId);
                 startActivity(i);
                 finish();
                 return true;

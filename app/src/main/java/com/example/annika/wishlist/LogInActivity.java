@@ -30,6 +30,7 @@ public class LogInActivity extends AppCompatActivity {
     private TextView messageTextView;
     private RestLoginService restLoginService;
     private int userId;
+    private Button button;
 
     // Store in SharedPreferences:
     @Override
@@ -62,7 +63,7 @@ public class LogInActivity extends AppCompatActivity {
     // Onclick login-button:
     public void logIn(View view) {
         // disable button:
-        Button button = (Button) view;
+        button = (Button) view;
         button.setEnabled(false);
 
         // reset error message textview:
@@ -104,11 +105,11 @@ public class LogInActivity extends AppCompatActivity {
             public void failure(RetrofitError error) {
                 messageTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.cancel));
                 messageTextView.setText(getApplicationContext().getString(R.string.log_in_error_message));
+
+                // enable button again:
+                button.setEnabled(true);
             }
         });
-
-        // enable button again:
-        button.setEnabled(true);
     }
 
     // Onclick register-button:

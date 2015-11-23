@@ -82,12 +82,10 @@ public class WishListMainActivity extends AppCompatActivity {
             case R.id.settings:
                 Intent i = new Intent(this, SettingsActivity.class);
                 startActivity(i);
-                finish();
                 return true;
             case R.id.log_out:
                 Intent i2 = new Intent(this, LogInActivity.class);
                 startActivity(i2);
-                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
