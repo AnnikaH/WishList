@@ -12,6 +12,25 @@ public class WishListMainActivity extends AppCompatActivity {
 
     private int userId;
 
+    // Store in SharedPreferences:
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putInt("userId", userId)
+                .commit();
+    }
+
+    // Get values from SharedPreferences:
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        userId = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getInt("userId", -1));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

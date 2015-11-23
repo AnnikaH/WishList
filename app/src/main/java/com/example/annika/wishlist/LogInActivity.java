@@ -29,6 +29,26 @@ public class LogInActivity extends AppCompatActivity {
 
     private TextView messageTextView;
     private RestLoginService restLoginService;
+    private int userId;
+
+    // Store in SharedPreferences:
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putInt("userId", userId)
+                .commit();
+    }
+
+    // Get values from SharedPreferences:
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        userId = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getInt("userId", -1));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +82,6 @@ public class LogInActivity extends AppCompatActivity {
         restLoginService.getService().logIn(loginUser, new Callback<String>() {
             @Override
             public void success(String callback, Response response) {
-                int userId;
-
                 try {
                     userId = Integer.parseInt(callback); // får inn id gjennom StringContent på backend
                 } catch (NumberFormatException nfe) {
