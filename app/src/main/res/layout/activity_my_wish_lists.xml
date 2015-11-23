@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-<!--        <Button
+<!--    <Button
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/horizontal_margin_right"

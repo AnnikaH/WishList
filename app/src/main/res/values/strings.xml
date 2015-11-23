@@ -54,4 +54,7 @@
     <string name="wish_list_added">New wish list added.</string>
     <string name="wish_list_added_error_message">An error occurred. No wish list added.</string>
 
+    <!-- EditWishListActivity -->
+    <string name="edit_wish_list">Add wishes</string>
+
 </resources>

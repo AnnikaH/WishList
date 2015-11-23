@@ -54,4 +54,7 @@
     <string name="wish_list_added">Ny ønskeliste ble lagt til.</string>
     <string name="wish_list_added_error_message">Det oppstod en feil. Ønskelisten ble ikke lagt til.</string>
 
+    <!-- EditWishListActivity -->
+    <string name="edit_wish_list">Legg til ønsker</string>
+
 </resources>

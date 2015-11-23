@@ -126,6 +126,7 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
                             //Toast.makeText(MyWishListsActivity.this, "Clicked item is " + s, Toast.LENGTH_SHORT).show();
 
+                            // Go to EditWishListActivity and send in the id and name of the wish list selected:
 
                         }
                     });
