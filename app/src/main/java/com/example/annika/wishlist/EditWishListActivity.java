@@ -20,6 +20,7 @@ public class EditWishListActivity extends AppCompatActivity {
         wishListName = getIntent().getStringExtra("WISHLISTNAME");
 
         // get all wishes for this wish list:
+
     }
 
     @Override
