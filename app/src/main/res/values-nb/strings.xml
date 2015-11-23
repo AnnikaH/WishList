@@ -59,8 +59,14 @@
     <string name="wish_list_deleted">Ønskelisten ble slettet.</string>
     <string name="wish_list_deleted_error_message">Det oppstod en feil. Ønskelisten ble ikke slettet.</string>
     <string name="delete_list_dialog_message">Vil du virkelig slette ønskelisten</string>
+    <string name="get_wish_list_error_message">Det oppstod en feil. Ønskelister ikke funnet.</string>
 
     <!-- EditWishListActivity -->
     <string name="edit_wish_list">Legg til ønsker</string>
+    <string name="get_wish_error_message">Det oppstod en feil. Ønsker ikke funnet.</string>
+    <string name="delete_wish_dialog_message">Vil du virkelig slette ønsket</string>
+
+    <!-- EditWishActivity -->
+    <string name="edit_wish">Rediger ønske</string>
 
 </resources>

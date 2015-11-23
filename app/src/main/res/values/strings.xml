@@ -59,8 +59,14 @@
     <string name="wish_list_deleted">The wish list was successfully deleted.</string>
     <string name="wish_list_deleted_error_message">An error occurred. Wish list not deleted.</string>
     <string name="delete_list_dialog_message">Do you really want to delete the wish list</string>
+    <string name="get_wish_list_error_message">An error occurred. Wish lists not found.</string>
 
     <!-- EditWishListActivity -->
     <string name="edit_wish_list">Add wishes</string>
+    <string name="get_wish_error_message">An error occurred. Wishes not found.</string>
+    <string name="delete_wish_dialog_message">Do you really want to delete the wish</string>
+
+    <!-- EditWishActivity -->
+    <string name="edit_wish">Edit wish</string>
 
 </resources>

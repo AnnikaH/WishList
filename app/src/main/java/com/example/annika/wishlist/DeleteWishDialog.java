@@ -6,14 +6,13 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-public class DeleteWishListDialog extends DialogFragment {
-
+public class DeleteWishDialog extends DialogFragment {
     private DialogClickListener callback;
 
     public interface DialogClickListener
     {
-        void onDeleteClick(int wishListId);
-        void onCancelDeleteClick();
+        void onDeleteWishClick(int wishId);
+        void onCancelDeleteWishClick();
     }
 
     @Override
@@ -28,9 +27,9 @@ public class DeleteWishListDialog extends DialogFragment {
         }
     }
 
-    public static DeleteWishListDialog newInstance(String message, int id)
+    public static DeleteWishDialog newInstance(String message, int id)
     {
-        DeleteWishListDialog frag = new DeleteWishListDialog();
+        DeleteWishDialog frag = new DeleteWishDialog();
         Bundle args = new Bundle();
         args.putString("message", message);
         args.putInt("id", id);
@@ -47,13 +46,13 @@ public class DeleteWishListDialog extends DialogFragment {
                 .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onDeleteClick(bundle.getInt("id"));
+                        callback.onDeleteWishClick(bundle.getInt("id"));
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onCancelDeleteClick();
+                        callback.onCancelDeleteWishClick();
                     }
                 }).create();
 

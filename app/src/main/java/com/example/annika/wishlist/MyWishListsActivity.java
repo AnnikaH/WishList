@@ -198,7 +198,8 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
             @Override
             public void failure(RetrofitError error) {
-                Toast toast = Toast.makeText(MyWishListsActivity.this, getApplicationContext().getString(R.string.wish_list_added_error_message),
+                Toast toast = Toast.makeText(MyWishListsActivity.this,
+                        getApplicationContext().getString(R.string.get_wish_list_error_message),
                         Toast.LENGTH_SHORT);
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
