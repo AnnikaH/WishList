@@ -9,4 +9,10 @@ public class Wish {
     public String Where;
     public String Link;
     public int WishListId; // foreign key from WishList
+
+    // When added a Wish item to ArrayAdapter<Wish> the toString is called:
+    @Override
+    public String toString() {
+        return Name;
+    }
 }
