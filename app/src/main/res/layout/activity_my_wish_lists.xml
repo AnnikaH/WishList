@@ -17,11 +17,10 @@
         android:layout_height="@dimen/add_button_height"
         android:onClick="createNewList" />
 
-    <ScrollView
+    <ListView
+        android:id="@+id/wishListsListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </ScrollView>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"

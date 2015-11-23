@@ -1,13 +1,19 @@
 package com.example.annika.wishlist;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
@@ -15,6 +21,9 @@ import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -85,18 +94,36 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
         restWishListService.getService().getAllWishListsForUser(userId, new Callback<Response>() {
             @Override
             public void success(Response response, Response response2) {
-                TypedInput input = response.getBody();
-                Log.d("INPUT: ", input.toString());
-
                 try {
                     JSONArray wishLists = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
 
                     Log.d("ALL WISH LISTS: ", wishLists.toString());
 
                     // place each wish list into the view:
-                    //ScrollView scrollView = (ScrollView) findViewById(R.id.wishListsScrollView);
+                    ListView listView = (ListView) findViewById(R.id.wishListsListView);
+
+                    int length = wishLists.length();
+                    List<String> listContents = new ArrayList<>(length);
+
+                    for (int i = 0; i < length; i++)
+                    {
+                        listContents.add(wishLists.getString(i));
+                    }
+
+                    listView.setAdapter(new ArrayAdapter<>(MyWishListsActivity.this, android.R.layout.simple_list_item_1,
+                            listContents));
+
+                    /*listView.setAdapter(new ArrayAdapter<String>(MyWishListsActivity.this,
+                            android.R.layout.simple_list_item_1, listContents));*/
 
 
+                    /*for(int i = 0; i < wishLists.length(); i++)
+                    {
+                        JSONObject oneList = wishLists.getJSONObject(i);
+
+                        TextView textView = new TextView(getApplicationContext());
+                        textView.setText(oneList.getString("name"));
+                    }*/
                 }
                 catch (JSONException je) {
                     Toast toast = Toast.makeText(MyWishListsActivity.this, getApplicationContext().getString(R.string.json_exception),
