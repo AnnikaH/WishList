@@ -28,5 +28,7 @@
 
     <!-- EditWishListActivity -->
     <dimen name="header_wish_list_text_size">20sp</dimen>
+    <dimen name="edit_button_width">25dp</dimen>
+    <dimen name="edit_button_height">25dp</dimen>
 
 </resources>

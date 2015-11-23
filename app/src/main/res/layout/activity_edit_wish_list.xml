@@ -10,20 +10,41 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
 
-    <Button
-        android:layout_gravity="end"
-        android:background="@drawable/plus_100_light"
-        android:layout_width="@dimen/add_button_width"
-        android:layout_height="@dimen/add_button_height"
-        android:onClick="createNewWish" />
-
-    <!-- Name of wish list inserted here: -->
-    <TextView
-        android:gravity="center_horizontal"
-        android:id="@+id/wishListNameHeader"
-        android:textSize="@dimen/header_wish_list_text_size"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" >
+
+        <!-- Name of wish list inserted here: -->
+        <TextView
+            android:id="@+id/wishListNameHeader"
+            android:textSize="@dimen/header_wish_list_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_marginEnd="@dimen/button_margin"
+                android:background="@drawable/edit_100_light"
+                android:layout_width="@dimen/edit_button_width"
+                android:layout_height="@dimen/edit_button_height"
+                android:onClick="editWishListName" />
+
+            <Button
+                android:background="@drawable/plus_100_light"
+                android:layout_width="@dimen/add_button_width"
+                android:layout_height="@dimen/add_button_height"
+                android:onClick="createNewWish" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/wishesListView"

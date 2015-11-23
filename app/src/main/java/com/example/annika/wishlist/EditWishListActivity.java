@@ -194,6 +194,12 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
         finish();
     }
 
+    // Onclick edit button
+    public void editWishListName(View view) {
+
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
