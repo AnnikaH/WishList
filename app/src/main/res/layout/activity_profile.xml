@@ -10,8 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
-    <!-- android:layout_margin="@dimen/header_log_in_padding_top"
-    android:padding="@dimen/header_log_in_padding_top" -->
 
     <LinearLayout
         android:paddingBottom="@dimen/activity_vertical_margin"

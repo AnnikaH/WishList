@@ -10,35 +10,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
-    <!--android:layout_margin="@dimen/header_log_in_padding_top"
-    android:padding="@dimen/header_log_in_padding_top"
-    android:background="@drawable/shape_register_button"-->
 
-    <!--<LinearLayout
-        android:layout_margin="@dimen/header_log_in_padding_top"
-        android:padding="@dimen/header_log_in_padding_top"
-        android:orientation="vertical"
-        android:background="@drawable/shape_register_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">-->
-
-        <TextView
-
-            android:labelFor="@+id/userNameRegister"
-            android:text="@string/user_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:inputType="text"
-            android:id="@+id/userNameRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    <!--</LinearLayout>-->
-    
     <TextView
+        android:labelFor="@+id/userNameRegister"
+        android:text="@string/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
+    <EditText
+        android:inputType="text"
+        android:id="@+id/userNameRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:labelFor="@+id/passwordRegister"
         android:text="@string/password"
         android:layout_width="match_parent"

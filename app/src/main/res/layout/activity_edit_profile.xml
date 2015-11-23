@@ -11,9 +11,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
 
-    <!-- android:layout_margin="@dimen/header_log_in_padding_top"
-    android:padding="@dimen/header_log_in_padding_top" -->
-
     <TextView
         android:labelFor="@+id/userNameEdit"
         android:text="@string/user_name"
