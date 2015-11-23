@@ -3,7 +3,6 @@ package com.example.annika.wishlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +27,34 @@ public class ProfileActivity extends AppCompatActivity {
     private String userName;
     private String email;
     private String mobile;
+
+    // Store in SharedPreferences:
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putInt("userId", userId)
+                .putString("userName", userName)
+                .putString("email", email)
+                .putString("mobile", mobile)
+                .commit();
+    }
+
+    // Get values from SharedPreferences:
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        userId = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getInt("userId", -1));
+        userName = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("userName", ""));
+        email = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("email", ""));
+        mobile = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("mobile", ""));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +112,14 @@ public class ProfileActivity extends AppCompatActivity {
         i.putExtra("USERNAME", userName);
         i.putExtra("EMAIL", email);
         i.putExtra("MOBILE", mobile);
+        startActivity(i);
+        finish();
+    }
+
+    // Onclick main menu-button
+    public void goToMainMenu(View view)
+    {
+        Intent i = new Intent(this, WishListMainActivity.class);
         startActivity(i);
         finish();
     }

@@ -18,6 +18,27 @@ public class RegisterUserActivity extends AppCompatActivity {
     private RestLoginService restLoginService;
     private String userNameTemp;
     private String passwordTemp;
+    private Button button;
+    private int userId;
+
+    // Store in SharedPreferences:
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putInt("userId", userId)
+                .commit();
+    }
+
+    // Get values from SharedPreferences:
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        userId = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getInt("userId", -1));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +115,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         passwordTemp = password;
 
         // disable button click (in case it takes some time):
-        Button button = (Button) view;
+        button = (Button) view;
         button.setEnabled(false);
 
         // post user to server database:
@@ -123,11 +144,11 @@ public class RegisterUserActivity extends AppCompatActivity {
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();
+
+                // enable button again:
+                button.setEnabled(true);
             }
         });
-
-        // enable button again:
-        button.setEnabled(true);
     }
 
     // Called after user successfully registered
@@ -135,8 +156,6 @@ public class RegisterUserActivity extends AppCompatActivity {
         restLoginService.getService().logIn(login, new Callback<String>() {
             @Override
             public void success(String callback, Response response) {
-                int userId;
-
                 try {
                     userId = Integer.parseInt(callback); // får inn id gjennom StringContent på backend
                 } catch (NumberFormatException nfe) {
@@ -144,7 +163,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                 }
 
                 Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
-                i.putExtra("USERID", userId);
+                //i.putExtra("USERID", userId);
                 startActivity(i);
                 finish();
             }
@@ -156,6 +175,9 @@ public class RegisterUserActivity extends AppCompatActivity {
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();
+
+                // enable button again:
+                button.setEnabled(true);
             }
         });
     }

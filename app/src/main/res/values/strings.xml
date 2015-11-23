@@ -36,6 +36,7 @@
 
     <!-- ProfileActivity -->
     <string name="edit_profile">Edit profile</string>
+    <string name="main_menu">Main menu</string>
 
     <!-- EditProfileActivity -->
     <string name="save_profile">Save changes</string>

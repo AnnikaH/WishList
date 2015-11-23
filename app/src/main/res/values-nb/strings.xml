@@ -36,6 +36,7 @@
 
     <!-- ProfileActivity -->
     <string name="edit_profile">Rediger profil</string>
+    <string name="main_menu">Hovedmeny</string>
 
     <!-- EditProfileActivity -->
     <string name="save_profile">Lagre endringene</string>

@@ -22,6 +22,34 @@ public class EditProfileActivity extends AppCompatActivity {
     private String mobile;
     private RestUserService restUserService;
 
+    /* Store in SharedPreferences:
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putInt("userId", userId)
+                .putString("userName", userName)
+                .putString("email", email)
+                .putString("mobile", mobile)
+                .commit();
+    }*/
+
+    // Get values from SharedPreferences:
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        userId = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getInt("userId", -1));
+        userName = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("userName", ""));
+        email = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("email", ""));
+        mobile = (getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getString("mobile", ""));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
