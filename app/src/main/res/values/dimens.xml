@@ -27,4 +27,7 @@
     <dimen name="add_button_height">40dp</dimen>
     <!--<dimen name="horizontal_margin_right">150dp</dimen>-->
 
+    <!-- EditWishListActivity -->
+    <dimen name="header_wish_list_text_size">20sp</dimen>
+
 </resources>

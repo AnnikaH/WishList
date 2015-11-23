@@ -10,4 +10,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
 
+    <!-- Name of wish list inserted here: -->
+    <TextView
+        android:gravity="center_horizontal"
+        android:id="@+id/wishListNameHeader"
+        android:textSize="@dimen/header_wish_list_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/wishesListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
 </LinearLayout>
