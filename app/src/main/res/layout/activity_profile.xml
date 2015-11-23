@@ -84,7 +84,8 @@
         android:onClick="editProfile"
         android:background="@drawable/shape_log_in_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textAllCaps="false" />
 
     <Button
         android:layout_marginTop="@dimen/button_margin"
@@ -93,6 +94,7 @@
         android:onClick="goToMainMenu"
         android:background="@drawable/shape_register_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textAllCaps="false" />
 
 </LinearLayout>

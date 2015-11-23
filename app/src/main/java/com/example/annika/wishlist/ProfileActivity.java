@@ -119,8 +119,6 @@ public class ProfileActivity extends AppCompatActivity {
     // Onclick main menu-button
     public void goToMainMenu(View view)
     {
-        Intent i = new Intent(this, WishListMainActivity.class);
-        startActivity(i);
         finish();
     }
 
