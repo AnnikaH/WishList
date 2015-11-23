@@ -3,9 +3,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="text_size">18sp</dimen>
+
     <!-- WishListMainActivity -->
     <dimen name="header_main_text_size">30sp</dimen>
-    <dimen name="text_size">16sp</dimen>
     <dimen name="main_button_width">100dp</dimen>
     <dimen name="main_button_height">100dp</dimen>
     <dimen name="main_image_width">50dp</dimen>
@@ -20,5 +21,9 @@
     <dimen name="button_margin">10dp</dimen>
     <dimen name="header_log_in_padding_bottom">30dp</dimen>
     <dimen name="header_log_in_padding_top">30dp</dimen>
+
+    <!-- MyWishListsActivity -->
+    <dimen name="add_button_width">30dp</dimen>
+    <dimen name="add_button_height">40dp</dimen>
 
 </resources>

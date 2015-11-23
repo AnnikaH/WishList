@@ -5,13 +5,35 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MyWishListsActivity extends AppCompatActivity {
+
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_wish_lists);
+
+        userId = getIntent().getIntExtra("USERID", -1);
+
+        // get all wish lists for this user:
+
+
+    }
+
+    // Onclick new list-button
+    public void createNewList(View view)
+    {
+        // dialogbox (NewWishListDialog) hvor kan fylle inn navn på den nye listen vi vil lage:
+
+    }
+
+    // Onclick main menu-button
+    public void goToMainMenu(View view)
+    {
+        finish();
     }
 
     @Override
