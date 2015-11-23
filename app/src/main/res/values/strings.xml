@@ -53,6 +53,8 @@
     <string name="new_list_dialog_message">Name of new wish list:</string>
     <string name="wish_list_added">New wish list added.</string>
     <string name="wish_list_added_error_message">An error occurred. No wish list added.</string>
+    <string name="wish_list_deleted">The wish list was successfully deleted.</string>
+    <string name="wish_list_deleted_error_message">An error occurred. Wish list not deleted.</string>
 
     <!-- EditWishListActivity -->
     <string name="edit_wish_list">Add wishes</string>

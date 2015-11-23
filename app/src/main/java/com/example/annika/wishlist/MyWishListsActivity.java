@@ -3,14 +3,12 @@ package com.example.annika.wishlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -25,7 +23,8 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class MyWishListsActivity extends AppCompatActivity implements NewWishListDialog.DialogClickListener {
+public class MyWishListsActivity extends AppCompatActivity implements NewWishListDialog.DialogClickListener,
+        DeleteWishListDialog.DialogClickListener {
 
     private int userId;
     private RestWishListService restWishListService;
@@ -44,7 +43,8 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
         restWishListService.getService().addWishList(wishList, new Callback<Response>() {
             @Override
             public void success(Response response, Response response2) {
-                Toast toast = Toast.makeText(MyWishListsActivity.this, getApplicationContext().getString(R.string.wish_list_added),
+                Toast toast = Toast.makeText(MyWishListsActivity.this,
+                        getApplicationContext().getString(R.string.wish_list_added),
                         Toast.LENGTH_SHORT);
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
@@ -59,7 +59,8 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
             @Override
             public void failure(RetrofitError error) {
-                Toast toast = Toast.makeText(MyWishListsActivity.this, getApplicationContext().getString(R.string.wish_list_added_error_message),
+                Toast toast = Toast.makeText(MyWishListsActivity.this,
+                        getApplicationContext().getString(R.string.wish_list_added_error_message),
                         Toast.LENGTH_SHORT);
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
@@ -70,8 +71,41 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
 
     // NewWishListDialog-method
     @Override
-    public void onCancelClick()
-    {
+    public void onCancelClick() {
+        // do nothing
+    }
+
+    // DeleteWishListDialog-method
+    @Override
+    public void onDeleteClick(int wishListId) {
+        // delete this wish list with id wishListId
+
+        restWishListService.getService().deleteWishListById(wishListId, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                Toast toast = Toast.makeText(MyWishListsActivity.this,
+                        getApplicationContext().getString(R.string.wish_list_deleted),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // Refresh activity:
+
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(MyWishListsActivity.this,
+                        getApplicationContext().getString(R.string.wish_list_deleted_error_message),
+                        Toast.LENGTH_SHORT);
+
+            }
+        });
+    }
+
+    // DeleteWishListDialog-method
+    public void onCancelDeleteClick() {
         // do nothing
     }
 
@@ -145,7 +179,7 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
                 }
                 catch (JSONException je) {
                     Toast toast = Toast.makeText(MyWishListsActivity.this, getApplicationContext().getString(R.string.json_exception),
-                            Toast.LENGTH_LONG);
+                            Toast.LENGTH_SHORT);
                     View toastView = toast.getView();
                     toastView.setBackgroundResource(R.color.background_color);
                     toast.show();
@@ -164,8 +198,7 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
     }
 
     // Onclick new list-button
-    public void createNewList(View view)
-    {
+    public void createNewList(View view) {
         // dialogbox (NewWishListDialog) hvor kan fylle inn navn på den nye listen vi vil lage:
         String message = getString(R.string.new_list_dialog_message);
         NewWishListDialog dialog = NewWishListDialog.newInstance(message);
@@ -174,8 +207,7 @@ public class MyWishListsActivity extends AppCompatActivity implements NewWishLis
     }
 
     // Onclick main menu-button
-    public void goToMainMenu(View view)
-    {
+    public void goToMainMenu(View view) {
         finish();
     }
 
