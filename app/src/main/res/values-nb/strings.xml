@@ -51,5 +51,7 @@
 
     <!-- MyWishListsActivity -->
     <string name="new_list_dialog_message">Navn på ny ønskeliste:</string>
+    <string name="wish_list_added">Ny ønskeliste ble lagt til.</string>
+    <string name="wish_list_added_error_message">Det oppstod en feil. Ønskelisten ble ikke lagt til.</string>
 
 </resources>

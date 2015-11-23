@@ -1,7 +1,5 @@
 package com.example.annika.wishlist;
 
-import org.json.JSONObject;
-
 import java.util.List;
 import retrofit.Callback;
 import retrofit.client.Response;

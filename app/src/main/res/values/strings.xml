@@ -51,5 +51,7 @@
 
     <!-- MyWishListsActivity -->
     <string name="new_list_dialog_message">Name of new wish list:</string>
+    <string name="wish_list_added">New wish list added.</string>
+    <string name="wish_list_added_error_message">An error occurred. No wish list added.</string>
 
 </resources>

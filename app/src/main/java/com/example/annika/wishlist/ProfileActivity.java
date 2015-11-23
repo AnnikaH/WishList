@@ -74,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void success(Response callback, Response response) {
                 try {
-                    // Det er et JSON-objekt som blir returnert fra backend:
+                    // There's a JSON-object that's returned from the backend:
                     JSONObject user = new JSONObject(new String(((TypedByteArray) response.getBody()).getBytes()));
 
                     userName = user.get("userName").toString();
