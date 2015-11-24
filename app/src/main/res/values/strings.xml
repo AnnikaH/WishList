@@ -109,5 +109,9 @@
 
     <!-- FindFriendsActivity -->
     <string name="user_error_message">An error occurred. Users not found.</string>
+    <string name="request_dialog_message">Do you want to send a request to the owner to get access to this wish list?</string>
+
+    <!-- RequestDialog -->
+    <string name="send">Send</string>
 
 </resources>

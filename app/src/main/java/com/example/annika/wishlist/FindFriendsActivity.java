@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -14,16 +16,29 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class FindFriendsActivity extends AppCompatActivity {
+public class FindFriendsActivity extends AppCompatActivity implements RequestDialog.DialogClickListener {
 
     private RestUserService restUserService;
     private RestWishListService restWishListService;
     private User foundUser;
+
+    // RequestDialog-method:
+    public void onSendRequestClick() {
+
+    }
+
+    // RequestDialog-method:
+    public void onCancelRequestClick() {
+        // do nothing
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +102,7 @@ public class FindFriendsActivity extends AppCompatActivity {
 
     public void getFoundUsersWishLists() {
         int userId = foundUser.ID;
-        ListView listView = (ListView) findViewById(R.id.friendWishListsListView);
+        final ListView listView = (ListView) findViewById(R.id.friendWishListsListView);
 
         restWishListService.getService().getAllWishListsForUser(userId, new Callback<Response>() {
             @Override
@@ -95,7 +110,39 @@ public class FindFriendsActivity extends AppCompatActivity {
                 try {
                     JSONArray wishLists = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
 
+                    // place each wish list into the ListView:
 
+                    int length = wishLists.length();
+                    List<WishList> lists = new ArrayList<>(length);
+
+                    for (int i = 0; i < length; i++)
+                    {
+                        JSONObject oneList = wishLists.getJSONObject(i);
+
+                        WishList wishList = new WishList();
+                        wishList.ID = oneList.getInt("id");
+                        wishList.Name = oneList.getString("name");
+                        wishList.OwnerId = oneList.getInt("ownerId");
+
+                        lists.add(wishList);
+                    }
+
+                    listView.setAdapter(new ArrayAdapter<>(FindFriendsActivity.this,
+                            android.R.layout.simple_selectable_list_item, lists));
+
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            ListView lv = (ListView) parent;
+                            WishList w = (WishList) lv.getItemAtPosition((int) id);
+
+                            // Open dialog box to send request to the owner of the wish list:
+                            String message = getString(R.string.request_dialog_message);
+                            RequestDialog dialog = RequestDialog.newInstance(message);
+                            dialog.show(getFragmentManager(), "REQUEST");
+                            // waiting for the user to make a choice: Send or Cancel
+                        }
+                    });
                 } catch (JSONException je) {
                     Toast toast = Toast.makeText(FindFriendsActivity.this,
                             getApplicationContext().getString(R.string.json_exception),

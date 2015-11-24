@@ -6,14 +6,14 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-public class DeleteWishDialog extends DialogFragment {
+public class RequestDialog extends DialogFragment {
 
     private DialogClickListener callback;
 
     public interface DialogClickListener
     {
-        void onDeleteWishClick(int wishId);
-        void onCancelDeleteWishClick();
+        void onSendRequestClick();
+        void onCancelRequestClick();
     }
 
     @Override
@@ -28,12 +28,11 @@ public class DeleteWishDialog extends DialogFragment {
         }
     }
 
-    public static DeleteWishDialog newInstance(String message, int id)
+    public static RequestDialog newInstance(String message)
     {
-        DeleteWishDialog frag = new DeleteWishDialog();
+        RequestDialog frag = new RequestDialog();
         Bundle args = new Bundle();
         args.putString("message", message);
-        args.putInt("id", id);
         frag.setArguments(args);
         return frag;
     }
@@ -44,16 +43,16 @@ public class DeleteWishDialog extends DialogFragment {
 
         AlertDialog dialog = new AlertDialog.Builder(getActivity())
                 .setMessage(bundle.getString("message"))
-                .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onDeleteWishClick(bundle.getInt("id"));
+                        callback.onSendRequestClick();
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onCancelDeleteWishClick();
+                        callback.onCancelRequestClick();
                     }
                 }).create();
 
