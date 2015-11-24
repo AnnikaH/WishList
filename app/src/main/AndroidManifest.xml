@@ -74,6 +74,11 @@
             android:parentActivityName=".WishListMainActivity" >
         </activity>
 
+        <activity android:name=".FindFriendsActivity"
+            android:label="@string/find"
+            android:parentActivityName=".WishListMainActivity">
+        </activity>
+
         <activity android:name=".WatchWishListActivity"
             android:label="@string/friend_wish_list"
             android:parentActivityName=".WishListMainActivity" >

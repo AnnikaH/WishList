@@ -36,4 +36,7 @@
     <!-- NewWishActivity -->
     <dimen name="name_edit_width">245dp</dimen>
 
+    <!-- FindFriendsActivity -->
+    <dimen name="edit_search_width">240dp</dimen>
+
 </resources>

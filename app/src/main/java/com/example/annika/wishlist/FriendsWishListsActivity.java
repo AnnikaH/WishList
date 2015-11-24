@@ -129,11 +129,10 @@ public class FriendsWishListsActivity extends AppCompatActivity {
 
     // Onclick find friends-button
     public void findFriends(View view) {
-        /* TODO:
         Intent i = new Intent(this, FindFriendsActivity.class);
-        i.putExtra("", );
+        //i.putExtra("", );
         startActivity(i);
-        finish();*/
+        finish();
     }
 
     // Onclick received requests-button

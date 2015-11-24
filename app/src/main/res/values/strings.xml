@@ -98,12 +98,15 @@
     <string name="back_to_wish_list">Back to the wish list</string>
 
     <!-- FriendsWishListsActivity -->
-    <string name="friends_wish_lists_access">Wish lists you have access to</string>
-    <string name="find_friends">Find friends' wish lists</string>
+    <string name="find">Find friends</string>
+    <string name="friends_wish_lists_access">Wish lists you have access to:</string>
+    <string name="find_friends">Find friends\' wish lists</string>
     <string name="received_requests">Received requests</string>
     <string name="wish_list_error_message">An error occurred. Wish list not found.</string>
 
     <!-- WatchWishListActivity -->
     <string name="friend_wish_list">Your friend\'s wish list</string>
+
+    <!-- FindFriendsActivity -->
 
 </resources>

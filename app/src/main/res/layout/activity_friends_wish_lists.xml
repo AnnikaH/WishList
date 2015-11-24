@@ -31,10 +31,10 @@
 
     <!-- Header friends' wish lists that you have access to: -->
     <TextView
+        android:textStyle="bold"
         android:gravity="center"
         android:text="@string/friends_wish_lists_access"
         android:textSize="@dimen/text_size"
-        android:textColor="@color/friends_wish_lists_button_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
