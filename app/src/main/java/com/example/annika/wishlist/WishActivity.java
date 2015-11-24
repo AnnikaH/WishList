@@ -94,6 +94,9 @@ public class WishActivity extends AppCompatActivity {
     // Onclick edit-button
     public void editWish(View view) {
         Intent i = new Intent(this, EditWishActivity.class);
+        i.putExtra("WISHLISTNAME", wishListName);
+        i.putExtra("USERID", userId);
+
         i.putExtra("WISHID", wishId);
         i.putExtra("WISHNAME", wishName);
         i.putExtra("WISHSPESIFICATION", wishSpesification);

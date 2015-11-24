@@ -154,8 +154,7 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     // Onclick cancel-button:
-    public void cancelEditProfile(View view)
-    {
+    public void cancelEditProfile(View view) {
         Intent i = new Intent(this, ProfileActivity.class);
         i.putExtra("USERID", userId);
         startActivity(i);
