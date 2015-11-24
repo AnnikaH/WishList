@@ -10,4 +10,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin" >
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- Name of wish list inserted here: -->
+        <TextView
+            android:layout_marginStart="@dimen/list_name_margin_left"
+            android:textColor="@color/friends_wish_lists_button_color"
+            android:id="@+id/wishListNameHeader"
+            android:textSize="@dimen/header_wish_list_text_size"
+            android:layout_width="@dimen/wish_list_header_width"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/friendsWishesListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
 </LinearLayout>
