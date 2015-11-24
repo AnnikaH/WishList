@@ -17,6 +17,9 @@
 
         <!-- Name of wish list inserted here: -->
         <TextView
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/list_name_margin_left"
+            android:textColor="@color/my_wish_lists_button_color"
             android:id="@+id/wishListNameHeader"
             android:textSize="@dimen/header_wish_list_text_size"
             android:layout_width="wrap_content"
