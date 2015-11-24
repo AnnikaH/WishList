@@ -82,6 +82,8 @@
     <!--<string name="image">Image:</string>-->
     <string name="wish_registered">The wish was registered.</string>
     <string name="wish_registered_error_message">An error occurred. Wish not registered.</string>
+    <string name="name_error_message">Invalid name. Must be between 2 and 30 characters.</string>
+    <string name="price_error_message">Invalid price. Use decimal dot.</string>
 
     <!-- EditWishListNameDialog -->
     <string name="save">Save</string>

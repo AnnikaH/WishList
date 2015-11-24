@@ -82,6 +82,8 @@
     <!--<string name="image">Bilde:</string>-->
     <string name="wish_registered">Ønsket ble registrert.</string>
     <string name="wish_registered_error_message">Det oppstod en feil. Ønsket ble ikke registrert.</string>
+    <string name="name_error_message">Ugyldig navn. Må være mellom 2 og 30 tegn.</string>
+    <string name="price_error_message">Ugyldig pris. Bruk desimalpunktum.</string>
 
     <!-- EditWishListNameDialog -->
     <string name="save">Lagre</string>

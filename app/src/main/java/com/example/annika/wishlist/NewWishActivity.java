@@ -49,20 +49,28 @@ public class NewWishActivity extends AppCompatActivity {
         String spesification = spesEdit.getText().toString();
         String where = whereEdit.getText().toString();
         String link = linkEdit.getText().toString();
+        String priceString = priceEdit.getText().toString();
         double price;
 
         try {
-          price = Double.parseDouble(priceEdit.getText().toString());
+          price = Double.parseDouble(priceString);
         } catch (NumberFormatException nfe) {
             price = 0;
         }
 
         // Input validation (not all fields have to be filled in):
 
-        //if(!name.matches()) {
-            //return;
-        //}
-        // ... Check backend and registerUserActivity
+        // backend: [RegularExpression("^[a-zæøåA-ZÆØÅ0-9., \\-]{2,30}$")]
+        if(!name.matches("^[a-zæøåA-ZÆØÅ0-9., \\-]{2,30}$")) {
+            nameEdit.setError(getString(R.string.name_error_message));
+            return;
+        }
+
+        // backend: not required, but if filled in: [RegularExpression("^[0-9\\.]{0,9}$")]
+        if(!priceString.matches("^[0-9\\.]{0,9}$")) {
+            priceEdit.setError(getString(R.string.price_error_message));
+            return;
+        }
 
         Wish wish = new Wish();
         wish.Name = name;
