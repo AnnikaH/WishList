@@ -90,4 +90,9 @@
     <string name="list_name_updated">Navn på ønskeliste oppdatert.</string>
     <string name="list_name_updated_error_message">Det oppstod en feil. Navn på ønskeliste ble ikke oppdatert.</string>
 
+    <!-- WishActivity -->
+    <string name="wish">Ønske</string>
+    <string name="wish_error_message">Det oppstod en feil. Ønsket ble ikke funnet.</string>
+    <string name="back_to_wish_list">Tilbake til ønskelisten</string>
+
 </resources>

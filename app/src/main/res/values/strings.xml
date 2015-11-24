@@ -90,4 +90,9 @@
     <string name="list_name_updated">The wish list name was successfully updated.</string>
     <string name="list_name_updated_error_message">An error occurred. Wish list name not updated.</string>
 
+    <!-- WishActivity -->
+    <string name="wish">Wish</string>
+    <string name="wish_error_message">An error occurred. Wish not found.</string>
+    <string name="back_to_wish_list">Back to the wish list</string>
+
 </resources>

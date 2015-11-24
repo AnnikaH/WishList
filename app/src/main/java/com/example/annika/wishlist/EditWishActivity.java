@@ -14,6 +14,18 @@ public class EditWishActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_wish);
 
         // getIntent().get...Extra();
+/*
+        i.putExtra("WISHID", wishId);
+        i.putExtra("WISHNAME", wishName);
+        i.putExtra("WISHSPESIFICATION", wishSpesification);
+
+        // TODO: POSSIBLE?:
+        //i.putExtra("WISHIMAGE", wishImage);
+
+        i.putExtra("WISHLINK", wishLink);
+        i.putExtra("WISHPRICE", wishPrice);
+        i.putExtra("WISHWHERE", wishWhere);
+        i.putExtra("WISHWISHLISTID", wishWishListId);*/
     }
 
     @Override

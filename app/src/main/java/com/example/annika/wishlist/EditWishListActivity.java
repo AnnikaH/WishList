@@ -179,18 +179,21 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
                             Wish w = (Wish) lv.getItemAtPosition((int) id);
 
                             // Go to EditWishListActivity and send in the id and name of the wish list selected:
-                            Intent i = new Intent(EditWishListActivity.this, EditWishActivity.class);
+                            Intent i = new Intent(EditWishListActivity.this, WishActivity.class);
                             i.putExtra("WISHID", w.ID);
-                            i.putExtra("WISHNAME", w.Name);
-                            i.putExtra("WISHSPESIFICATION", w.Spesification);
+                            i.putExtra("WISHLISTNAME", wishListName);
+                            i.putExtra("USERID", userId);
+
+                            //i.putExtra("WISHNAME", w.Name);
+                            //i.putExtra("WISHSPESIFICATION", w.Spesification);
 
                             // TODO: POSSIBLE?:
-                            i.putExtra("WISHIMAGE", w.Image);
+                            //i.putExtra("WISHIMAGE", w.Image);
 
-                            i.putExtra("WISHLINK", w.Link);
-                            i.putExtra("WISHPRICE", w.Price);
-                            i.putExtra("WISHWHERE", w.Where);
-                            i.putExtra("WISHWISHLISTID", w.WishListId);
+                            //i.putExtra("WISHLINK", w.Link);
+                            //i.putExtra("WISHPRICE", w.Price);
+                            //i.putExtra("WISHWHERE", w.Where);
+                            //i.putExtra("WISHWISHLISTID", w.WishListId);
                             startActivity(i);
                             finish();
                         }
