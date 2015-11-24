@@ -92,12 +92,28 @@ public class FindFriendsActivity extends AppCompatActivity {
         restWishListService.getService().getAllWishListsForUser(userId, new Callback<Response>() {
             @Override
             public void success(Response response, Response response2) {
+                try {
+                    JSONArray wishLists = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
 
+
+                } catch (JSONException je) {
+                    Toast toast = Toast.makeText(FindFriendsActivity.this,
+                            getApplicationContext().getString(R.string.json_exception),
+                            Toast.LENGTH_SHORT);
+                    View toastView = toast.getView();
+                    toastView.setBackgroundResource(R.color.background_color);
+                    toast.show();
+                }
             }
 
             @Override
             public void failure(RetrofitError error) {
-
+                Toast toast = Toast.makeText(FindFriendsActivity.this,
+                        getApplicationContext().getString(R.string.get_wish_list_error_message),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
             }
         });
     }
