@@ -97,4 +97,13 @@
     <string name="wish_error_message">Det oppstod en feil. Ønsket ble ikke funnet.</string>
     <string name="back_to_wish_list">Tilbake til ønskelisten</string>
 
+    <!-- FriendsWishListsActivity -->
+    <string name="friends_wish_lists_access">Ønskelister du har tilgang til</string>
+    <string name="find_friends">Finn venners ønskelister</string>
+    <string name="received_requests">Mottatte forespørsler</string>
+    <string name="wish_list_error_message">Det oppstod en feil. Ønskeliste ble ikke funnet.</string>
+
+    <!-- WatchWishListActivity -->
+    <string name="friend_wish_list">Din venns ønskeliste</string>
+
 </resources>
