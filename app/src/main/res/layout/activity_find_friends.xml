@@ -38,13 +38,7 @@
             android:onClick="searchForFriendByUserName" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/friendListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
-
-    <!-- Onclick user in ListView above (searched for): add wish lists to this ListView: -->
+    <!-- The wish lists to the user that is searched for in ListView above is added to this ListView: -->
     <ListView
         android:id="@+id/friendWishListsListView"
         android:layout_width="match_parent"

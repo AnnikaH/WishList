@@ -14,8 +14,8 @@ public interface UserService {
 
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User
     // Get
-    //@GET("/User")
-    //void getUser(Callback<List<User>> callback);
+    @GET("/User")
+    void getAllUsers(Callback<Response> callback);
 
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/User/5
     // Get

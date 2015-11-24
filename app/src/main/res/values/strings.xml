@@ -108,5 +108,6 @@
     <string name="friend_wish_list">Your friend\'s wish list</string>
 
     <!-- FindFriendsActivity -->
+    <string name="user_error_message">An error occurred. Users not found.</string>
 
 </resources>

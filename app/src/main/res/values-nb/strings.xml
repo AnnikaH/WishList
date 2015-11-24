@@ -107,4 +107,7 @@
     <!-- WatchWishListActivity -->
     <string name="friend_wish_list">Din venns ønskeliste</string>
 
+    <!-- FindFriendsActivity -->
+    <string name="user_error_message">Det oppstod en feil. Brukere ikke funnet.</string>
+
 </resources>
