@@ -4,4 +4,5 @@ public class Sharing {
     public int ID;
     public int UserId;     // foreign key from User
     public int WishListId; // foreign key from WishList
+    public boolean Confirmed;
 }

@@ -28,11 +28,54 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
 
     private RestUserService restUserService;
     private RestWishListService restWishListService;
+    private RestSharingService restSharingService;
     private User foundUser;
+    private int userId;
 
     // RequestDialog-method:
-    public void onSendRequestClick() {
+    public void onSendRequestClick(int requestedWishListId) {
+        // post a new Sharing with this wishListId and this userId and set Confirmed to false (awaiting answer):
 
+        if(userId == -1) {
+            Toast toast = Toast.makeText(FindFriendsActivity.this,
+                    getApplicationContext().getString(R.string.sharing_added_error_message),
+                    Toast.LENGTH_SHORT);
+            View toastView = toast.getView();
+            toastView.setBackgroundResource(R.color.background_color);
+            toast.show();
+            return;
+        }
+
+        Sharing sharing = new Sharing();
+        sharing.UserId = userId;
+        sharing.WishListId = requestedWishListId;
+        sharing.Confirmed = false;
+
+        // post:
+        restSharingService.getService().addSharing(sharing, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                Toast toast = Toast.makeText(FindFriendsActivity.this,
+                        getApplicationContext().getString(R.string.sharing_added),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // TODO: SMSDIALOG BOX IF THE USER WANTS TO SEND AN SMS TO NOTIFY THE OWNER OF THE WISH LIST
+                //sendSMS(requestedWishListName);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(FindFriendsActivity.this,
+                        getApplicationContext().getString(R.string.sharing_added_error_message),
+                        Toast.LENGTH_LONG);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
     }
 
     // RequestDialog-method:
@@ -40,15 +83,25 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
         // do nothing
     }
 
+    public void sendSMS(String listName) {
+        // TODO: FINISH:
+
+        // send an SMS to the foundUser to notify him/her that you want access to the specified
+        // wishlist (listId/listName) and that he/she needs to check their app to confirm:
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_friends);
 
-        // getIntent()...?
+        userId = getIntent().getIntExtra("USERID", -1);
 
         restUserService = new RestUserService();
         restWishListService = new RestWishListService();
+        restSharingService = new RestSharingService();
     }
 
     // Onclick search-button:
@@ -138,7 +191,8 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
 
                             // Open dialog box to send request to the owner of the wish list:
                             String message = getString(R.string.request_dialog_message);
-                            RequestDialog dialog = RequestDialog.newInstance(message);
+                            int wishListId = w.ID;
+                            RequestDialog dialog = RequestDialog.newInstance(message, wishListId);
                             dialog.show(getFragmentManager(), "REQUEST");
                             // waiting for the user to make a choice: Send or Cancel
                         }

@@ -110,8 +110,13 @@
     <!-- FindFriendsActivity -->
     <string name="user_error_message">Det oppstod en feil. Brukere ikke funnet.</string>
     <string name="request_dialog_message">Vil du sende en forespørsel til eieren for å få tilgang til denne ønskelisten?</string>
+    <string name="sharing_added">Forespørsel sendt.</string>
+    <string name="sharing_added_error_message">Det oppstod en feil. Forespørselen ble ikke sendt.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>
+
+    <!-- ReceivedRequestsActivity -->
+    <string name="requests">Forespørsler</string>
 
 </resources>

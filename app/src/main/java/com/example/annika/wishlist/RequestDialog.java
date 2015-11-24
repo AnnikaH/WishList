@@ -12,7 +12,7 @@ public class RequestDialog extends DialogFragment {
 
     public interface DialogClickListener
     {
-        void onSendRequestClick();
+        void onSendRequestClick(int wishListId);
         void onCancelRequestClick();
     }
 
@@ -28,11 +28,12 @@ public class RequestDialog extends DialogFragment {
         }
     }
 
-    public static RequestDialog newInstance(String message)
+    public static RequestDialog newInstance(String message, int wishListId)
     {
         RequestDialog frag = new RequestDialog();
         Bundle args = new Bundle();
         args.putString("message", message);
+        args.putInt("wishListId", wishListId);
         frag.setArguments(args);
         return frag;
     }
@@ -46,7 +47,7 @@ public class RequestDialog extends DialogFragment {
                 .setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onSendRequestClick();
+                        callback.onSendRequestClick(bundle.getInt("wishListId"));
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {

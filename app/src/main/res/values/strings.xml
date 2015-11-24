@@ -110,8 +110,13 @@
     <!-- FindFriendsActivity -->
     <string name="user_error_message">An error occurred. Users not found.</string>
     <string name="request_dialog_message">Do you want to send a request to the owner to get access to this wish list?</string>
+    <string name="sharing_added">Request sent.</string>
+    <string name="sharing_added_error_message">An error occurred. The request wasn\'t sent.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>
+
+    <!-- ReceivedRequestsActivity -->
+    <string name="requests">Requests</string>
 
 </resources>
