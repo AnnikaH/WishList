@@ -27,10 +27,11 @@
     <dimen name="add_button_height">30dp</dimen>
 
     <!-- EditWishListActivity -->
-    <dimen name="header_wish_list_text_size">20sp</dimen>
+    <dimen name="header_wish_list_text_size">24sp</dimen>
     <dimen name="edit_button_width">25dp</dimen>
     <dimen name="edit_button_height">25dp</dimen>
     <dimen name="list_name_margin_left">8dp</dimen>
+    <dimen name="wish_list_header_width">205dp</dimen>
 
     <!-- NewWishActivity -->
     <dimen name="name_edit_width">245dp</dimen>
