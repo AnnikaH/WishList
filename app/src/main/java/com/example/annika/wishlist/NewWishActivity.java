@@ -5,10 +5,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class NewWishActivity extends AppCompatActivity {
 
     private int wishListId;
+    private String wishListName;
+    private int userId;
+    private RestWishService restWishService;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +29,96 @@ public class NewWishActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_wish);
 
         wishListId = getIntent().getIntExtra("WISHLISTID", -1);
+        wishListName = getIntent().getStringExtra("WISHLISTNAME");
+        userId = getIntent().getIntExtra("USERID", -1);
 
+        restWishService = new RestWishService();
+    }
 
+    // Onclick register new wish-button
+    public void registerNewWish(View view) {
+        EditText nameEdit = (EditText) findViewById(R.id.wishName);
+        EditText spesEdit = (EditText) findViewById(R.id.wishSpesification);
+        EditText whereEdit = (EditText) findViewById(R.id.wishWhere);
+        EditText linkEdit = (EditText) findViewById(R.id.wishLink);
+        EditText priceEdit = (EditText) findViewById(R.id.wishPrice);
+
+        //TODO: ImageView imageView = (ImageView) findViewById(R.id.wishImage);
+
+        String name = nameEdit.getText().toString();
+        String spesification = spesEdit.getText().toString();
+        String where = whereEdit.getText().toString();
+        String link = linkEdit.getText().toString();
+        double price;
+
+        try {
+          price = Double.parseDouble(priceEdit.getText().toString());
+        } catch (NumberFormatException nfe) {
+            price = 0;
+        }
+
+        // Input validation (not all fields have to be filled in):
+
+        //if(!name.matches()) {
+            //return;
+        //}
+        // ... Check backend and registerUserActivity
+
+        Wish wish = new Wish();
+        wish.Name = name;
+        wish.Spesification = spesification;
+        wish.Where = where;
+        wish.Link = link;
+        wish.Price = price;
+        wish.WishListId = wishListId;
+        // TODO: wish.Image = image;
+
+        // disable button click (in case it takes some time):
+        button = (Button) view;
+        button.setEnabled(false);
+
+        // post wish to server database:
+        restWishService.getService().addWish(wish, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                Toast toast = Toast.makeText(NewWishActivity.this,
+                        getApplicationContext().getString(R.string.wish_registered),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                Intent i = new Intent(NewWishActivity.this, EditWishListActivity.class);
+                i.putExtra("WISHLISTID", wishListId);
+                i.putExtra("WISHLISTNAME", wishListName);
+                i.putExtra("USERID", userId);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(NewWishActivity.this,
+                        getApplicationContext().getString(R.string.wish_registered_error_message),
+                        Toast.LENGTH_LONG);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // enable button again:
+                button.setEnabled(true);
+            }
+        });
+    }
+
+    // Onclick cancel-button
+    public void cancelNewWish(View view) {
+        Intent i = new Intent(this, EditWishListActivity.class);
+        i.putExtra("WISHLISTID", wishListId);
+        i.putExtra("WISHLISTNAME", wishListName);
+        i.putExtra("USERID", userId);
+        startActivity(i);
+        finish();
     }
 
     @Override

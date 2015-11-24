@@ -241,6 +241,8 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
     public void createNewWish(View view) {
         Intent i = new Intent(this, NewWishActivity.class);
         i.putExtra("WISHLISTID", wishListId);
+        i.putExtra("WISHLISTNAME", wishListName);
+        i.putExtra("USERID", userId);
         startActivity(i);
         finish();
     }

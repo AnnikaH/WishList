@@ -74,6 +74,14 @@
 
     <!-- NewWishActivity -->
     <string name="new_wish">New wish</string>
+    <string name="name">Name:</string>
+    <string name="spesification">Description:</string>
+    <string name="link">Link:</string>
+    <string name="price">Price:</string>
+    <string name="where">Buy it here:</string>
+    <!--<string name="image">Image:</string>-->
+    <string name="wish_registered">The wish was registered.</string>
+    <string name="wish_registered_error_message">An error occurred. Wish not registered.</string>
 
     <!-- EditWishListNameDialog -->
     <string name="save">Save</string>

@@ -74,6 +74,14 @@
 
     <!-- NewWishActivity -->
     <string name="new_wish">Nytt ønske</string>
+    <string name="name">Navn:</string>
+    <string name="spesification">Beskrivelse:</string>
+    <string name="link">Link:</string>
+    <string name="price">Pris:</string>
+    <string name="where">Kjøpes her:</string>
+    <!--<string name="image">Bilde:</string>-->
+    <string name="wish_registered">Ønsket ble registrert.</string>
+    <string name="wish_registered_error_message">Det oppstod en feil. Ønsket ble ikke registrert.</string>
 
     <!-- EditWishListNameDialog -->
     <string name="save">Lagre</string>
