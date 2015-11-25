@@ -23,12 +23,56 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class ReceivedRequestsActivity extends AppCompatActivity {
+public class ReceivedRequestsActivity extends AppCompatActivity implements ConfirmRequestDialog.DialogClickListener {
 
     private int userId;
     private RestSharingService restSharingService;
     private RestWishListService restWishListService;
     private RestUserService restUserService;
+
+    // ConfirmRequestDialog-method
+    public void onConfirmClick(int sharingId, int uId, int listId) {
+        // set Sharing's Confirmation to true:
+        Sharing sharing = new Sharing();
+        sharing.ID = sharingId;
+        sharing.UserId = uId;
+        sharing.WishListId = listId;
+        sharing.Confirmed = true;
+
+        // put:
+        restSharingService.getService().updateSharingById(sharingId, sharing, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                Toast toast = Toast.makeText(ReceivedRequestsActivity.this,
+                        getApplicationContext().getString(R.string.sharing_updated),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // Refresh activity (the confirmed request/sharing should be gone:
+                Intent i = new Intent(ReceivedRequestsActivity.this, ReceivedRequestsActivity.class);
+                i.putExtra("USERID", userId);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(ReceivedRequestsActivity.this,
+                        getApplicationContext().getString(R.string.sharing_updated_error_message),
+                        Toast.LENGTH_LONG);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
+    }
+
+    // ConfirmRequestDialog-method
+    public void onCancelConfirmClick() {
+        // do nothing
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,16 +296,12 @@ public class ReceivedRequestsActivity extends AppCompatActivity {
                 ListView lv = (ListView) parent;
                 Request r = (Request) lv.getItemAtPosition((int) id);
 
-                // TODO: Confirm dialog box:
-
-
-                /* Go to EditWishListActivity and send in the id and name of the wish list selected:
-                Intent i = new Intent(FriendsWishListsActivity.this, WatchWishListActivity.class);
-                i.putExtra("WISHLISTID", w.ID);
-                i.putExtra("WISHLISTNAME", w.Name);
-                i.putExtra("OWNERID", w.OwnerId);
-                startActivity(i);
-                finish();*/
+                // Dialog box so the user can confirm the request:
+                String message = getString(R.string.confirm_message);
+                ConfirmRequestDialog dialog = ConfirmRequestDialog.newInstance(message,
+                        r.SharingID, r.UserId, r.WishListId);
+                dialog.show(getFragmentManager(), "CONFIRMATION");
+                // waiting for the user to make a choice: Confirm or Cancel
             }
         });
     }

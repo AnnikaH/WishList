@@ -119,5 +119,11 @@
     <!-- ReceivedRequestsActivity -->
     <string name="requests">Requests</string>
     <string name="get_sharing_error_message">An error occurred. Requests not found.</string>
+    <string name="confirm_message">Do you want to allow this user to access this wish list?</string>
+
+    <!-- ConfirmRequestDialog -->
+    <string name="confirm">Allow access</string>
+    <string name="sharing_updated">The request is confirmed.</string>
+    <string name="sharing_updated_error_message">An error occurred. The request wasn\'t confirmed.</string>
 
 </resources>

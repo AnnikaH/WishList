@@ -1,6 +1,6 @@
 package com.example.annika.wishlist;
 
-// Helper class to display request in a good way (with names instead of ids)
+// Helper class to display request in a good way (with names instead of just ids)
 public class Request {
     public int SharingID;
     public int WishListId;

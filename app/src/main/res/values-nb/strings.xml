@@ -119,5 +119,11 @@
     <!-- ReceivedRequestsActivity -->
     <string name="requests">Forespørsler</string>
     <string name="get_sharing_error_message">Det oppstod en feil. Forespørsler ikke funnet.</string>
+    <string name="confirm_message">Vil du gi denne brukeren tilgang til denne ønskelisten?</string>
+
+    <!-- ConfirmRequestDialog -->
+    <string name="confirm">Gi tilgang</string>
+    <string name="sharing_updated">Forespørselen er godtatt.</string>
+    <string name="sharing_updated_error_message">Det oppstod en feil. Forespørselen ble ikke godtatt.</string>
 
 </resources>
