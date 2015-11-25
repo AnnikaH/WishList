@@ -60,6 +60,7 @@
     <string name="wish_list_deleted_error_message">An error occurred. Wish list not deleted.</string>
     <string name="delete_list_dialog_message">Do you want to delete the wish list</string>
     <string name="get_wish_list_error_message">An error occurred. Wish lists not found.</string>
+    <string name="wish_lists">Wish lists</string>
 
     <!-- EditWishListActivity -->
     <string name="edit_wish_list">Add wishes</string>

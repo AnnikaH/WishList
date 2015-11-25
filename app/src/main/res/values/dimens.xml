@@ -25,6 +25,9 @@
     <!-- MyWishListsActivity -->
     <dimen name="add_button_width">30dp</dimen>
     <dimen name="add_button_height">30dp</dimen>
+    <dimen name="add_list_button_width">30dp</dimen>
+    <dimen name="add_list_button_height">40dp</dimen>
+    <dimen name="wish_lists_header_width">245dp</dimen>
 
     <!-- EditWishListActivity -->
     <dimen name="header_wish_list_text_size">24sp</dimen>
@@ -45,5 +48,6 @@
 
     <!-- TipsFriendsActivity -->
     <dimen name="plus_padding_top">3dp</dimen>
+    <dimen name="tips_header_width">150dp</dimen>
 
 </resources>

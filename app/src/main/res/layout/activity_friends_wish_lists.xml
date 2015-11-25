@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="findFriends"
-        android:background="@drawable/shape_log_in_button" />
+        android:background="@drawable/shape_friends_wish_lists_button" />
 
     <Button
         android:textAllCaps="false"
