@@ -15,6 +15,11 @@ public interface SharingService {
     @GET("/SharingHelper/{id}")
     void getAllSharingsForUser(@Path("id") Integer id, Callback<Response> callback);
 
+    // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/Sharing
+    // Get
+    @GET("/Sharing")
+    void getAllSharings(Callback<Response> callback);
+
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/Sharing/5
     // Get
     @GET("/Sharing/{id}")

@@ -118,5 +118,6 @@
 
     <!-- ReceivedRequestsActivity -->
     <string name="requests">Requests</string>
+    <string name="get_sharing_error_message">An error occurred. Requests not found.</string>
 
 </resources>

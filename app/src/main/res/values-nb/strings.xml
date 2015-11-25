@@ -118,5 +118,6 @@
 
     <!-- ReceivedRequestsActivity -->
     <string name="requests">Forespørsler</string>
+    <string name="get_sharing_error_message">Det oppstod en feil. Forespørsler ikke funnet.</string>
 
 </resources>
