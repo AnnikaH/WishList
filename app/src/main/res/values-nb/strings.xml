@@ -118,6 +118,7 @@
     <string name="sms_message">Hei! Jeg vil gjerne se en av ønskelistene dine. Bekreft forespørselen min i Mine Ønsker-appen din.</string>
     <string name="sms_dialog_message">Vil du sende en SMS for å gi beskjed til eieren om at du vil ha tilgang til denne ønskelisten?</string>
     <string name="sms_sent">SMS sendt.</string>
+    <string name="request_exists">Forespørsel er allerede sendt.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>

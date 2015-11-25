@@ -118,6 +118,7 @@
     <string name="sms_message">Hello! I would like to have access to one of your wish lists. Confirm my request in your My Wishes-app.</string>
     <string name="sms_dialog_message">Do you want to send an SMS to notify the owner that you want access to this wish list?</string>
     <string name="sms_sent">SMS was sent.</string>
+    <string name="request_exists">Request is already sent.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>

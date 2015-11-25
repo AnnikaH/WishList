@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,7 +36,8 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
 
     // RequestDialog-method:
     public void onSendRequestClick(int requestedWishListId) {
-        // post a new Sharing with this wishListId and this userId and set Confirmed to false (awaiting answer):
+        // post a new Sharing with this wishListId and this userId and set Confirmed to false (awaiting answer),
+        // but only if there isn't a sharing with this userId and this wishListId from before:
 
         if(userId == -1) {
             Toast toast = Toast.makeText(FindFriendsActivity.this,
@@ -47,34 +49,60 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
             return;
         }
 
-        Sharing sharing = new Sharing();
+        final Sharing sharing = new Sharing();
         sharing.UserId = userId;
         sharing.WishListId = requestedWishListId;
         sharing.Confirmed = false;
 
-        // post:
-        restSharingService.getService().addSharing(sharing, new Callback<Response>() {
+        restSharingService.getService().checkIfSharingExists(sharing, new Callback<String>() {
             @Override
-            public void success(Response response, Response response2) {
-                Toast toast = Toast.makeText(FindFriendsActivity.this,
-                        getApplicationContext().getString(R.string.sharing_added),
-                        Toast.LENGTH_SHORT);
-                View toastView = toast.getView();
-                toastView.setBackgroundResource(R.color.background_color);
-                toast.show();
+            public void success(String response, Response response2) {
+                if(response.equals("true")) {   // there already exists a sharing/request with this userId and this wishListId
+                    Toast toast = Toast.makeText(FindFriendsActivity.this,
+                            getApplicationContext().getString(R.string.request_exists),
+                            Toast.LENGTH_SHORT);
+                    View toastView = toast.getView();
+                    toastView.setBackgroundResource(R.color.background_color);
+                    toast.show();
+                    return;
+                }
 
-                // TODO: SMSDIALOG BOX IF THE USER WANTS TO SEND AN SMS TO NOTIFY THE OWNER OF THE WISH LIST
-                String message = getString(R.string.sms_dialog_message);
-                SMSDialog dialog = SMSDialog.newInstance(message);
-                dialog.show(getFragmentManager(), "SMS");
-                // waiting for the user to make a choice: Send or Cancel
+                // if response equals "false":
+                // post:
+                restSharingService.getService().addSharing(sharing, new Callback<Response>() {
+                    @Override
+                    public void success(Response response, Response response2) {
+                        Toast toast = Toast.makeText(FindFriendsActivity.this,
+                                getApplicationContext().getString(R.string.sharing_added),
+                                Toast.LENGTH_SHORT);
+                        View toastView = toast.getView();
+                        toastView.setBackgroundResource(R.color.background_color);
+                        toast.show();
+
+                        // SMSDialog box if the user wants to send an SMS to notify the wish list owner
+                        String message = getString(R.string.sms_dialog_message);
+                        SMSDialog dialog = SMSDialog.newInstance(message);
+                        dialog.show(getFragmentManager(), "SMS");
+                        // waiting for the user to make a choice: Send or Cancel
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Toast toast = Toast.makeText(FindFriendsActivity.this,
+                                getApplicationContext().getString(R.string.sharing_added_error_message),
+                                Toast.LENGTH_LONG);
+                        View toastView = toast.getView();
+                        toastView.setBackgroundResource(R.color.background_color);
+                        toast.show();
+                    }
+                });
             }
 
             @Override
             public void failure(RetrofitError error) {
                 Toast toast = Toast.makeText(FindFriendsActivity.this,
                         getApplicationContext().getString(R.string.sharing_added_error_message),
-                        Toast.LENGTH_LONG);
+                        Toast.LENGTH_SHORT);
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();

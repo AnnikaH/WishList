@@ -30,6 +30,10 @@ public interface SharingService {
     @POST("/Sharing")
     void addSharing(@Body Sharing sharing, Callback<Response> callback);
 
+    // Check if sharing exists
+    @POST("/SharingHelper")
+    void checkIfSharingExists(@Body Sharing sharing, Callback<String> callback);
+
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/Sharing/5
     // Update/put
     @PUT("/Sharing/{id}")
