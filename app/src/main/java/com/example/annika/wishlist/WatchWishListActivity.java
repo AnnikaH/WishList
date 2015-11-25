@@ -45,6 +45,15 @@ public class WatchWishListActivity extends AppCompatActivity {
                 try {
                     JSONObject userObject = new JSONObject(new String(((TypedByteArray) response.getBody()).getBytes()));
                     ownerUserName = userObject.getString("userName");
+
+                    // setText in TextView: wishListName and ownerUserName
+                    TextView headerTextView = (TextView) findViewById(R.id.wishListNameHeader);
+                    headerTextView.setText(ownerUserName + ": " + wishListName);
+
+                    // TODO: get all wishes for this wishlist and show them in the ListView (friendsWishesListView):
+                    // onclick each wish: see details for the wish
+
+
                 } catch (JSONException je) {
                     Toast toast = Toast.makeText(WatchWishListActivity.this,
                             getApplicationContext().getString(R.string.json_exception),
@@ -65,15 +74,6 @@ public class WatchWishListActivity extends AppCompatActivity {
                 toast.show();
             }
         });
-
-        // setText in TextView: wishListName and ownerUserName
-        TextView headerTextView = (TextView) findViewById(R.id.wishListNameHeader);
-        headerTextView.setText(ownerUserName + ": " + wishListName);
-
-        // TODO: get all wishes for this wishlist and show them in the ListView (friendsWishesListView):
-        // onclick each wish: see details for the wish
-
-
     }
 
     @Override
