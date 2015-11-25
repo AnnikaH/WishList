@@ -58,13 +58,13 @@
     <string name="wish_list_added_error_message">Det oppstod en feil. Ønskelisten ble ikke lagt til.</string>
     <string name="wish_list_deleted">Ønskelisten ble slettet.</string>
     <string name="wish_list_deleted_error_message">Det oppstod en feil. Ønskelisten ble ikke slettet.</string>
-    <string name="delete_list_dialog_message">Vil du virkelig slette ønskelisten</string>
+    <string name="delete_list_dialog_message">Vil du slette ønskelisten</string>
     <string name="get_wish_list_error_message">Det oppstod en feil. Ønskelister ikke funnet.</string>
 
     <!-- EditWishListActivity -->
     <string name="edit_wish_list">Legg til ønsker</string>
     <string name="get_wish_error_message">Det oppstod en feil. Ønsker ikke funnet.</string>
-    <string name="delete_wish_dialog_message">Vil du virkelig slette ønsket</string>
+    <string name="delete_wish_dialog_message">Vil du slette ønsket</string>
     <string name="wish_deleted">Ønsket ble slettet.</string>
     <string name="wish_deleted_error_message">Det oppstod en feil. Ønsket ble ikke slettet.</string>
     <string name="edit_list_name_dialog_message">Rediger navn på ønskelisten:</string>
@@ -128,6 +128,9 @@
     <string name="requests">Forespørsler</string>
     <string name="get_sharing_error_message">Det oppstod en feil. Forespørsler ikke funnet.</string>
     <string name="confirm_message">Vil du gi denne brukeren tilgang til denne ønskelisten?</string>
+    <string name="sharing_deleted">Forespørselen ble slettet.</string>
+    <string name="sharing_deleted_error_message">Det oppstod en feil. Forespørselen ble ikke slettet.</string>
+    <string name="delete_request_dialog_message">Vil du slette denne forespørselen?</string>
 
     <!-- ConfirmRequestDialog -->
     <string name="confirm">Gi tilgang</string>

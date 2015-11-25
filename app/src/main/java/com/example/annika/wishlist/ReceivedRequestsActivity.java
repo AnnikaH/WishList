@@ -23,7 +23,8 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class ReceivedRequestsActivity extends AppCompatActivity implements ConfirmRequestDialog.DialogClickListener {
+public class ReceivedRequestsActivity extends AppCompatActivity implements ConfirmRequestDialog.DialogClickListener,
+        DeleteRequestDialog.DialogClickListener {
 
     private int userId;
     private RestSharingService restSharingService;
@@ -71,6 +72,42 @@ public class ReceivedRequestsActivity extends AppCompatActivity implements Confi
 
     // ConfirmRequestDialog-method
     public void onCancelConfirmClick() {
+        // do nothing
+    }
+
+    // DeleteRequestDialog-method
+    public void onDeleteRequestClick(int sharingId) {
+        restSharingService.getService().deleteSharingById(sharingId, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                Toast toast = Toast.makeText(ReceivedRequestsActivity.this,
+                        getApplicationContext().getString(R.string.sharing_deleted),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // Refresh activity
+                Intent i = new Intent(ReceivedRequestsActivity.this, ReceivedRequestsActivity.class);
+                i.putExtra("USERID", userId);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(ReceivedRequestsActivity.this,
+                        getApplicationContext().getString(R.string.sharing_deleted_error_message),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
+    }
+
+    // DeleteRequestDialog-method
+    public void onCancelDeleteRequestClick() {
         // do nothing
     }
 
@@ -302,6 +339,24 @@ public class ReceivedRequestsActivity extends AppCompatActivity implements Confi
                         r.SharingID, r.UserId, r.WishListId);
                 dialog.show(getFragmentManager(), "CONFIRMATION");
                 // waiting for the user to make a choice: Confirm or Cancel
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected WishList:
+                ListView lv = (ListView) parent;
+                Request r = (Request) lv.getItemAtPosition((int) id);
+
+                // Dialog box for deleting the request/sharing (DeleteRequestDialog):
+                String message = getString(R.string.delete_request_dialog_message);
+                int sharingId = r.SharingID;
+                DeleteRequestDialog dialog = DeleteRequestDialog.newInstance(message, sharingId);
+                dialog.show(getFragmentManager(), "DELETE");
+                // waiting for the user to make a choice: Delete or Cancel
+
+                return true;
             }
         });
     }

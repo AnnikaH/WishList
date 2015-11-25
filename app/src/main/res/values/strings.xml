@@ -58,13 +58,13 @@
     <string name="wish_list_added_error_message">An error occurred. No wish list added.</string>
     <string name="wish_list_deleted">The wish list was successfully deleted.</string>
     <string name="wish_list_deleted_error_message">An error occurred. Wish list not deleted.</string>
-    <string name="delete_list_dialog_message">Do you really want to delete the wish list</string>
+    <string name="delete_list_dialog_message">Do you want to delete the wish list</string>
     <string name="get_wish_list_error_message">An error occurred. Wish lists not found.</string>
 
     <!-- EditWishListActivity -->
     <string name="edit_wish_list">Add wishes</string>
     <string name="get_wish_error_message">An error occurred. Wishes not found.</string>
-    <string name="delete_wish_dialog_message">Do you really want to delete the wish</string>
+    <string name="delete_wish_dialog_message">Do you want to delete the wish</string>
     <string name="wish_deleted">The wish was successfully deleted.</string>
     <string name="wish_deleted_error_message">An error occurred. Wish not deleted.</string>
     <string name="edit_list_name_dialog_message">Edit wish list name:</string>
@@ -128,6 +128,9 @@
     <string name="requests">Requests</string>
     <string name="get_sharing_error_message">An error occurred. Requests not found.</string>
     <string name="confirm_message">Do you want to allow this user to access this wish list?</string>
+    <string name="sharing_deleted">The request was deleted.</string>
+    <string name="sharing_deleted_error_message">An error occurred. The request was not deleted.</string>
+    <string name="delete_request_dialog_message">Do you want to delete this request?</string>
 
     <!-- ConfirmRequestDialog -->
     <string name="confirm">Allow access</string>
