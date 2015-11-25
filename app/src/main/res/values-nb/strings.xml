@@ -133,5 +133,8 @@
     <string name="bought">Kjøpt:</string>
     <string name="buy">Merk som kjøpt</string>
     <string name="buy_message">Er du sikker på at du vil merke ønsket som kjøpt? (Du kan ikke endre det senere)</string>
+    <string name="wish_already_bought">Dette ønsket er allerede kjøpt.</string>
+    <string name="wish_bought">Du har kjøpt dette ønsket.</string>
+    <string name="wish_bought_error_message">Det oppstod en feil. Ønsket kunne ikke merkes som kjøpt.</string>
 
 </resources>

@@ -1,6 +1,5 @@
 package com.example.annika.wishlist;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,10 +24,59 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
     private String wishListName;
     private int ownerId;
     private RestWishService restWishService;
+    private boolean wishBought;
+    private String wishName;
+    private String wishWhere;
+    private double wishPrice;
+    // TODO: private Image wishImage;
+    private String wishLink;
+    private String wishSpecification;
 
     // WishBoughtDialog-method
     public void onBuyClick() {
+        if(wishBought) {
+            Toast toast = Toast.makeText(WatchWishActivity.this,
+                    getApplicationContext().getString(R.string.wish_already_bought),
+                    Toast.LENGTH_LONG);
+            View toastView = toast.getView();
+            toastView.setBackgroundResource(R.color.background_color);
+            toast.show();
+        }
+        else {
+            Wish wish = new Wish();
+            wish.ID = wishId;
+            wish.Name = wishName;
+            wish.Where = wishWhere;
+            wish.WishListId = wishListId;
+            wish.Price = wishPrice;
+            //TODO: wish.Image = wishImage;
+            wish.Link = wishLink;
+            wish.Spesification = wishSpecification;
+            wish.Bought = true;
 
+            // put:
+            restWishService.getService().updateWishById(wishId, wish, new Callback<Response>() {
+                @Override
+                public void success(Response response, Response response2) {
+                    Toast toast = Toast.makeText(WatchWishActivity.this,
+                            getApplicationContext().getString(R.string.wish_bought),
+                            Toast.LENGTH_SHORT);
+                    View toastView = toast.getView();
+                    toastView.setBackgroundResource(R.color.background_color);
+                    toast.show();
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast toast = Toast.makeText(WatchWishActivity.this,
+                            getApplicationContext().getString(R.string.wish_bought_error_message),
+                            Toast.LENGTH_SHORT);
+                    View toastView = toast.getView();
+                    toastView.setBackgroundResource(R.color.background_color);
+                    toast.show();
+                }
+            });
+        }
     }
 
     // WishBoughtDialog-method
@@ -73,15 +121,15 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
                     // There's a JSON-object that's returned from the backend:
                     JSONObject wish = new JSONObject(new String(((TypedByteArray) response.getBody()).getBytes()));
 
-                    String wishName = wish.getString("name");
-                    String wishSpesification = wish.getString("spesification");
-                    double wishPrice = wish.getDouble("price");
-                    String wishLink = wish.getString("link");
-                    String wishWhere = wish.getString("where");
-                    boolean wishBought = wish.getBoolean("bought");
+                    wishName = wish.getString("name");
+                    wishSpecification = wish.getString("spesification");
+                    wishPrice = wish.getDouble("price");
+                    wishLink = wish.getString("link");
+                    wishWhere = wish.getString("where");
+                    wishBought = wish.getBoolean("bought");
 
                     nameTextView.setText(wishName);
-                    spesTextView.setText(wishSpesification);
+                    spesTextView.setText(wishSpecification);
                     whereTextView.setText(wishWhere);
                     linkTextView.setText(wishLink);
                     priceTextView.setText(wishPrice + " kr");
@@ -116,6 +164,7 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
 
     // Onclick buy-button
     public void markWishAsBought(View view) {
+        // Dialog box (warning):
         String message = getString(R.string.buy_message);
         WishBoughtDialog dialog = WishBoughtDialog.newInstance(message);
         dialog.show(getFragmentManager(), "BUY");

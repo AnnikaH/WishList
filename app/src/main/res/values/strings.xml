@@ -133,5 +133,8 @@
     <string name="bought">Bought:</string>
     <string name="buy">Mark as bought</string>
     <string name="buy_message">Are you sure you want to mark this wish as bought? (You can\'t change it later)</string>
+    <string name="wish_already_bought">This wish is already bought.</string>
+    <string name="wish_bought">You have bought this wish.</string>
+    <string name="wish_bought_error_message">An error occurred. The wish couldn\'t be marked as bought.</string>
 
 </resources>
