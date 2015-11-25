@@ -64,6 +64,15 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
                     View toastView = toast.getView();
                     toastView.setBackgroundResource(R.color.background_color);
                     toast.show();
+
+                    // Refresh activity:
+                    Intent i = new Intent(WatchWishActivity.this, WatchWishActivity.class);
+                    i.putExtra("WISHID", wishId);
+                    i.putExtra("WISHLISTID", wishListId);
+                    i.putExtra("WISHLISTNAME", wishListName);
+                    i.putExtra("OWNERID", ownerId);
+                    startActivity(i);
+                    finish();
                 }
 
                 @Override
