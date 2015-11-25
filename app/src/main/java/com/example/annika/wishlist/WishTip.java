@@ -10,4 +10,9 @@ public class WishTip {
     public double Price;
     public String Where;
     public String Link;
+
+    @Override
+    public String toString() {
+        return Name;
+    }
 }
