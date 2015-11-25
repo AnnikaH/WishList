@@ -115,6 +115,9 @@
     <string name="user_name_search">Brukernavn (må være komplett):</string>
     <string name="no_wish_lists">Denne brukeren har ingen ønskelister.</string>
     <string name="no_user">Ingen bruker med dette brukernavnet.</string>
+    <string name="sms_message">Hei! Jeg vil gjerne se en av ønskelistene dine. Bekreft forespørselen min i Mine Ønsker-appen din.</string>
+    <string name="sms_dialog_message">Vil du sende en SMS for å gi beskjed til eieren om at du vil ha tilgang til denne ønskelisten?</string>
+    <string name="sms_sent">SMS sendt.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>

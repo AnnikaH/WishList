@@ -3,6 +3,7 @@ package com.example.annika.wishlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +25,7 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class FindFriendsActivity extends AppCompatActivity implements RequestDialog.DialogClickListener {
+public class FindFriendsActivity extends AppCompatActivity implements RequestDialog.DialogClickListener, SMSDialog.DialogClickListener {
 
     private RestUserService restUserService;
     private RestWishListService restWishListService;
@@ -63,7 +64,10 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
                 toast.show();
 
                 // TODO: SMSDIALOG BOX IF THE USER WANTS TO SEND AN SMS TO NOTIFY THE OWNER OF THE WISH LIST
-                //sendSMS(requestedWishListName);
+                String message = getString(R.string.sms_dialog_message);
+                SMSDialog dialog = SMSDialog.newInstance(message);
+                dialog.show(getFragmentManager(), "SMS");
+                // waiting for the user to make a choice: Send or Cancel
             }
 
             @Override
@@ -83,13 +87,26 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
         // do nothing
     }
 
-    public void sendSMS(String listName) {
-        // TODO: FINISH:
-
+    // SMSDialog-method:
+    public void onSendSMSClick() {
         // send an SMS to the foundUser to notify him/her that you want access to the specified
         // wishlist (listId/listName) and that he/she needs to check their app to confirm:
+        String phoneNumber = foundUser.PhoneNumber;
+        String message = getString(R.string.sms_message);
+        SmsManager manager = SmsManager.getDefault();
+        manager.sendTextMessage(phoneNumber, null, message, null, null);
 
+        Toast toast = Toast.makeText(FindFriendsActivity.this,
+                getApplicationContext().getString(R.string.sms_sent),
+                Toast.LENGTH_SHORT);
+        View toastView = toast.getView();
+        toastView.setBackgroundResource(R.color.background_color);
+        toast.show();
+    }
 
+    // SMSDialog-method:
+    public void onCancelSMSClick() {
+        // do nothing
     }
 
     @Override
@@ -163,10 +180,10 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
     }
 
     public void getFoundUsersWishLists() {
-        int userId = foundUser.ID;
+        int uId = foundUser.ID;
         final ListView listView = (ListView) findViewById(R.id.friendWishListsListView);
 
-        restWishListService.getService().getAllWishListsForUser(userId, new Callback<Response>() {
+        restWishListService.getService().getAllWishListsForUser(uId, new Callback<Response>() {
             @Override
             public void success(Response response, Response response2) {
                 try {
