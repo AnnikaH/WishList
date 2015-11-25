@@ -49,7 +49,7 @@ public class SMSDialog extends DialogFragment {
                         callback.onSendSMSClick();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         callback.onCancelSMSClick();

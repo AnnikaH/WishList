@@ -165,4 +165,7 @@
     <string name="back_to_tips">Tilbake til alle tips</string>
     <string name="get_tip_error_message">Det oppstod en feil. Tips ikke funnet.</string>
 
+    <!-- SMSDialog -->
+    <string name="no">Nei</string>
+
 </resources>
