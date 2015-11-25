@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class TipActivity extends AppCompatActivity {
 
@@ -24,7 +25,12 @@ public class TipActivity extends AppCompatActivity {
     }
 
     // Onclick back-button
-
+    public void backToTips(View view) {
+        Intent i = new Intent(this, TipsFriendsActivity.class);
+        i.putExtra("USERID", userId);
+        startActivity(i);
+        finish();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
