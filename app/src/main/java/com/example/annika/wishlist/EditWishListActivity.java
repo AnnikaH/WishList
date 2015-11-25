@@ -163,6 +163,7 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
                         wish.Price = oneWish.getDouble("price");
                         wish.Where = oneWish.getString("where");
                         wish.WishListId = oneWish.getInt("wishListId");
+                        wish.Bought = oneWish.getBoolean("bought"); // not used/shown here
 
                         allWishes.add(wish);
                     }

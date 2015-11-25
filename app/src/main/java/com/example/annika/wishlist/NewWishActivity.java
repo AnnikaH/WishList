@@ -79,6 +79,7 @@ public class NewWishActivity extends AppCompatActivity {
         wish.Price = price;
         wish.WishListId = wishListId;
         // TODO: wish.Image = image;
+        wish.Bought = false;
 
         // disable button click (in case it takes some time):
         button = (Button) view;

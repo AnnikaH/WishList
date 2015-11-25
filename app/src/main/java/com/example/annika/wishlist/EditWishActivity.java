@@ -100,6 +100,7 @@ public class EditWishActivity extends AppCompatActivity {
         editedWish.WishListId = wishWishListId;
         editedWish.Where = newWhere;
         // TODO: editedWish.Image = image;
+        editedWish.Bought = false;
 
         try {
             editedWish.Price = Double.parseDouble(newPrice);
