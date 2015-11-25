@@ -45,66 +45,33 @@ public class FriendsWishListsActivity extends AppCompatActivity {
             public void success(Response response, Response response2) {
                 try {
                     JSONArray sharings = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
-                    final List<WishList> sharedWishLists = new ArrayList<>();
+                    //final List<WishList> sharedWishLists = new ArrayList<>();
 
-                    // go through all the sharings and get the wishListId's and then the wish lists:
-                    for(int i = 0; i < sharings.length(); i++) {
+                    //List<Request> requests = new ArrayList<>();;
+
+                    int[] wishListIds = new int[sharings.length()];
+
+                    // go through all the sharings and get the wishListId's for those that are confirmed:
+                    for (int i = 0; i < sharings.length(); i++) {
                         JSONObject sharing = sharings.getJSONObject(i);
-                        int wishListId = sharing.getInt("wishListId");
+                        boolean confirmed = sharing.getBoolean("confirmed");
 
-                        restWishListService.getService().getWishListById(wishListId, new Callback<Response>() {
-                            @Override
-                            public void success(Response response, Response response2) {
-                                try {
-                                    JSONObject wishListObject = new JSONObject(new String(((TypedByteArray) response.getBody()).getBytes()));
-                                    WishList oneList = new WishList();
-                                    oneList.ID = wishListObject.getInt("id");
-                                    oneList.Name = wishListObject.getString("name");
-                                    oneList.OwnerId = wishListObject.getInt("ownerId");
+                        if (confirmed) {
+                            int wishListId = sharing.getInt("wishListId");
+                            wishListIds[i] = wishListId;
+                        }
 
-                                    sharedWishLists.add(oneList);
-                                } catch (JSONException je) {
-                                    Toast toast = Toast.makeText(FriendsWishListsActivity.this,
-                                            getApplicationContext().getString(R.string.json_exception),
-                                            Toast.LENGTH_SHORT);
-                                    View toastView = toast.getView();
-                                    toastView.setBackgroundResource(R.color.background_color);
-                                    toast.show();
-                                }
-                            }
+                        /*Request request = new Request();
+                        request.SharingID = sharing.getInt("id");
+                        request.Confirmed = sharing.getBoolean("confirmed");
+                        request.WishListId = sharing.getInt("wishListId");
+                        request.UserId = sharing.getInt("userId");*/
 
-                            @Override
-                            public void failure(RetrofitError error) {
-                                Toast toast = Toast.makeText(FriendsWishListsActivity.this,
-                                        getApplicationContext().getString(R.string.wish_list_error_message),
-                                        Toast.LENGTH_SHORT);
-                                View toastView = toast.getView();
-                                toastView.setBackgroundResource(R.color.background_color);
-                                toast.show();
-                            }
-                        });
+                        //requests.add(request);
                     }
 
-                    // place each wish list from the list sharedWishLists into the ListView:
-                    ListView listView = (ListView) findViewById(R.id.friendsListsListView);
-                    listView.setAdapter(new ArrayAdapter<>(FriendsWishListsActivity.this,
-                            android.R.layout.simple_selectable_list_item, sharedWishLists));
+                    pickUpWishLists(wishListIds);
 
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            ListView lv = (ListView) parent;
-                            WishList w = (WishList) lv.getItemAtPosition((int) id);
-
-                            // Go to EditWishListActivity and send in the id and name of the wish list selected:
-                            Intent i = new Intent(FriendsWishListsActivity.this, WatchWishListActivity.class);
-                            i.putExtra("WISHLISTID", w.ID);
-                            i.putExtra("WISHLISTNAME", w.Name);
-                            i.putExtra("OWNERID", w.OwnerId);
-                            startActivity(i);
-                            finish();
-                        }
-                    });
                 } catch (JSONException je) {
                     Toast toast = Toast.makeText(FriendsWishListsActivity.this,
                             getApplicationContext().getString(R.string.json_exception),
@@ -123,6 +90,78 @@ public class FriendsWishListsActivity extends AppCompatActivity {
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();
+            }
+        });
+    }
+
+    public void pickUpWishLists(final int[] wishListIds) {
+
+        restWishListService.getService().getAllWishLists(new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                try {
+                    JSONArray allWishLists = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
+                    List<WishList> confirmedWishLists = new ArrayList<>();
+
+                    for(int i = 0; i < allWishLists.length(); i++) {
+                        JSONObject wishListObj = allWishLists.getJSONObject(i);
+                        int wishListIdObj = wishListObj.getInt("id");
+
+                        for(int j = 0; j < wishListIds.length; j++) {
+                            if(wishListIds[j] == wishListIdObj) {
+                                WishList oneList = new WishList();
+                                oneList.ID = wishListObj.getInt("id");
+                                oneList.Name = wishListObj.getString("name");
+                                oneList.OwnerId = wishListObj.getInt("ownerId");
+
+                                confirmedWishLists.add(oneList);
+                            }
+                        }
+                    }
+
+                    showRelevantWishLists(confirmedWishLists);
+
+                } catch (JSONException je) {
+                    Toast toast = Toast.makeText(FriendsWishListsActivity.this,
+                            getApplicationContext().getString(R.string.json_exception),
+                            Toast.LENGTH_SHORT);
+                    View toastView = toast.getView();
+                    toastView.setBackgroundResource(R.color.background_color);
+                    toast.show();
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(FriendsWishListsActivity.this,
+                        getApplicationContext().getString(R.string.wish_list_error_message),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
+    }
+
+    public void showRelevantWishLists(List<WishList> lists) {
+        // place each wish list from the list sharedWishLists into the ListView:
+        ListView listView = (ListView) findViewById(R.id.friendsListsListView);
+        listView.setAdapter(new ArrayAdapter<>(FriendsWishListsActivity.this,
+                android.R.layout.simple_selectable_list_item, lists));
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListView lv = (ListView) parent;
+                WishList w = (WishList) lv.getItemAtPosition((int) id);
+
+                // Go to EditWishListActivity and send in the id and name of the wish list selected:
+                Intent i = new Intent(FriendsWishListsActivity.this, WatchWishListActivity.class);
+                i.putExtra("WISHLISTID", w.ID);
+                i.putExtra("WISHLISTNAME", w.Name);
+                i.putExtra("OWNERID", w.OwnerId);
+                startActivity(i);
+                finish();
             }
         });
     }

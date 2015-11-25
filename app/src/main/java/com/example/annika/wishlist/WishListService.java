@@ -11,6 +11,11 @@ import retrofit.http.Path;
 
 public interface WishListService {
 
+    // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/WishList
+    // Get
+    @GET("/WishList")
+    void getAllWishLists(Callback<Response> callback);
+
     // http://dotnet.cs.hioa.no/s198611/WishListAPI/api/WishListHelper/5
     // Get
     @GET("/WishListHelper/{id}")
