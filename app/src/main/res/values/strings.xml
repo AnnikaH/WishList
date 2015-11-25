@@ -119,6 +119,7 @@
     <string name="sms_dialog_message">Do you want to send an SMS to notify the owner that you want access to this wish list?</string>
     <string name="sms_sent">SMS was sent.</string>
     <string name="request_exists">Request is already sent.</string>
+    <string name="cannot_search_your_own_user_name">You cannot search for yourself.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>

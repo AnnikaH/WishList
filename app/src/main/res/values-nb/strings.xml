@@ -119,6 +119,7 @@
     <string name="sms_dialog_message">Vil du sende en SMS for å gi beskjed til eieren om at du vil ha tilgang til denne ønskelisten?</string>
     <string name="sms_sent">SMS sendt.</string>
     <string name="request_exists">Forespørsel er allerede sendt.</string>
+    <string name="cannot_search_your_own_user_name">Du kan ikke søke etter deg selv.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>

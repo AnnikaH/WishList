@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +32,7 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
     private RestSharingService restSharingService;
     private User foundUser;
     private int userId;
+    private String yourUserName;
 
     // RequestDialog-method:
     public void onSendRequestClick(int requestedWishListId) {
@@ -147,12 +147,49 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
         restUserService = new RestUserService();
         restWishListService = new RestWishListService();
         restSharingService = new RestSharingService();
+
+        restUserService.getService().getUserById(userId, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                try {
+                    JSONObject userObj = new JSONObject(new String(((TypedByteArray) response.getBody()).getBytes()));
+                    yourUserName = userObj.getString("userName");
+                } catch (JSONException je) {
+                    Toast toast = Toast.makeText(FindFriendsActivity.this,
+                            getApplicationContext().getString(R.string.json_exception),
+                            Toast.LENGTH_SHORT);
+                    View toastView = toast.getView();
+                    toastView.setBackgroundResource(R.color.background_color);
+                    toast.show();
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(FindFriendsActivity.this,
+                        getApplicationContext().getString(R.string.get_user_error_message),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
     }
 
     // Onclick search-button:
     public void searchForFriendByUserName(View view) {
         EditText userNameEdit = (EditText) findViewById(R.id.userNameEditSearch);
         final String userNameSearched = userNameEdit.getText().toString();
+
+        if(userNameSearched.equals(yourUserName)) {
+            Toast toast = Toast.makeText(FindFriendsActivity.this,
+                    getApplicationContext().getString(R.string.cannot_search_your_own_user_name),
+                    Toast.LENGTH_SHORT);
+            View toastView = toast.getView();
+            toastView.setBackgroundResource(R.color.background_color);
+            toast.show();
+            return;
+        }
 
         restUserService.getService().getAllUsers(new Callback<Response>() {
             @Override
