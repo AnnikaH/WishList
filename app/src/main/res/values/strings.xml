@@ -152,5 +152,7 @@
 
     <!-- NewTipActivity -->
     <string name="new_tip">New tip</string>
+    <string name="tip_registered">The tip has been sent.</string>
+    <string name="tip_registered_error_message">An error occurred. The tip wasn\'t sent.</string>
 
 </resources>
