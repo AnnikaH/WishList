@@ -50,4 +50,7 @@
     <dimen name="plus_padding_top">3dp</dimen>
     <dimen name="tips_header_width">150dp</dimen>
 
+    <!-- NewTipActivity -->
+    <dimen name="tip_edit_search_width">200dp</dimen>
+
 </resources>
