@@ -145,4 +145,8 @@
     <string name="wish_bought">Du har kjøpt dette ønsket.</string>
     <string name="wish_bought_error_message">Det oppstod en feil. Ønsket kunne ikke merkes som kjøpt.</string>
 
+    <!-- TipsFriendsActivity -->
+    <string name="tip_a_friend">Tips en venn</string>
+    <string name="received_tips">Mottatte tips</string>
+
 </resources>

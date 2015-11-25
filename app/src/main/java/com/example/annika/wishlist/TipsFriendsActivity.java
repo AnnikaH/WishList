@@ -3,8 +3,10 @@ package com.example.annika.wishlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class TipsFriendsActivity extends AppCompatActivity {
 
@@ -13,7 +15,13 @@ public class TipsFriendsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips_friends);
 
+        // getIntent()...
 
+    }
+
+    // Onclick tip a friend
+    public void tipAFriend(View view) {
+        Log.d("HER ", "HER");
     }
 
     @Override
