@@ -72,7 +72,7 @@ public class WishActivity extends AppCompatActivity {
                 } catch (JSONException je) {
                     Toast toast = Toast.makeText(WishActivity.this,
                             getApplicationContext().getString(R.string.json_exception),
-                            Toast.LENGTH_LONG);
+                            Toast.LENGTH_SHORT);
                     View toastView = toast.getView();
                     toastView.setBackgroundResource(R.color.background_color);
                     toast.show();
