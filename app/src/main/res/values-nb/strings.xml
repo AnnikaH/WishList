@@ -16,7 +16,7 @@
     <string name="user_name">Brukernavn:</string>
     <string name="password">Passord:</string>
     <string name="log_in">Logg inn</string>
-    <string name="register">Registrer deg</string>
+    <string name="register">Registrer</string>
     <string name="log_in_error_message">Ugyldig brukernavn eller passord.</string>
     <string name="found_user">Velkommen!</string>
     <string name="no_connection_error_message">Ingen kontakt med server.</string>
