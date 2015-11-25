@@ -21,6 +21,8 @@ public class TipsFriendsActivity extends AppCompatActivity {
 
         restTipService = new RestTipService();
 
+        // ListView listView = (ListView) findViewById(R.id.receivedTipsListView);
+
 
     }
 

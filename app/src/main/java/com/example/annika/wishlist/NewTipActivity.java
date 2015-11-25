@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class NewTipActivity extends AppCompatActivity {
 
@@ -17,6 +18,16 @@ public class NewTipActivity extends AppCompatActivity {
 
         userId = getIntent().getIntExtra("USERID", -1);
 
+
+    }
+
+    // Onclick register-button
+    public void registerNewTip(View view) {
+
+    }
+
+    // Onclick cancel-button
+    public void cancelNewTip(View view) {
 
     }
 
