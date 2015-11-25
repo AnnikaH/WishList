@@ -5,31 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class TipsFriendsActivity extends AppCompatActivity {
+public class NewTipActivity extends AppCompatActivity {
 
     private int userId;
-    private RestTipService restTipService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tips_friends);
+        setContentView(R.layout.activity_new_tip);
 
         userId = getIntent().getIntExtra("USERID", -1);
 
-        restTipService = new RestTipService();
 
-
-    }
-
-    // Onclick tip a friend
-    public void tipAFriend(View view) {
-        Intent i = new Intent(this, NewTipActivity.class);
-        i.putExtra("USERID", userId);
-        startActivity(i);
-        finish();
     }
 
     @Override

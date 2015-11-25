@@ -150,4 +150,7 @@
     <string name="tip_a_friend">Tips en venn</string>
     <string name="received_tips">Mottatte tips</string>
 
+    <!-- NewTipActivity -->
+    <string name="new_tip">Nytt tips</string>
+
 </resources>
