@@ -13,7 +13,7 @@ public class WatchWishActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watch_wish);
 
-
+        // getIntent()...
     }
 
     @Override
