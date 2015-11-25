@@ -149,10 +149,17 @@
     <!-- TipsFriendsActivity -->
     <string name="tip_a_friend">Tip a friend</string>
     <string name="received_tips">Received tips</string>
+    <string name="get_tips_error_message">An error occurred. Received tips not found.</string>
+    <string name="delete_tip_dialog_message">Do you want to delete the tip</string>
+    <string name="tip_deleted">The tip was successfully deleted.</string>
+    <string name="tip_deleted_error_message">An error occurred. Tip not deleted.</string>
 
     <!-- NewTipActivity -->
     <string name="new_tip">New tip</string>
     <string name="tip_registered">The tip has been sent.</string>
     <string name="tip_registered_error_message">An error occurred. The tip wasn\'t sent.</string>
+
+    <!-- TipActivity -->
+    <string name="tip">Tip</string>
 
 </resources>

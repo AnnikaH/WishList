@@ -75,6 +75,11 @@
             android:parentActivityName=".WishListMainActivity" >
         </activity>
 
+        <activity android:name=".TipActivity"
+            android:label="@string/tip"
+            android:parentActivityName=".WishListMainActivity" >
+        </activity>
+
         <activity android:name=".FriendsWishListsActivity"
             android:label="@string/friends_wish_lists"
             android:parentActivityName=".WishListMainActivity" >

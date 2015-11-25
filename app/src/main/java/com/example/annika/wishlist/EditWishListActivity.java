@@ -60,7 +60,7 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
             public void failure(RetrofitError error) {
                 Toast toast = Toast.makeText(EditWishListActivity.this,
                         getApplicationContext().getString(R.string.wish_deleted_error_message),
-                        Toast.LENGTH_SHORT);
+                        Toast.LENGTH_LONG);
                 View toastView = toast.getView();
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();
@@ -208,7 +208,7 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
                             ListView lv = (ListView) parent;
                             Wish w = (Wish) lv.getItemAtPosition((int) id);
 
-                            // Dialogbox for deleting the wish list (DeleteWishListDialog):
+                            // Dialog box for deleting the wish list (DeleteWishListDialog):
                             String message = getString(R.string.delete_wish_dialog_message) + " " + w.Name + "?";
                             int wishId = w.ID;
                             DeleteWishDialog dialog = DeleteWishDialog.newInstance(message, wishId);

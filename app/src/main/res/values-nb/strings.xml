@@ -149,10 +149,17 @@
     <!-- TipsFriendsActivity -->
     <string name="tip_a_friend">Tips en venn</string>
     <string name="received_tips">Mottatte tips</string>
+    <string name="get_tips_error_message">Det oppstod en feil. Mottatte tips ikke funnet.</string>
+    <string name="delete_tip_dialog_message">Vil du slette tipset</string>
+    <string name="tip_deleted">Tipset ble slettet.</string>
+    <string name="tip_deleted_error_message">Det oppstod en feil. Tipset ble ikke slettet.</string>
 
     <!-- NewTipActivity -->
     <string name="new_tip">Nytt tips</string>
     <string name="tip_registered">Tipset er sendt.</string>
     <string name="tip_registered_error_message">Det oppstod en feil. Tipset ble ikke sendt.</string>
+
+    <!-- TipActivity -->
+    <string name="tip">Tips</string>
 
 </resources>

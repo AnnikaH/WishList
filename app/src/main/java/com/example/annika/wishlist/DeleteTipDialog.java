@@ -6,14 +6,14 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-public class DeleteRequestDialog extends DialogFragment {
+public class DeleteTipDialog extends DialogFragment {
 
     private DialogClickListener callback;
 
     public interface DialogClickListener
     {
-        void onDeleteRequestClick(int sharingId);
-        void onCancelDeleteRequestClick();
+        void onDeleteTipClick(int tipId);
+        void onCancelDeleteTipClick();
     }
 
     @Override
@@ -28,12 +28,12 @@ public class DeleteRequestDialog extends DialogFragment {
         }
     }
 
-    public static DeleteRequestDialog newInstance(String message, int sId)
+    public static DeleteTipDialog newInstance(String message, int tipId)
     {
-        DeleteRequestDialog frag = new DeleteRequestDialog();
+        DeleteTipDialog frag = new DeleteTipDialog();
         Bundle args = new Bundle();
         args.putString("message", message);
-        args.putInt("sId", sId);
+        args.putInt("tipId", tipId);
         frag.setArguments(args);
         return frag;
     }
@@ -47,13 +47,13 @@ public class DeleteRequestDialog extends DialogFragment {
                 .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onDeleteRequestClick(bundle.getInt("sId"));
+                        callback.onDeleteTipClick(bundle.getInt("tipId"));
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        callback.onCancelDeleteRequestClick();
+                        callback.onCancelDeleteTipClick();
                     }
                 }).create();
 

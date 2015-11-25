@@ -41,8 +41,6 @@ public class NewTipActivity extends AppCompatActivity {
         userNameCheckButton = (Button) findViewById(R.id.userNameCheckButton);
 
         registerButtonPushed = false;
-
-
     }
 
     // Onclick search-button
