@@ -163,5 +163,6 @@
     <string name="tip">Tip</string>
     <string name="tip_sender">Tip sent by:</string>
     <string name="back_to_tips">Back to all tips</string>
+    <string name="get_tip_error_message">An error occurred. Tip not found.</string>
 
 </resources>

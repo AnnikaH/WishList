@@ -163,5 +163,6 @@
     <string name="tip">Tips</string>
     <string name="tip_sender">Tips sendt av:</string>
     <string name="back_to_tips">Tilbake til alle tips</string>
+    <string name="get_tip_error_message">Det oppstod en feil. Tips ikke funnet.</string>
 
 </resources>
