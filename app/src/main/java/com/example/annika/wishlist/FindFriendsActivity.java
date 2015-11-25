@@ -131,6 +131,15 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
                             return; // don't need to search any more
                         }
                     }
+
+                    // if gets here there was no user with this username:
+                    Toast toast = Toast.makeText(FindFriendsActivity.this,
+                            getApplicationContext().getString(R.string.no_user),
+                            Toast.LENGTH_SHORT);
+                    View toastView = toast.getView();
+                    toastView.setBackgroundResource(R.color.background_color);
+                    toast.show();
+
                 } catch (JSONException je) {
                     Toast toast = Toast.makeText(FindFriendsActivity.this,
                             getApplicationContext().getString(R.string.json_exception),
@@ -178,6 +187,15 @@ public class FindFriendsActivity extends AppCompatActivity implements RequestDia
                         wishList.OwnerId = oneList.getInt("ownerId");
 
                         lists.add(wishList);
+                    }
+
+                    if(lists.isEmpty()) {
+                        Toast toast = Toast.makeText(FindFriendsActivity.this,
+                                getApplicationContext().getString(R.string.no_wish_lists),
+                                Toast.LENGTH_SHORT);
+                        View toastView = toast.getView();
+                        toastView.setBackgroundResource(R.color.background_color);
+                        toast.show();
                     }
 
                     listView.setAdapter(new ArrayAdapter<>(FindFriendsActivity.this,

@@ -112,6 +112,9 @@
     <string name="request_dialog_message">Do you want to send a request to the owner to get access to this wish list?</string>
     <string name="sharing_added">Request sent.</string>
     <string name="sharing_added_error_message">An error occurred. The request wasn\'t sent.</string>
+    <string name="user_name_search">User name (must be complete):</string>
+    <string name="no_wish_lists">This user has no wish lists.</string>
+    <string name="no_user">No user with this user name.</string>
 
     <!-- RequestDialog -->
     <string name="send">Send</string>
