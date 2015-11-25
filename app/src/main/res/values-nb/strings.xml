@@ -158,6 +158,7 @@
     <string name="new_tip">Nytt tips</string>
     <string name="tip_registered">Tipset er sendt.</string>
     <string name="tip_registered_error_message">Det oppstod en feil. Tipset ble ikke sendt.</string>
+    <string name="send_tip">Send tips</string>
 
     <!-- TipActivity -->
     <string name="tip">Tips</string>

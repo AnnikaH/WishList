@@ -161,8 +161,7 @@
         </LinearLayout>
 
         <Button
-            android:layout_marginTop="@dimen/button_margin"
-            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_margin="@dimen/button_margin"
             android:text="@string/back_to_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

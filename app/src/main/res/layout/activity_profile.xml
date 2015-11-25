@@ -84,8 +84,7 @@
     </LinearLayout>
 
     <Button
-        android:layout_marginTop="@dimen/button_margin"
-        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_margin="@dimen/button_margin"
         android:text="@string/edit_profile"
         android:onClick="editProfile"
         android:background="@drawable/shape_log_in_button"
@@ -94,8 +93,7 @@
         android:textAllCaps="false" />
 
     <Button
-        android:layout_marginTop="@dimen/button_margin"
-        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_margin="@dimen/button_margin"
         android:text="@string/main_menu"
         android:onClick="goToMainMenu"
         android:background="@drawable/shape_register_button"
