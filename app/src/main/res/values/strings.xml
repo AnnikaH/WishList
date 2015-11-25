@@ -129,4 +129,9 @@
     <string name="sharing_updated">The request is confirmed.</string>
     <string name="sharing_updated_error_message">An error occurred. The request wasn\'t confirmed.</string>
 
+    <!-- WatchWishActivity -->
+    <string name="bought">Bought:</string>
+    <string name="buy">Mark as bought</string>
+    <string name="buy_message">Are you sure you want to mark this wish as bought? (You can\'t change it later)</string>
+
 </resources>

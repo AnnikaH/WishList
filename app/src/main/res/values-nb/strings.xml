@@ -129,4 +129,9 @@
     <string name="sharing_updated">Forespørselen er godtatt.</string>
     <string name="sharing_updated_error_message">Det oppstod en feil. Forespørselen ble ikke godtatt.</string>
 
+    <!-- WatchWishActivity -->
+    <string name="bought">Kjøpt:</string>
+    <string name="buy">Merk som kjøpt</string>
+    <string name="buy_message">Er du sikker på at du vil merke ønsket som kjøpt? (Du kan ikke endre det senere)</string>
+
 </resources>

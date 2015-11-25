@@ -1,5 +1,6 @@
 package com.example.annika.wishlist;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,13 +18,23 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class WatchWishActivity extends AppCompatActivity {
+public class WatchWishActivity extends AppCompatActivity implements WishBoughtDialog.DialogClickListener {
 
     private int wishId;
     private int wishListId;
     private String wishListName;
     private int ownerId;
     private RestWishService restWishService;
+
+    // WishBoughtDialog-method
+    public void onBuyClick() {
+
+    }
+
+    // WishBoughtDialog-method
+    public void onCancelBuyClick() {
+        // do nothing
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +63,7 @@ public class WatchWishActivity extends AppCompatActivity {
         final TextView linkTextView = (TextView) findViewById(R.id.wishLink);
         final TextView priceTextView = (TextView) findViewById(R.id.wishPrice);
         // TODO: ImageView imageView = (ImageView) findViewById(R.id.wishImage);
+        final TextView boughtTextView = (TextView) findViewById(R.id.wishBought);
 
         // get this wish:
         restWishService.getService().getWishById(wishId, new Callback<Response>() {
@@ -66,12 +78,20 @@ public class WatchWishActivity extends AppCompatActivity {
                     double wishPrice = wish.getDouble("price");
                     String wishLink = wish.getString("link");
                     String wishWhere = wish.getString("where");
+                    boolean wishBought = wish.getBoolean("bought");
 
                     nameTextView.setText(wishName);
                     spesTextView.setText(wishSpesification);
                     whereTextView.setText(wishWhere);
                     linkTextView.setText(wishLink);
                     priceTextView.setText(wishPrice + " kr");
+
+                    if(wishBought) {
+                        boughtTextView.setBackgroundResource(R.drawable.checked_checkbox_100);
+                    } else {
+                        boughtTextView.setBackgroundResource(R.drawable.delete_cross_100);
+                    }
+
                 } catch (JSONException je) {
                     Toast toast = Toast.makeText(WatchWishActivity.this,
                             getApplicationContext().getString(R.string.json_exception),
@@ -92,6 +112,14 @@ public class WatchWishActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+    }
+
+    // Onclick buy-button
+    public void markWishAsBought(View view) {
+        String message = getString(R.string.buy_message);
+        WishBoughtDialog dialog = WishBoughtDialog.newInstance(message);
+        dialog.show(getFragmentManager(), "BUY");
+        // waiting for the user to make a choice: Mark as bought or Cancel
     }
 
     // Onclick cancel-button

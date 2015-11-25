@@ -39,4 +39,8 @@
     <!-- FindFriendsActivity -->
     <dimen name="edit_search_width">240dp</dimen>
 
+    <!-- WatchWishActivity -->
+    <dimen name="bought_button_width">20dp</dimen>
+    <dimen name="bought_button_height">20dp</dimen>
+
 </resources>
