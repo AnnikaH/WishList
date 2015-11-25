@@ -144,7 +144,7 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
                     priceTextView.setText(wishPrice + " kr");
 
                     if(wishBought) {
-                        boughtTextView.setBackgroundResource(R.drawable.checked_checkbox_100);
+                        boughtTextView.setBackgroundResource(R.drawable.checkmark_100);
                     } else {
                         boughtTextView.setBackgroundResource(R.drawable.delete_cross_100);
                     }
