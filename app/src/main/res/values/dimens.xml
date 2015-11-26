@@ -20,6 +20,7 @@
 
     <!-- LogInActivity -->
     <dimen name="button_margin">10dp</dimen>
+    <dimen name="button_margin_double">20dp</dimen>
     <dimen name="header_log_in_padding_bottom">30dp</dimen>
     <dimen name="header_log_in_padding_top">30dp</dimen>
     <dimen name="header_log_in_padding_top_land">0dp</dimen>
