@@ -74,6 +74,7 @@
     <string name="edit_wish">Rediger ønske</string>
     <string name="wish_updated">Ønsket ble oppdatert.</string>
     <string name="wish_updated_error_message">Det oppstod en feil. Ønsket ble ikke oppdatert.</string>
+    <string name="save_wish">Lagre endringene</string>
 
     <!-- NewWishActivity -->
     <string name="new_wish">Nytt ønske</string>

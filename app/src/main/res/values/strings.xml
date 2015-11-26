@@ -74,6 +74,7 @@
     <string name="edit_wish">Edit wish</string>
     <string name="wish_updated">The wish was successfully updated.</string>
     <string name="wish_updated_error_message">An error occurred. The wish was not updated.</string>
+    <string name="save_wish">Save changes</string>
 
     <!-- NewWishActivity -->
     <string name="new_wish">New wish</string>
