@@ -21,7 +21,7 @@
             android:textSize="@dimen/header_wish_list_text_size"
             android:layout_marginStart="@dimen/list_name_margin_left"
             android:text="@string/my_wish_lists"
-            android:layout_width="@dimen/my_wish_lists_header_width"
+            android:layout_width="@dimen/my_wish_lists_header_width_land"
             android:layout_height="wrap_content" />
 
         <Button
