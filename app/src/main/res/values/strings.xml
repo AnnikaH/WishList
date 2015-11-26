@@ -67,7 +67,7 @@
     <string name="wish_lists">Wish lists</string>
 
     <!-- EditWishListActivity -->
-    <string name="edit_wish_list">Add wishes</string>
+    <string name="edit_wish_list">Wishes</string>
     <string name="get_wish_error_message">An error occurred. Wishes not found.</string>
     <string name="delete_wish_dialog_message">Do you want to delete the wish</string>
     <string name="wish_deleted">The wish was successfully deleted.</string>

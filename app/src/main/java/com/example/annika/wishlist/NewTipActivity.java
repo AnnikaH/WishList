@@ -52,7 +52,10 @@ public class NewTipActivity extends AppCompatActivity implements SMSDialog.Dialo
 
     // SMSDialog-method
     public void onCancelSMSClick() {
-        // do nothing
+        Intent i = new Intent(NewTipActivity.this, TipsFriendsActivity.class);
+        i.putExtra("USERID", userId);
+        startActivity(i);
+        finish();
     }
 
     @Override
