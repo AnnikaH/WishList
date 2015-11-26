@@ -70,5 +70,6 @@
     <!-- FriendsWishListsActivity -->
     <dimen name="layout_height_list_view">275dp</dimen>
     <dimen name="list_view_margin_bottom">7dp</dimen>
+    <dimen name="layout_height_list_view_land">140dp</dimen>
 
 </resources>

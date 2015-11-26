@@ -36,14 +36,4 @@
         android:onClick="findFriends"
         android:background="@drawable/shape_friends_wish_lists_button" />
 
-    <!-- Header friends' wish lists that you have access to: -->
-    <!-- <TextView
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:paddingTop="@dimen/button_margin"
-        android:text="@string/friends_wish_lists_access"
-        android:textSize="@dimen/text_size"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
-
 </LinearLayout>
