@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".TipActivity"
+    tools:context=".WishActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -23,24 +23,8 @@
 
             <TextView
                 android:textSize="@dimen/text_size"
-                android:text="@string/tip_sender"
-                android:labelFor="@+id/tipSender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:paddingStart="@dimen/button_margin"
-                android:paddingEnd="@dimen/button_margin"
-                android:textSize="@dimen/text_size"
-                android:id="@+id/tipSender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:paddingStart="@dimen/button_margin_double"
-                android:textSize="@dimen/text_size"
                 android:text="@string/name"
-                android:labelFor="@+id/tipName"
+                android:labelFor="@+id/wishName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -48,7 +32,7 @@
                 android:paddingStart="@dimen/button_margin"
                 android:paddingEnd="@dimen/button_margin"
                 android:textSize="@dimen/text_size"
-                android:id="@+id/tipName"
+                android:id="@+id/wishName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -63,7 +47,7 @@
             <TextView
                 android:textSize="@dimen/text_size"
                 android:text="@string/price"
-                android:labelFor="@+id/tipPrice"
+                android:labelFor="@+id/wishPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -71,15 +55,14 @@
                 android:paddingStart="@dimen/button_margin"
                 android:paddingEnd="@dimen/button_margin"
                 android:textSize="@dimen/text_size"
-                android:id="@+id/tipPrice"
+                android:id="@+id/wishPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:paddingStart="@dimen/button_margin_double"
                 android:textSize="@dimen/text_size"
                 android:text="@string/spesification"
-                android:labelFor="@+id/tipSpesification"
+                android:labelFor="@+id/wishSpesification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -87,7 +70,7 @@
                 android:paddingStart="@dimen/button_margin"
                 android:paddingEnd="@dimen/button_margin"
                 android:textSize="@dimen/text_size"
-                android:id="@+id/tipSpesification"
+                android:id="@+id/wishSpesification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -102,7 +85,7 @@
             <TextView
                 android:textSize="@dimen/text_size"
                 android:text="@string/where"
-                android:labelFor="@+id/tipWhere"
+                android:labelFor="@+id/wishWhere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -110,7 +93,7 @@
                 android:paddingStart="@dimen/button_margin"
                 android:paddingEnd="@dimen/button_margin"
                 android:textSize="@dimen/text_size"
-                android:id="@+id/tipWhere"
+                android:id="@+id/wishWhere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -125,7 +108,7 @@
             <TextView
                 android:textSize="@dimen/text_size"
                 android:text="@string/link"
-                android:labelFor="@+id/tipLink"
+                android:labelFor="@+id/wishLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -133,22 +116,37 @@
                 android:paddingStart="@dimen/button_margin"
                 android:paddingEnd="@dimen/button_margin"
                 android:textSize="@dimen/text_size"
-                android:id="@+id/tipLink"
+                android:id="@+id/wishLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
 
-        <Button
-            android:layout_marginStart="@dimen/button_margin"
-            android:layout_marginEnd="@dimen/button_margin"
-            android:layout_marginBottom="@dimen/button_margin"
-            android:text="@string/back_to_tips"
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="backToTips"
-            android:textAllCaps="false"
-            android:background="@drawable/shape_cancel_button" />
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_margin="@dimen/button_margin"
+                android:text="@string/edit_wish"
+                android:layout_width="@dimen/button_width_land"
+                android:layout_height="wrap_content"
+                android:onClick="editWish"
+                android:textAllCaps="false"
+                android:background="@drawable/shape_log_in_button" />
+
+            <Button
+                android:layout_margin="@dimen/button_margin"
+                android:text="@string/back_to_wish_list"
+                android:layout_width="@dimen/button_width_land"
+                android:layout_height="wrap_content"
+                android:onClick="backToWishList"
+                android:textAllCaps="false"
+                android:background="@drawable/shape_cancel_button" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
