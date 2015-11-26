@@ -23,10 +23,14 @@
     <dimen name="header_log_in_padding_bottom">30dp</dimen>
     <dimen name="header_log_in_padding_top">30dp</dimen>
     <dimen name="header_log_in_padding_top_land">0dp</dimen>
-    <dimen name="edit_text_log_in_width">400dp</dimen>
+    <dimen name="edit_text_log_in_width">380dp</dimen>
+    <dimen name="edit_text_width">380dp</dimen>
     <dimen name="header_log_in_padding_bottom_land">0dp</dimen>
     <dimen name="margin_end_edit_text">20dp</dimen>
     <dimen name="button_width_land">200dp</dimen>
+    <dimen name="text_view_width_land">100dp</dimen>
+    <dimen name="edit_text_half_width">155dp</dimen>
+    <dimen name="text_view_half_width_land">80dp</dimen>
 
     <!-- MyWishListsActivity -->
     <dimen name="add_button_width">30dp</dimen>
