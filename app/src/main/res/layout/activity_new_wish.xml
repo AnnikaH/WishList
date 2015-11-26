@@ -14,12 +14,20 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin" >
 
-        <!-- How take a picture? Upload from camera or take picture from here? -->
-        <!--<ImageView
+        <Button
+            android:onClick="takeAPicture"
+            android:textAllCaps="false"
+            android:background="@drawable/shape_log_in_button"
+            android:layout_margin="@dimen/button_margin"
+            android:text="@string/take_a_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
             android:id="@+id/wishImage"
             android:contentDescription="@string/image_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />-->
+            android:layout_height="wrap_content" />
 
         <!--<LinearLayout
             android:orientation="horizontal"
