@@ -162,6 +162,8 @@
     <string name="tip_registered">The tip has been sent.</string>
     <string name="tip_registered_error_message">An error occurred. The tip wasn\'t sent.</string>
     <string name="send_tip">Send tip</string>
+    <string name="tip_sms_dialog_message">Do you want to send an SMS to notify the receiver of this tip?</string>
+    <string name="tip_sms_message">Hello! I have sent you a wish tip. Check your My Wishes-app.</string>
 
     <!-- TipActivity -->
     <string name="tip">Tip</string>

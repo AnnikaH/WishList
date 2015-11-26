@@ -3,6 +3,7 @@ package com.example.annika.wishlist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +20,7 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class NewTipActivity extends AppCompatActivity {
+public class NewTipActivity extends AppCompatActivity implements SMSDialog.DialogClickListener {
 
     private int userId;
     private RestUserService restUserService;
@@ -27,6 +28,32 @@ public class NewTipActivity extends AppCompatActivity {
     private User foundUser;
     private Button userNameCheckButton;
     private boolean registerButtonPushed;
+
+    // SMSDialog-method
+    public void onSendSMSClick() {
+        // send an SMS to the foundUser to notify him/her that you have sent him/her a tip:
+        String phoneNumber = foundUser.PhoneNumber;
+        String message = getString(R.string.tip_sms_message);
+        SmsManager manager = SmsManager.getDefault();
+        manager.sendTextMessage(phoneNumber, null, message, null, null);
+
+        Toast toast = Toast.makeText(NewTipActivity.this,
+                getApplicationContext().getString(R.string.sms_sent),
+                Toast.LENGTH_SHORT);
+        View toastView = toast.getView();
+        toastView.setBackgroundResource(R.color.background_color);
+        toast.show();
+
+        Intent i = new Intent(NewTipActivity.this, TipsFriendsActivity.class);
+        i.putExtra("USERID", userId);
+        startActivity(i);
+        finish();
+    }
+
+    // SMSDialog-method
+    public void onCancelSMSClick() {
+        // do nothing
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,10 +204,11 @@ public class NewTipActivity extends AppCompatActivity {
                 toastView.setBackgroundResource(R.color.background_color);
                 toast.show();
 
-                Intent i = new Intent(NewTipActivity.this, TipsFriendsActivity.class);
-                i.putExtra("USERID", userId);
-                startActivity(i);
-                finish();
+                // SMSDialog box if the user wants to send an SMS to notify the wish list owner
+                String message = getString(R.string.tip_sms_dialog_message);
+                SMSDialog dialog = SMSDialog.newInstance(message);
+                dialog.show(getFragmentManager(), "SMS");
+                // waiting for the user to make a choice: Send or Cancel
             }
 
             @Override

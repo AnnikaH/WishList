@@ -162,6 +162,8 @@
     <string name="tip_registered">Tipset er sendt.</string>
     <string name="tip_registered_error_message">Det oppstod en feil. Tipset ble ikke sendt.</string>
     <string name="send_tip">Send tips</string>
+    <string name="tip_sms_dialog_message">Vil du sende en SMS for å gi beskjed til mottaker om dette tipset?</string>
+    <string name="tip_sms_message">Hei! Jeg har sendt deg et ønsketips. Sjekk Mine Ønsker-appen din.</string>
 
     <!-- TipActivity -->
     <string name="tip">Tips</string>
