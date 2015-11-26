@@ -22,19 +22,6 @@ public class EditProfileActivity extends AppCompatActivity {
     private String mobile;
     private RestUserService restUserService;
 
-    /* Store in SharedPreferences:
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putInt("userId", userId)
-                .putString("userName", userName)
-                .putString("email", email)
-                .putString("mobile", mobile)
-                .commit();
-    }*/
-
     // Get values from SharedPreferences:
     @Override
     protected void onResume() {
@@ -115,8 +102,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
         // save changes in the database (put):
         User updatedUser = new User();
-        //int userId = 0;
-        //updatedUser.ID = userId;
         updatedUser.UserName = newUserName;
         updatedUser.Password = newPassword;
         updatedUser.Email = newEmail;

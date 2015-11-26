@@ -156,9 +156,6 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
                         wish.ID = oneWish.getInt("id");
                         wish.Name = oneWish.getString("name");
                         wish.Spesification = oneWish.getString("spesification");
-
-                        // TODO: wish.Image = oneWish.getString("image");
-
                         wish.Link = oneWish.getString("link");
                         wish.Price = oneWish.getDouble("price");
                         wish.Where = oneWish.getString("where");
@@ -184,17 +181,6 @@ public class EditWishListActivity extends AppCompatActivity implements DeleteWis
                             i.putExtra("WISHID", w.ID);
                             i.putExtra("WISHLISTNAME", wishListName);
                             i.putExtra("USERID", userId);
-
-                            //i.putExtra("WISHNAME", w.Name);
-                            //i.putExtra("WISHSPESIFICATION", w.Spesification);
-
-                            // TODO: POSSIBLE?:
-                            //i.putExtra("WISHIMAGE", w.Image);
-
-                            //i.putExtra("WISHLINK", w.Link);
-                            //i.putExtra("WISHPRICE", w.Price);
-                            //i.putExtra("WISHWHERE", w.Where);
-                            //i.putExtra("WISHWISHLISTID", w.WishListId);
                             startActivity(i);
                             finish();
                         }

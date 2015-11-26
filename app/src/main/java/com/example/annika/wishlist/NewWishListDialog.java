@@ -24,9 +24,7 @@ public class NewWishListDialog extends DialogFragment {
 
         try {
             callback = (DialogClickListener) getActivity();
-        }
-        catch (ClassCastException cce)
-        {
+        } catch (ClassCastException cce) {
             throw new ClassCastException("The calling class must implement the interface DialogClickListener!");
         }
     }
@@ -45,9 +43,6 @@ public class NewWishListDialog extends DialogFragment {
         Bundle bundle = getArguments();
 
         final EditText inputField = new EditText(getActivity());
-        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                //LinearLayout.LayoutParams.MATCH_PARENT);
-        //inputField.setLayoutParams(lp);
         inputField.setBackgroundResource(R.color.default_background_color);
 
         AlertDialog dialog = new AlertDialog.Builder(getActivity())

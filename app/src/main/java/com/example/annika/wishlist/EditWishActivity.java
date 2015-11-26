@@ -22,7 +22,6 @@ public class EditWishActivity extends AppCompatActivity {
     private int wishId;
     private String wishName;
     private String wishSpesification;
-    // TODO: private Image wishImage;
     private String wishLink;
     private double wishPrice;
     private String wishWhere;
@@ -41,7 +40,6 @@ public class EditWishActivity extends AppCompatActivity {
         wishId = getIntent().getIntExtra("WISHID", -1);
         wishName = getIntent().getStringExtra("WISHNAME");
         wishSpesification = getIntent().getStringExtra("WISHSPESIFICATION");
-        // TODO: wishImage = getIntent().get....Extra("WISHIMAGE");
         wishLink = getIntent().getStringExtra("WISHLINK");
         wishPrice = getIntent().getDoubleExtra("WISHPRICE", -1);
         wishWhere = getIntent().getStringExtra("WISHWHERE");
@@ -69,14 +67,12 @@ public class EditWishActivity extends AppCompatActivity {
         EditText linkEdit = (EditText) findViewById(R.id.wishLinkEdit);
         EditText priceEdit = (EditText) findViewById(R.id.wishPriceEdit);
         EditText whereEdit = (EditText) findViewById(R.id.wishWhereEdit);
-        // TODO: ImageView imageView = (ImageView) findViewById(R.id.wishImage);
 
         String newName = nameEdit.getText().toString();
         String newSpes = spesEdit.getText().toString();
         String newLink = linkEdit.getText().toString();
         String newPrice = priceEdit.getText().toString();
         String newWhere = whereEdit.getText().toString();
-        // TODO: Get image from imageView
 
         // Input validation:
 
@@ -99,7 +95,6 @@ public class EditWishActivity extends AppCompatActivity {
         editedWish.Link = newLink;
         editedWish.WishListId = wishWishListId;
         editedWish.Where = newWhere;
-        // TODO: editedWish.Image = image;
         editedWish.Bought = false;
 
         try {

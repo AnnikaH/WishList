@@ -45,10 +45,6 @@ public class FriendsWishListsActivity extends AppCompatActivity {
             public void success(Response response, Response response2) {
                 try {
                     JSONArray sharings = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
-                    //final List<WishList> sharedWishLists = new ArrayList<>();
-
-                    //List<Request> requests = new ArrayList<>();;
-
                     int[] wishListIds = new int[sharings.length()];
 
                     // go through all the sharings and get the wishListId's for those that are confirmed:
@@ -60,14 +56,6 @@ public class FriendsWishListsActivity extends AppCompatActivity {
                             int wishListId = sharing.getInt("wishListId");
                             wishListIds[i] = wishListId;
                         }
-
-                        /*Request request = new Request();
-                        request.SharingID = sharing.getInt("id");
-                        request.Confirmed = sharing.getBoolean("confirmed");
-                        request.WishListId = sharing.getInt("wishListId");
-                        request.UserId = sharing.getInt("userId");*/
-
-                        //requests.add(request);
                     }
 
                     pickUpWishLists(wishListIds);

@@ -66,7 +66,7 @@ public class LogInActivity extends AppCompatActivity {
         button = (Button) view;
         button.setEnabled(false);
 
-        // reset error message textview:
+        // reset error message TextView:
         messageTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.background_color));
         messageTextView.setText("");
 

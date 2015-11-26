@@ -89,23 +89,7 @@ public class RegisterUserActivity extends AppCompatActivity {
             return;
         }
 
-        /*try {
-            id = getIntent().getIntExtra("ID", -1);
-            p = dbHandler.getPerson(id);
-            p.setName(namePerson);
-            p.setPhoneNumber(phoneNumber);
-            p.setBirthday(birthday);
-            p.setMessage(message);
-            dbHandler.updatePerson(p);
-            Toast.makeText(this, name + getString(R.string.person_edited_message), Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(this, getString(R.string.parse_id_edited_error_message), Toast.LENGTH_SHORT).show();
-            return;
-        }*/
-
         User user = new User();
-        //int userId = 0;
-        //user.ID = userId;
         user.UserName = userName;
         user.Password = password;
         user.Email = email;
@@ -163,7 +147,6 @@ public class RegisterUserActivity extends AppCompatActivity {
                 }
 
                 Intent i = new Intent(RegisterUserActivity.this, WishListMainActivity.class);
-                //i.putExtra("USERID", userId);
                 startActivity(i);
                 finish();
             }

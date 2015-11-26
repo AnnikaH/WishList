@@ -131,8 +131,6 @@ public class ReceivedRequestsActivity extends AppCompatActivity implements Confi
             public void success(Response response, Response response2) {
                 try {
                     JSONArray yourWishLists = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
-
-                    //int[] wishListIds = new int[yourWishLists.length()];
                     List<WishList> lists = new ArrayList<>();
 
                     for(int i = 0; i < yourWishLists.length(); i++) {
@@ -144,10 +142,8 @@ public class ReceivedRequestsActivity extends AppCompatActivity implements Confi
                         w.OwnerId = wishListObject.getInt("ownerId");
 
                         lists.add(w);
-                        //wishListIds[i] = wishListObject.getInt("id");
                     }
 
-                    //checkIfWishListsArePartOfSharings(wishListIds);
                     checkIfWishListsArePartOfSharings(lists);
 
                 } catch (JSONException je) {
@@ -172,7 +168,6 @@ public class ReceivedRequestsActivity extends AppCompatActivity implements Confi
         });
     }
 
-    //public void checkIfWishListsArePartOfSharings(final int[] wishListIds)
     public void checkIfWishListsArePartOfSharings(final List<WishList> lists)
     {
         // check all sharings to check if one of your wish lists (wishListIds) is part of a
@@ -185,12 +180,10 @@ public class ReceivedRequestsActivity extends AppCompatActivity implements Confi
                 try {
                     JSONArray allSharings = new JSONArray(new String(((TypedByteArray) response.getBody()).getBytes()));
                     List<Sharing> requests = new ArrayList<>();
-                    List<WishList> foundWishLists = new ArrayList<>();
 
                     for (int i = 0; i < lists.size(); i++) {
 
                         WishList wishList = lists.get(i);
-                        //int listId = wishListIds[i];
                         int listId = wishList.ID;
 
                         // check all the sharings to see if this wish list is part of any:
@@ -254,7 +247,6 @@ public class ReceivedRequestsActivity extends AppCompatActivity implements Confi
                         user.PhoneNumber = userObj.getString("phoneNumber");
                         user.Email = userObj.getString("email");
                         user.UserName = userObj.getString("userName");
-
                         users.add(user);
                     }
 

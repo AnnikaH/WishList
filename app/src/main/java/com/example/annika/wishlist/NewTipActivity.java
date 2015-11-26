@@ -125,7 +125,6 @@ public class NewTipActivity extends AppCompatActivity {
         EditText tipPriceEdit = (EditText) findViewById(R.id.tipPrice);
         EditText tipSpesEdit = (EditText) findViewById(R.id.tipSpesification);
         EditText tipWhereEdit = (EditText) findViewById(R.id.tipWhere);
-        // TODO: ImageView imageView = (ImageView) findViewById(R.id.tipImage);
 
         String name = tipNameEdit.getText().toString();
         String link = tipLinkEdit.getText().toString();
@@ -162,7 +161,6 @@ public class NewTipActivity extends AppCompatActivity {
         tip.Spesification = spes;
         tip.SenderId = userId;
         tip.ReceiverId = foundUser.ID;
-        // TODO: tip.Image = ...;
 
         // disable button click (in case it takes some time):
         final Button button = (Button) view;
