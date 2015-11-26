@@ -72,4 +72,8 @@
     <dimen name="list_view_margin_bottom">7dp</dimen>
     <dimen name="layout_height_list_view_land">140dp</dimen>
 
+    <!-- EditWishActivity -->
+    <dimen name="text_view_width_one_line">40dp</dimen>
+    <dimen name="edit_text_width_one_line">236dp</dimen>
+
 </resources>
