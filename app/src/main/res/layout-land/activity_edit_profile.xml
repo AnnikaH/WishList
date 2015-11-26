@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".EditProfileActivity"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin" >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:labelFor="@+id/userNameEdit"
+            android:text="@string/user_name"
+            android:layout_width="@dimen/text_view_half_width_land"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/userNameEdit"
+            android:layout_width="@dimen/edit_text_half_width"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginStart="@dimen/button_margin"
+            android:gravity="center_horizontal"
+            android:labelFor="@+id/passwordEdit"
+            android:text="@string/password"
+            android:layout_width="@dimen/text_view_half_width_land"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/passwordEdit"
+            android:layout_width="@dimen/edit_text_half_width"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:labelFor="@+id/emailEdit"
+            android:text="@string/email"
+            android:layout_width="@dimen/text_view_width_land"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/emailEdit"
+            android:layout_width="@dimen/edit_text_width"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:labelFor="@+id/mobileNumberEdit"
+            android:text="@string/mobile_number"
+            android:layout_width="@dimen/text_view_width_land"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="phone"
+            android:id="@+id/mobileNumberEdit"
+            android:layout_width="@dimen/edit_text_width"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:text="@string/save_profile"
+            android:onClick="saveChanges"
+            android:background="@drawable/shape_register_button"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:text="@string/cancel"
+            android:onClick="cancelEditProfile"
+            android:background="@drawable/shape_cancel_button"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</LinearLayout>
