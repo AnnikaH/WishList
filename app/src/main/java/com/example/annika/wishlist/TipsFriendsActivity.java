@@ -91,7 +91,6 @@ public class TipsFriendsActivity extends AppCompatActivity implements DeleteTipD
                         wishTip.ReceiverId = tipObj.getInt("receiverId");
                         wishTip.Name = tipObj.getString("name");
                         wishTip.Spesification = tipObj.getString("spesification");
-                        // TODO: get image
                         wishTip.Price = tipObj.getDouble("price");
                         wishTip.Where = tipObj.getString("where");
                         wishTip.Link = tipObj.getString("link");

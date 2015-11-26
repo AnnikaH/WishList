@@ -23,7 +23,6 @@ public class WishActivity extends AppCompatActivity {
     private RestWishService restWishService;
     private String wishName;
     private String wishSpesification;
-    // TODO: private Image wishImage;
     private String wishLink;
     private double wishPrice;
     private String wishWhere;
@@ -47,7 +46,6 @@ public class WishActivity extends AppCompatActivity {
         final TextView whereTextView = (TextView) findViewById(R.id.wishWhere);
         final TextView linkTextView = (TextView) findViewById(R.id.wishLink);
         final TextView priceTextView = (TextView) findViewById(R.id.wishPrice);
-        // TODO: ImageView imageView = (ImageView) findViewById(R.id.wishImage);
 
         // get this wish:
         restWishService.getService().getWishById(wishId, new Callback<Response>() {
@@ -100,10 +98,6 @@ public class WishActivity extends AppCompatActivity {
         i.putExtra("WISHID", wishId);
         i.putExtra("WISHNAME", wishName);
         i.putExtra("WISHSPESIFICATION", wishSpesification);
-
-        // TODO: POSSIBLE?:
-        //i.putExtra("WISHIMAGE", wishImage);
-
         i.putExtra("WISHLINK", wishLink);
         i.putExtra("WISHPRICE", wishPrice);
         i.putExtra("WISHWHERE", wishWhere);

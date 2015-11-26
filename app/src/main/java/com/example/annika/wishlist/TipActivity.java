@@ -48,7 +48,6 @@ public class TipActivity extends AppCompatActivity {
                     double tipPrice = tip.getDouble("price");
                     String tipLink = tip.getString("link");
                     String tipWhere = tip.getString("where");
-                    // TODO: image
                     int tipSenderId = tip.getInt("senderId");
                     // int tipReceiverId = tip.getInt("receiverId");
 

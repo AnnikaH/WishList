@@ -28,7 +28,6 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
     private String wishName;
     private String wishWhere;
     private double wishPrice;
-    // TODO: private Image wishImage;
     private String wishLink;
     private String wishSpecification;
 
@@ -49,7 +48,6 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
             wish.Where = wishWhere;
             wish.WishListId = wishListId;
             wish.Price = wishPrice;
-            //TODO: wish.Image = wishImage;
             wish.Link = wishLink;
             wish.Spesification = wishSpecification;
             wish.Bought = true;
@@ -103,15 +101,6 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
         wishListName = getIntent().getStringExtra("WISHLISTNAME");
         ownerId = getIntent().getIntExtra("OWNERID", -1);
 
-        //i.putExtra("WISHNAME", w.Name);
-        //i.putExtra("WISHSPESIFICATION", w.Spesification);
-        // TODO: POSSIBLE?:
-        //i.putExtra("WISHIMAGE", w.Image);
-        //i.putExtra("WISHLINK", w.Link);
-        //i.putExtra("WISHPRICE", w.Price);
-        //i.putExtra("WISHWHERE", w.Where);
-        //i.putExtra("WISHWISHLISTID", w.WishListId);
-
         restWishService = new RestWishService();
 
         final TextView nameTextView = (TextView) findViewById(R.id.wishName);
@@ -119,7 +108,6 @@ public class WatchWishActivity extends AppCompatActivity implements WishBoughtDi
         final TextView whereTextView = (TextView) findViewById(R.id.wishWhere);
         final TextView linkTextView = (TextView) findViewById(R.id.wishLink);
         final TextView priceTextView = (TextView) findViewById(R.id.wishPrice);
-        // TODO: ImageView imageView = (ImageView) findViewById(R.id.wishImage);
         final TextView boughtTextView = (TextView) findViewById(R.id.wishBought);
 
         // get this wish:

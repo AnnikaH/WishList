@@ -1,6 +1,5 @@
 package com.example.annika.wishlist;
 
-import java.util.List;
 import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.Body;
