@@ -37,6 +37,10 @@
     <!-- ProfileActivity -->
     <string name="edit_profile">Edit profile</string>
     <string name="main_menu">Main menu</string>
+    <string name="delete_user">Delete profile</string>
+    <string name="delete_profile_dialog_message">Are you sure you want to delete yourself from this app? All your wishlists will be deleted.</string>
+    <string name="profile_deleted">Your profile was successfully deleted.</string>
+    <string name="profile_deleted_error_message">An error occurred. Profile not deleted.</string>
 
     <!-- EditProfileActivity -->
     <string name="save_profile">Save changes</string>

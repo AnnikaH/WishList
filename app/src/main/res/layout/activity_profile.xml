@@ -94,9 +94,9 @@
 
     <Button
         android:layout_margin="@dimen/button_margin"
-        android:text="@string/main_menu"
-        android:onClick="goToMainMenu"
-        android:background="@drawable/shape_register_button"
+        android:text="@string/delete_user"
+        android:onClick="deleteProfile"
+        android:background="@drawable/shape_cancel_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false" />

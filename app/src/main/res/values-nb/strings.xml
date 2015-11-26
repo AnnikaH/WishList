@@ -37,6 +37,10 @@
     <!-- ProfileActivity -->
     <string name="edit_profile">Rediger profil</string>
     <string name="main_menu">Hovedmeny</string>
+    <string name="delete_user">Slett profil</string>
+    <string name="delete_profile_dialog_message">Er du sikker på at du vil slette deg selv fra denne appen? Alle ønskelistene dine vil bli slettet.</string>
+    <string name="profile_deleted">Profilen din ble slettet.</string>
+    <string name="profile_deleted_error_message">Det oppstod en feil. Profilen ble ikke slettet.</string>
 
     <!-- EditProfileActivity -->
     <string name="save_profile">Lagre endringene</string>

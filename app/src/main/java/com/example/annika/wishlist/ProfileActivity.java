@@ -17,7 +17,7 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedByteArray;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements DeleteProfileDialog.DialogClickListener {
 
     private RestUserService restUserService;
     private TextView userNameTextView;
@@ -27,6 +27,42 @@ public class ProfileActivity extends AppCompatActivity {
     private String userName;
     private String email;
     private String mobile;
+
+    // DeleteProfileDialog-method
+    public void onDeleteProfileClick(int profileId) {
+
+        restUserService.getService().deleteUserById(profileId, new Callback<User>() {
+            @Override
+            public void success(User user, Response response) {
+                Toast toast = Toast.makeText(ProfileActivity.this,
+                        getApplicationContext().getString(R.string.profile_deleted),
+                        Toast.LENGTH_SHORT);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+
+                // Log out (isn't a valid user any more)
+                Intent i = new Intent(ProfileActivity.this, LogInActivity.class);
+                startActivity(i);
+                finish();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast toast = Toast.makeText(ProfileActivity.this,
+                        getApplicationContext().getString(R.string.profile_deleted_error_message),
+                        Toast.LENGTH_LONG);
+                View toastView = toast.getView();
+                toastView.setBackgroundResource(R.color.background_color);
+                toast.show();
+            }
+        });
+    }
+
+    // DeleteProfileDialog-method
+    public void onCancelDeleteProfileClick() {
+        // do nothing
+    }
 
     // Store in SharedPreferences:
     @Override
@@ -116,10 +152,13 @@ public class ProfileActivity extends AppCompatActivity {
         finish();
     }
 
-    // Onclick main menu-button
-    public void goToMainMenu(View view)
-    {
-        finish();
+    // Onclick delete profile-button
+    public void deleteProfile(View view) {
+        // dialog box with warning:
+        String message = getString(R.string.delete_profile_dialog_message);
+        DeleteProfileDialog dialog = DeleteProfileDialog.newInstance(message, userId);
+        dialog.show(getFragmentManager(), "DELETE");
+        // waiting for the user to make a choice: Delete or Cancel
     }
 
     @Override
