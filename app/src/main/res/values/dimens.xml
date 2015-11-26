@@ -66,6 +66,12 @@
 
     <!-- NewTipActivity -->
     <dimen name="tip_edit_search_width">200dp</dimen>
+    <dimen name="text_view_width_where_one_line">80dp</dimen>
+    <dimen name="edit_text_width_where_one_line">195dp</dimen>
+    <dimen name="text_view_width_spes_one_line">80dp</dimen>
+    <dimen name="edit_text_width_spes_one_line">195dp</dimen>
+    <dimen name="text_view_width_name_one_line">45dp</dimen>
+    <dimen name="edit_text_width_name_one_line">231dp</dimen>
 
     <!-- FriendsWishListsActivity -->
     <dimen name="layout_height_list_view">275dp</dimen>
